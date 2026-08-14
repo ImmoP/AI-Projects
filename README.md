@@ -4,15 +4,15 @@
 Contact: [@ImmoP](https://github.com/ImmoP) on GitHub, or
 [Immo.Primus@gmx.de](mailto:Immo.Primus@gmx.de).
 
-[![CI](https://github.com/ImmoP/AI/actions/workflows/ci.yml/badge.svg)](https://github.com/ImmoP/AI/actions/workflows/ci.yml)
+[![CI](https://github.com/ImmoP/AI-Projects/actions/workflows/ci.yml/badge.svg)](https://github.com/ImmoP/AI-Projects/actions/workflows/ci.yml)
 [![Python 3.10 | 3.12 | 3.13](https://img.shields.io/badge/python-3.10%20%7C%203.12%20%7C%203.13-blue)](.github/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
 ## Quickstart
 
 ```bash
-git clone https://github.com/ImmoP/AI.git
-cd AI
+git clone https://github.com/ImmoP/AI-Projects.git
+cd AI-Projects
 python scripts/smoke.py
 ```
 

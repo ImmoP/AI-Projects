@@ -33,7 +33,7 @@ config that silently changes checkout behavior (`core.protectNTFS=false`) is
 no longer relied on — the fix works with Git's default on every platform,
 which is what CI actually uses.
 
-Commit: [`ecf643e`](https://github.com/ImmoP/AI/commit/ecf643e489317f187820ee1bd4542ab59aa0d88e).
+Commit: [`ecf643e`](https://github.com/ImmoP/AI-Projects/commit/ecf643e489317f187820ee1bd4542ab59aa0d88e).
 
 ## `pathlib` absoluteness is not the same fact on every platform
 
@@ -59,4 +59,4 @@ destination that lands in the same branch on every platform: an absolute
 test's outcome depends anymore on how a given platform's `pathlib`
 implementation classifies a hardcoded path string.
 
-Commit: [`7765cf9`](https://github.com/ImmoP/AI/commit/7765cf9d97b1095be75c0d46ff5a5d40f7a00951).
+Commit: [`7765cf9`](https://github.com/ImmoP/AI-Projects/commit/7765cf9d97b1095be75c0d46ff5a5d40f7a00951).
