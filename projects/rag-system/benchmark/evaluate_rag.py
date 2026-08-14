@@ -349,19 +349,80 @@ def evaluate_unanswerable(queries, run_fn, system_name, embedded_chunks, model, 
 
 
 def _run_unans(ex, run_fn, embedded_chunks, model, bm25_index, reranker, rcfg, ollama_model, base_url):
+    """Run a single unanswerable query through the same ``run_*`` wrapper used by
+    the normal benchmark, then return the one record it produces.
+
+    The ``run_*`` wrappers are batch helpers: they take an *iterable* of
+    examples and return a *list* of records.  ``evaluate_unanswerable`` calls
+    this once per unanswerable query and expects a single record dict back, so
+    we wrap the example in a one-element list ``[ex]`` and return
+    ``records[0]``.
+
+    Dispatch is explicit (exact function-name match).  An unsupported wrapper
+    or a wrapper that yields an empty list raises immediately instead of
+    silently returning ``None`` (which previously caused
+    ``AttributeError: 'NoneType' object has no attribute 'get'``).
+    """
     fn_name = getattr(run_fn, "__name__", "")
-    if "hybrid" in fn_name:
-        return run_fn(ex, embedded_chunks, model, bm25_index, top_k=rcfg["top_k"],
-                      dense_k=rcfg["dense_k"], bm25_k=rcfg["bm25_k"], rrf_k=rcfg["rrf_k"],
-                      ollama_model=ollama_model, base_url=base_url)
-    elif "reranker" in fn_name:
-        return run_fn(ex, embedded_chunks, model, bm25_index, reranker, top_k=rcfg["top_k"],
-                      candidate_k=rcfg["candidate_k"], dense_k=rcfg["dense_k"],
-                      bm25_k=rcfg["bm25_k"], rrf_k=rcfg["rrf_k"],
-                      ollama_model=ollama_model, base_url=base_url)
-    elif "agentic" in fn_name:
-        return run_fn(ex, embedded_chunks, model, top_k=rcfg["top_k"],
-                      ollama_model=ollama_model, base_url=base_url, max_steps=rcfg["max_steps"])
+    if fn_name == "run_naive":
+        records = run_fn([ex], embedded_chunks, model, top_k=rcfg["top_k"],
+                         ollama_model=ollama_model, base_url=base_url)
+    elif fn_name == "run_hybrid":
+        records = run_fn([ex], embedded_chunks, model, bm25_index,
+                         top_k=rcfg["top_k"], dense_k=rcfg["dense_k"],
+                         bm25_k=rcfg["bm25_k"], rrf_k=rcfg["rrf_k"],
+                         ollama_model=ollama_model, base_url=base_url)
+    elif fn_name == "run_reranker":
+        records = run_fn([ex], embedded_chunks, model, bm25_index, reranker,
+                         top_k=rcfg["top_k"], candidate_k=rcfg["candidate_k"],
+                         dense_k=rcfg["dense_k"], bm25_k=rcfg["bm25_k"],
+                         rrf_k=rcfg["rrf_k"],
+                         ollama_model=ollama_model, base_url=base_url)
+    elif fn_name == "run_agentic":
+        records = run_fn([ex], embedded_chunks, model, top_k=rcfg["top_k"],
+                         ollama_model=ollama_model, base_url=base_url,
+                         max_steps=rcfg["max_steps"])
+    else:
+        raise ValueError(f"Unsupported unanswerable run function: {fn_name}")
+
+    if not records:
+        raise ValueError(
+            f"Unanswerable run function {fn_name!r} returned an empty record "
+            f"list for query {getattr(ex, 'query_id', '?')!r}"
+        )
+    return records[0]
+
+
+def _run_unanswerable_stage(system_names, embedded_chunks, model, bm25_index,
+                            reranker, rcfg, ollama_model, base_url, out_dir):
+    """Run the unanswerable (hallucination) evaluation for the selected
+    systems and write one ``*_unanswerable.jsonl`` per system.
+
+    Shared by both the normal ``--eval-unanswerable`` flow and the
+    ``--unanswerable-only`` short-circuit so the unanswerable stage always
+    exercises the same ``run_*`` wrappers as the answerable benchmark.
+    """
+    print("[unanswerable] Running unanswerable evaluation...")
+    uq_path = config.UNANSWERABLE_QUERIES_PATH
+    if not uq_path.exists():
+        print(f"      unanswerable file not found: {uq_path}")
+        return
+    uq_data = json.load(open(uq_path, encoding="utf-8"))
+    uq_queries = uq_data.get("queries", [])
+    print(f"      {len(uq_queries)} unanswerable queries loaded")
+    fname_map = {"naive": "naive", "hybrid": "hybrid",
+                 "reranker": "hybrid_reranker", "agentic": "agentic"}
+    for sys_name in system_names:
+        fn_map = {"naive": run_naive, "hybrid": run_hybrid,
+                  "reranker": run_reranker, "agentic": run_agentic}
+        run_fn = fn_map.get(sys_name)
+        if run_fn is None:
+            continue
+        u_recs = evaluate_unanswerable(
+            uq_queries, run_fn, sys_name, embedded_chunks, model,
+            bm25_index, reranker, rcfg, ollama_model, base_url)
+        save_jsonl(u_recs,
+                   out_dir / f"{fname_map.get(sys_name, sys_name)}_unanswerable.jsonl")
 
 def _parse_args(argv=None):
     p = argparse.ArgumentParser(description="4-way RAG benchmark + unanswerable eval")
@@ -388,6 +449,11 @@ def _parse_args(argv=None):
     p.add_argument("--reranker-model", default=config.DEFAULT_RERANKER_MODEL)
     p.add_argument("--eval-generation", action="store_true")
     p.add_argument("--eval-unanswerable", action="store_true")
+    p.add_argument("--unanswerable-only", action="store_true",
+                   help="Run ONLY the unanswerable (hallucination) evaluation; "
+                        "skip the answerable query loop and generation "
+                        "LLM-as-a-Judge. Does not overwrite the existing "
+                        "*_results.jsonl files; writes only *_unanswerable.jsonl.")
     p.add_argument("--no-cache", action="store_true")
     p.add_argument("--prepare-corpus", action="store_true",
                    help="Only build/index/embed the corpus, then exit (no generation).")
@@ -540,6 +606,15 @@ def main(argv=None):
             "rrf_k": args.rrf_k, "candidate_k": args.candidate_k,
             "max_steps": args.max_steps}
 
+    if args.unanswerable_only:
+        _run_unanswerable_stage(system_names, embedded_chunks, model, bm25_index,
+                                reranker, rcfg, args.ollama_model,
+                                args.ollama_base_url, out_dir)
+        print()
+        print("[unanswerable-only] Done. Skipped answerable evaluation and "
+              "generation judging; only *_unanswerable.jsonl files were written.")
+        return
+
     for sys_name in system_names:
         print()
         print(f"[3/5] Evaluating {sys_name.upper()} RAG...")
@@ -580,26 +655,9 @@ def main(argv=None):
             save_jsonl(recs, out_dir / f"{fname_map.get(sys_name, sys_name)}_results.jsonl")
 
     if args.eval_unanswerable:
-        print("[4/5] Running unanswerable evaluation...")
-        uq_path = config.UNANSWERABLE_QUERIES_PATH
-        if uq_path.exists():
-            uq_data = json.load(open(uq_path, encoding="utf-8"))
-            uq_queries = uq_data.get("queries", [])
-            print(f"      {len(uq_queries)} unanswerable queries loaded")
-            for sys_name in system_names:
-                fn_map2 = {"naive": run_naive, "hybrid": run_hybrid,
-                           "reranker": run_reranker, "agentic": run_agentic}
-                run_fn = fn_map2.get(sys_name)
-                if run_fn is None:
-                    continue
-                u_recs = evaluate_unanswerable(
-                    uq_queries, run_fn, sys_name, embedded_chunks, model,
-                    bm25_index, reranker, rcfg, args.ollama_model, args.ollama_base_url)
-                fname_map = {"naive": "naive", "hybrid": "hybrid",
-                             "reranker": "hybrid_reranker", "agentic": "agentic"}
-                save_jsonl(u_recs, out_dir / f"{fname_map.get(sys_name, sys_name)}_unanswerable.jsonl")
-        else:
-            print(f"      unanswerable file not found: {uq_path}")
+        _run_unanswerable_stage(system_names, embedded_chunks, model, bm25_index,
+                                reranker, rcfg, args.ollama_model,
+                                args.ollama_base_url, out_dir)
 
     for sys_name, recs in all_records.items():
         summaries[sys_name] = summarize(recs, args.level)
