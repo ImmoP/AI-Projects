@@ -1,0 +1,318 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    name: Detect changed projects
+    runs-on: ubuntu-latest
+    outputs:
+      tidy-agent: ${{ steps.filter.outputs.tidy-agent }}
+      email: ${{ steps.filter.outputs.email }}
+      food-finder: ${{ steps.filter.outputs.food-finder }}
+      rag-system: ${{ steps.filter.outputs.rag-system }}
+      llm-from-scratch: ${{ steps.filter.outputs.llm-from-scratch }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      # Per-job paths filtering: GitHub Actions' own `on.push.paths` /
+      # `on.pull_request.paths` only gate the whole workflow, not
+      # individual jobs, so a change to any one project would either
+      # trigger everything or (if scoped narrowly) nothing outside it.
+      # This job computes which project directories changed once, and
+      # every project-specific job below gates on its own output --
+      # e.g. a rag-system-only commit no longer runs tidy-agent's 9-job
+      # OS/Python matrix. repository-hygiene stays unconditional: it's a
+      # cheap, repo-wide invariant check, not scoped to one project.
+      - name: Filter changed paths
+        id: filter
+        uses: dorny/paths-filter@v3.0.2
+        with:
+          filters: |
+            tidy-agent:
+              - 'projects/tidy-agent/**'
+            email:
+              - 'projects/email-spam-detector/**'
+            food-finder:
+              - 'projects/food-finder/**'
+            rag-system:
+              - 'projects/rag-system/**'
+            llm-from-scratch:
+              - 'projects/llm-from-scratch/**'
+
+  tidy-agent-tests:
+    name: Tidy Agent (${{ matrix.os }}, Python ${{ matrix.python-version }})
+    needs: changes
+    if: needs.changes.outputs.tidy-agent == 'true'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.10", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: projects/tidy-agent
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: projects/tidy-agent/pyproject.toml
+
+      - name: Install project
+        run: python -m pip install -e ".[dev]"
+
+      - name: Run offline unit tests
+        run: python -m pytest -m "not slow"
+
+      - name: Compile Python sources
+        run: python -m compileall -q src app.py evals tests
+
+      - name: Check CLI help
+        run: tidy --help
+
+  email-tests:
+    name: Email tests
+    needs: changes
+    if: needs.changes.outputs.email == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/email-spam-detector
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v9.0.0
+
+      - name: Install project
+        run: |
+          uv venv --python 3.12 .venv-ci
+          uv pip install --python .venv-ci/bin/python -e ".[dev]"
+
+      - name: Run tests
+        run: .venv-ci/bin/python -m pytest -m "not slow"
+
+      - name: Check CLI help
+        run: .venv-ci/bin/python -m spam_detector.classify_email --help
+
+  food-finder-tests:
+    name: Food Finder
+    needs: changes
+    if: needs.changes.outputs.food-finder == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/food-finder
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: projects/food-finder/requirements.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run offline unit tests
+        # tests/test_tools.py mocks requests.post (no real Google Places API
+        # call), tests/test_evals.py uses a scripted fake smolagents Model
+        # (no real LLM), and tests/test_mcp_server.py mocks the shared tool
+        # -- the whole suite runs with no network access and no API key.
+        run: python -m pytest -m "not slow"
+
+      - name: Compile Python sources
+        run: python -m compileall -q src app.py mcp_server.py evals tests
+
+      - name: Check CLI help
+        run: python app.py --help
+
+  rag-system-checks:
+    name: RAG System
+    needs: changes
+    if: needs.changes.outputs.rag-system == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/rag-system
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: projects/rag-system/requirements.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Compile Python sources
+        run: python -m compileall -q src benchmark examples tests
+
+      - name: Run offline unit tests
+        # tests/ exercises chunking, retrieval, and the full pipeline
+        # against a synthetic fixture corpus using a deterministic hashing
+        # embedder and a scripted generator (see tests/conftest.py) -- no
+        # network access, no model downloads, no Ollama server. The manual
+        # demo scripts that need a live Ollama server and the real PDF
+        # corpus now live in examples/, not here.
+        run: python -m pytest -m "not slow"
+
+  llm-from-scratch-checks:
+    name: LLM From Scratch
+    needs: changes
+    if: needs.changes.outputs.llm-from-scratch == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/llm-from-scratch
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: projects/llm-from-scratch/requirements.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Compile Python sources
+        run: python -m compileall -q src tests
+
+      - name: Run offline unit tests
+        # tests/ exercises the extracted GPT model, tokenizer wrapper, and
+        # dataloader against a self-written fixture corpus (see
+        # tests/fixtures/mini_corpus.txt) with a tiny random-init model --
+        # no downloads, no GPU, no pretrained GPT-2 weights.
+        run: python -m pytest -m "not slow"
+        env:
+          TOKENIZERS_PARALLELISM: "false"
+
+      - name: Check notebook imports resolve
+        # The notebook now imports its core classes/functions from
+        # src.llm_from_scratch instead of defining them inline. This
+        # confirms those imports work without executing the full notebook
+        # (which needs the real GPT-2 checkpoint download and is not a CI
+        # concern).
+        run: |
+          python - <<'PY'
+          from src.llm_from_scratch.config import GPT_CONFIG_124M
+          from src.llm_from_scratch.data import GPTDatasetV1, create_dataloader_v1
+          from src.llm_from_scratch.model import (
+              GELU, FeedForward, GPTModel, LayerNorm, MultiHeadAttention, TransformerBlock,
+          )
+          from src.llm_from_scratch.tokenizer import get_tokenizer, text_to_token_ids, token_ids_to_text
+          from src.llm_from_scratch.training import calc_loss_batch, generate_text_simple
+          print("OK")
+          PY
+
+  repository-hygiene:
+    name: Repository hygiene
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Check notebook output hygiene
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          # Intentionally invalid/garbage .ipynb fixtures (empty files, or
+          # JSON missing required notebook fields) used to test tidy-agent's
+          # file classification -- excluded by path, not by swallowing
+          # parse errors, so a real notebook that fails to parse still fails
+          # this check loudly instead of being silently skipped.
+          EXCLUDED_DIRS = (
+              "projects/tidy-agent/evals/fixture/",
+              "projects/tidy-agent/evals/holdout/fixture/",
+          )
+
+          notebook_paths = sorted(Path(".").glob("**/*.ipynb"))
+          checked_paths = [
+              p for p in notebook_paths
+              if not any(p.as_posix().startswith(prefix) for prefix in EXCLUDED_DIRS)
+          ]
+          if not checked_paths:
+              raise SystemExit("no notebooks found to check -- the glob is probably wrong")
+
+          failures = []
+          for notebook_path in checked_paths:
+              posix = notebook_path.as_posix()
+              notebook = json.loads(notebook_path.read_text(encoding="utf-8"))
+
+              output_count = 0
+              execution_count = 0
+              attachment_count = 0
+
+              for cell in notebook.get("cells", []):
+                  output_count += len(cell.get("outputs", []))
+                  if cell.get("execution_count") is not None:
+                      execution_count += 1
+                  attachment_count += len(cell.get("attachments", {}))
+
+              print(
+                  f"{posix}: outputs={output_count} "
+                  f"execution_counts={execution_count} attachments={attachment_count}"
+              )
+              if output_count or execution_count or attachment_count:
+                  failures.append(posix)
+
+          skipped = len(notebook_paths) - len(checked_paths)
+          print(f"checked {len(checked_paths)} notebook(s), excluded {skipped} fixture notebook(s)")
+
+          if failures:
+              raise SystemExit(
+                  "Notebook(s) contain saved outputs, execution counts, or "
+                  f"attachments: {failures}"
+              )
+          PY

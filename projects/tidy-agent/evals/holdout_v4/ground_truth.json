@@ -1,0 +1,2291 @@
+[
+  {
+    "filename": "Project_Proposal_Draft_Version_2",
+    "expected_outcome": "Documents",
+    "primary_stratum": "ordinary_realistic",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Documents artifact with no distractor terms.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Rechnungsuebersicht_Erstes_Quartal",
+    "expected_outcome": "Documents",
+    "primary_stratum": "ordinary_realistic",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Documents artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Compte_Rendu_Reunion_Direction",
+    "expected_outcome": "Documents",
+    "primary_stratum": "ordinary_realistic",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Documents artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Informe_Final_Auditoria_2024",
+    "expected_outcome": "Documents",
+    "primary_stratum": "ordinary_realistic",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Documents artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Relatorio_Mensal_Vendas_Equipe",
+    "expected_outcome": "Documents",
+    "primary_stratum": "ordinary_realistic",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Documents artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Verbale_Riunione_Consiglio_Amministrazione",
+    "expected_outcome": "Documents",
+    "primary_stratum": "ordinary_realistic",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Documents artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Grandmas_Handwritten_Recipe_Collection_Scanned",
+    "expected_outcome": "Documents",
+    "primary_stratum": "relational_semantics",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Relational-semantics real-category case: the Documents category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Steuerunterlagen_Vom_Letzten_Jahr",
+    "expected_outcome": "Documents",
+    "primary_stratum": "relational_semantics",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Relational-semantics real-category case: the Documents category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Notes_From_Legal_Consultation_Tuesday",
+    "expected_outcome": "Documents",
+    "primary_stratum": "relational_semantics",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Relational-semantics real-category case: the Documents category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Contrat_De_Location_Appartement_Signe",
+    "expected_outcome": "Documents",
+    "primary_stratum": "relational_semantics",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Relational-semantics real-category case: the Documents category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Testamento_Ultimas_Voluntades_Notario",
+    "expected_outcome": "Documents",
+    "primary_stratum": "relational_semantics",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Relational-semantics real-category case: the Documents category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Aantekeningen_Van_De_Vergadering_Bestuur",
+    "expected_outcome": "Documents",
+    "primary_stratum": "relational_semantics",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Relational-semantics real-category case: the Documents category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Please_Compile_These_Notes_Into_The_Report",
+    "expected_outcome": "Documents",
+    "primary_stratum": "distractor_resolvable",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Documents.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Fotoalbum_Beschreibung_Und_Katalogtext",
+    "expected_outcome": "Documents",
+    "primary_stratum": "distractor_resolvable",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Documents.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Manuel_Utilisateur_Imprimante_Photo",
+    "expected_outcome": "Documents",
+    "primary_stratum": "distractor_resolvable",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Documents.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Guion_Pelicula_Version_Final_Editada",
+    "expected_outcome": "Documents",
+    "primary_stratum": "distractor_resolvable",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Documents.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Codice_Sorgente_Spiegato_Per_Principianti",
+    "expected_outcome": "Documents",
+    "primary_stratum": "distractor_resolvable",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Documents.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Konzeptzeichnung_Erlaeutert_Im_Aufsatz",
+    "expected_outcome": "Documents",
+    "primary_stratum": "distractor_resolvable",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Documents.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Update_The_Backend_Server_Source_Before_Merge",
+    "expected_outcome": "Code",
+    "primary_stratum": "ordinary_realistic",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Code artifact with no distractor terms.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Datenbankmigration_Skript_Produktiv",
+    "expected_outcome": "Code",
+    "primary_stratum": "ordinary_realistic",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Code artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Script_Automatisation_Deploiement_Continu",
+    "expected_outcome": "Code",
+    "primary_stratum": "ordinary_realistic",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Code artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Modulo_Autenticacion_Usuario_Backend",
+    "expected_outcome": "Code",
+    "primary_stratum": "ordinary_realistic",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Code artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Modulo_Pagamento_Stripe",
+    "expected_outcome": "Code",
+    "primary_stratum": "ordinary_realistic",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Code artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Libreria_Condivisa_Utilita_Progetto",
+    "expected_outcome": "Code",
+    "primary_stratum": "ordinary_realistic",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Code artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Prototype_Sketch_Turned_Into_Working_Script",
+    "expected_outcome": "Code",
+    "primary_stratum": "relational_semantics",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Relational-semantics real-category case: the Code category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Loesung_Fuer_Das_Leistungsproblem_Von_Gestern",
+    "expected_outcome": "Code",
+    "primary_stratum": "relational_semantics",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Relational-semantics real-category case: the Code category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Correctif_Rapide_Avant_La_Mise_En_Production",
+    "expected_outcome": "Code",
+    "primary_stratum": "relational_semantics",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Relational-semantics real-category case: the Code category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Ajuste_Menor_Al_Algoritmo_De_Ordenamiento",
+    "expected_outcome": "Code",
+    "primary_stratum": "relational_semantics",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Relational-semantics real-category case: the Code category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Bibliotheek_Voor_Herbruikbare_Componenten",
+    "expected_outcome": "Code",
+    "primary_stratum": "relational_semantics",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Relational-semantics real-category case: the Code category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Piccola_Utilita_Per_Automatizzare_Le_Attivita",
+    "expected_outcome": "Code",
+    "primary_stratum": "relational_semantics",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Relational-semantics real-category case: the Code category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Photo_Filter_Algorithm_Implementation_Notes",
+    "expected_outcome": "Code",
+    "primary_stratum": "distractor_resolvable",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Code.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Installationsskript_Quellcode_Fuer_Testsystem",
+    "expected_outcome": "Code",
+    "primary_stratum": "distractor_resolvable",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Code.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Script_De_Compression_Des_Archives_Journalieres",
+    "expected_outcome": "Code",
+    "primary_stratum": "distractor_resolvable",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Code.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Convertidor_De_Imagenes_En_Lote_Codigo_Fuente",
+    "expected_outcome": "Code",
+    "primary_stratum": "distractor_resolvable",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Code.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Codice_Generatore_Di_Pacchetti_Installer",
+    "expected_outcome": "Code",
+    "primary_stratum": "distractor_resolvable",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Code.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Rekenmodule_Voor_Het_Genereren_Van_Facturen_PDF",
+    "expected_outcome": "Code",
+    "primary_stratum": "distractor_resolvable",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Code.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Vacation_Photos_Lisbon_Beach_Sunset",
+    "expected_outcome": "Images",
+    "primary_stratum": "ordinary_realistic",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Images artifact with no distractor terms.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Familienfotos_Weihnachten_Zweitausendvierundzwanzig",
+    "expected_outcome": "Images",
+    "primary_stratum": "ordinary_realistic",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Images artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Photos_Mariage_Cousine_Exterieur",
+    "expected_outcome": "Images",
+    "primary_stratum": "ordinary_realistic",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Images artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Fotos_Cumpleanos_Sobrina_Jardin",
+    "expected_outcome": "Images",
+    "primary_stratum": "ordinary_realistic",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Images artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Fotos_Praia_Verao",
+    "expected_outcome": "Images",
+    "primary_stratum": "ordinary_realistic",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Images artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Foto_Compleanno_Nonna_Novanta_Anni",
+    "expected_outcome": "Images",
+    "primary_stratum": "ordinary_realistic",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Images artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Take_A_Snapshot_Of_The_Whiteboard_Now",
+    "expected_outcome": "Images",
+    "primary_stratum": "relational_semantics",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Relational-semantics real-category case: the Images category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Bildschirmaufnahme_Vom_Fehlerbericht_Dashboard",
+    "expected_outcome": "Images",
+    "primary_stratum": "relational_semantics",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Relational-semantics real-category case: the Images category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Capture_Ecran_Du_Tableau_De_Bord_Analytique",
+    "expected_outcome": "Images",
+    "primary_stratum": "relational_semantics",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Relational-semantics real-category case: the Images category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Captura_De_Pantalla_Del_Formulario_De_Registro",
+    "expected_outcome": "Images",
+    "primary_stratum": "relational_semantics",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Relational-semantics real-category case: the Images category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Momentopname_Van_De_Bouwplaats_Vorderingen",
+    "expected_outcome": "Images",
+    "primary_stratum": "relational_semantics",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Relational-semantics real-category case: the Images category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Ritratto_Di_Gruppo_Scattato_Al_Ricevimento",
+    "expected_outcome": "Images",
+    "primary_stratum": "relational_semantics",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Relational-semantics real-category case: the Images category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Recipe_Card_Photographed_For_Reference",
+    "expected_outcome": "Images",
+    "primary_stratum": "distractor_resolvable",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Images.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Vertragsseite_Abfotografiert_Zur_Sicherheit",
+    "expected_outcome": "Images",
+    "primary_stratum": "distractor_resolvable",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Images.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Etiquette_Produit_Prise_En_Photo_Rapide",
+    "expected_outcome": "Images",
+    "primary_stratum": "distractor_resolvable",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Images.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Pizarra_De_Codigo_Fotografiada_En_Reunion",
+    "expected_outcome": "Images",
+    "primary_stratum": "distractor_resolvable",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Images.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Diagramma_Di_Rete_Fotografato_Alla_Lavagna",
+    "expected_outcome": "Images",
+    "primary_stratum": "distractor_resolvable",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Images.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Verpakking_Van_Het_Installatiepakket_Gefotografeerd",
+    "expected_outcome": "Images",
+    "primary_stratum": "distractor_resolvable",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Images.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Back_Up_The_Old_Laptop_Before_Wiping",
+    "expected_outcome": "Archives",
+    "primary_stratum": "ordinary_realistic",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Archives artifact with no distractor terms.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Komplettsicherung_Server_Zweitausendvierzehn",
+    "expected_outcome": "Archives",
+    "primary_stratum": "ordinary_realistic",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Archives artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Sauvegarde_Complete_Ancien_Ordinateur",
+    "expected_outcome": "Archives",
+    "primary_stratum": "ordinary_realistic",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Archives artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Copia_De_Seguridad_Disco_Duro_Antiguo",
+    "expected_outcome": "Archives",
+    "primary_stratum": "ordinary_realistic",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Archives artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Backup_Completo_Sistema_Antigo_Compactado",
+    "expected_outcome": "Archives",
+    "primary_stratum": "ordinary_realistic",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Archives artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Archivio_Compresso_Progetti_Passati",
+    "expected_outcome": "Archives",
+    "primary_stratum": "ordinary_realistic",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Archives artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Everything_From_The_Old_Office_Bundled_Together",
+    "expected_outcome": "Archives",
+    "primary_stratum": "relational_semantics",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Relational-semantics real-category case: the Archives category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Gesammelte_Unterlagen_Der_Aufgeloesten_Abteilung_Gepackt",
+    "expected_outcome": "Archives",
+    "primary_stratum": "relational_semantics",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Relational-semantics real-category case: the Archives category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Tout_Ce_Qui_Restait_Du_Disque_Compresse",
+    "expected_outcome": "Archives",
+    "primary_stratum": "relational_semantics",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Relational-semantics real-category case: the Archives category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Todo_Lo_Recopilado_Del_Proyecto_Cerrado_Empaquetado",
+    "expected_outcome": "Archives",
+    "primary_stratum": "relational_semantics",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Relational-semantics real-category case: the Archives category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Alles_Wat_Overbleef_Van_De_Oude_Server_Ingepakt",
+    "expected_outcome": "Archives",
+    "primary_stratum": "relational_semantics",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Relational-semantics real-category case: the Archives category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Cio_Che_Restava_Dello_Studio_Chiuso_Compresso",
+    "expected_outcome": "Archives",
+    "primary_stratum": "relational_semantics",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Relational-semantics real-category case: the Archives category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Photo_Collection_Bundled_Into_One_Package",
+    "expected_outcome": "Archives",
+    "primary_stratum": "distractor_resolvable",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Archives.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Quellcode_Aller_Alten_Projekte_Gesamtpaket",
+    "expected_outcome": "Archives",
+    "primary_stratum": "distractor_resolvable",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Archives.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Documents_Fiscaux_Reunis_En_Une_Seule_Archive",
+    "expected_outcome": "Archives",
+    "primary_stratum": "distractor_resolvable",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Archives.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Instaladores_Antiguos_Comprimidos_En_Un_Solo_Archivo",
+    "expected_outcome": "Archives",
+    "primary_stratum": "distractor_resolvable",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Archives.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Applicazioni_Vecchie_Raccolte_In_Un_Unico_Pacchetto_Compresso",
+    "expected_outcome": "Archives",
+    "primary_stratum": "distractor_resolvable",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Archives.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Installatieprogrammas_Van_Vroeger_Ingepakt_Als_Een_Bestand",
+    "expected_outcome": "Archives",
+    "primary_stratum": "distractor_resolvable",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Archives.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "VPN_Setup_EXE",
+    "expected_outcome": "Installers",
+    "primary_stratum": "ordinary_realistic",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Installers artifact with no distractor terms.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Treiberpaket_Fuer_Neuen_Netzwerkadapter",
+    "expected_outcome": "Installers",
+    "primary_stratum": "ordinary_realistic",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Installers artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Programme_Installation_Suite_Bureautique",
+    "expected_outcome": "Installers",
+    "primary_stratum": "ordinary_realistic",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Installers artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Paquete_Instalador_Antivirus_Empresarial",
+    "expected_outcome": "Installers",
+    "primary_stratum": "ordinary_realistic",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Installers artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Pacote_Instalacao_Impressora_Multifuncional",
+    "expected_outcome": "Installers",
+    "primary_stratum": "ordinary_realistic",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Installers artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Pacchetto_Installazione_Software_Contabilita",
+    "expected_outcome": "Installers",
+    "primary_stratum": "ordinary_realistic",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Ordinary real-category case: vocabulary directly names a Installers artifact with no distractor terms.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Run_The_Setup_Wizard_For_The_New_Driver",
+    "expected_outcome": "Installers",
+    "primary_stratum": "relational_semantics",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Relational-semantics real-category case: the Installers category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Ausfuehrbare_Datei_Zum_Einrichten_Des_Druckers",
+    "expected_outcome": "Installers",
+    "primary_stratum": "relational_semantics",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Relational-semantics real-category case: the Installers category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Executable_A_Lancer_Pour_Configurer_Le_Reseau",
+    "expected_outcome": "Installers",
+    "primary_stratum": "relational_semantics",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Relational-semantics real-category case: the Installers category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Ejecutable_Para_Configurar_El_Nuevo_Escaner",
+    "expected_outcome": "Installers",
+    "primary_stratum": "relational_semantics",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Relational-semantics real-category case: the Installers category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Uitvoerbaar_Bestand_Om_De_Scanner_In_Te_Stellen",
+    "expected_outcome": "Installers",
+    "primary_stratum": "relational_semantics",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Relational-semantics real-category case: the Installers category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Eseguibile_Da_Avviare_Per_Attivare_La_Licenza",
+    "expected_outcome": "Installers",
+    "primary_stratum": "relational_semantics",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Relational-semantics real-category case: the Installers category is inferable from the relationship between descriptive terms rather than an explicit category keyword.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Archive_That_Actually_Runs_And_Installs_The_App",
+    "expected_outcome": "Installers",
+    "primary_stratum": "distractor_resolvable",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Installers.",
+    "secondary_tags": [],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Bilddatei_Die_Beim_Doppelklick_Das_Programm_Einrichtet",
+    "expected_outcome": "Installers",
+    "primary_stratum": "distractor_resolvable",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Installers.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Document_Auto_Executable_Qui_Installe_Le_Pilote",
+    "expected_outcome": "Installers",
+    "primary_stratum": "distractor_resolvable",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Installers.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Codigo_Compilado_Que_Se_Ejecuta_Como_Instalador",
+    "expected_outcome": "Installers",
+    "primary_stratum": "distractor_resolvable",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Installers.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Pacchetto_Compresso_Che_Si_Apre_Come_Programma_Di_Installazione",
+    "expected_outcome": "Installers",
+    "primary_stratum": "distractor_resolvable",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Installers.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Rar_Bestand_Dat_Bij_Uitpakken_Meteen_Installeert",
+    "expected_outcome": "Installers",
+    "primary_stratum": "distractor_resolvable",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Distractor-resolvable real-category case: contains a lexical distractor pointing toward a different category, but full context resolves it to Installers.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Please_Rename_This_Before_Archiving",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "New_Folder_Copy_3",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Scan_00042",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Check_This_Batch_Before_Deleting",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Backup_Old_Stuff",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Files_From_Last_Week",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Misc_Items_Combined",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Data_Dump_2024",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Sort_This_Out_When_You_Have_Time",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Downloaded_Content",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Sammelmappe_Verschiedenes",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Documents_Divers_Recents",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Archivo_General_Reciente",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Diversos_Novo_Computador",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Varie_Da_Sistemare",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Diverse_Bestanden_Verzameld",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Blandade_Filer_Gamla_Datorn",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "sv",
+    "language_name": "Swedish",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Ordner_Inhalt_Restlicher_Dateien",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Elementos_Sueltos_Del_Escritorio",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Rimasugli_Del_Trasloco",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "insufficient_metadata",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Insufficient-metadata review case: the filename is generic and non-descriptive and does not support any single production category.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Signed_Contract_Photo_Scan",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Look_At_This_Before_Sharing_Further",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Install_This_After_Reading_The_Notes",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Zipped_Folder_Of_Design_Screenshots",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Konfigurationsdatei_Als_Bild_Exportiert",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Dossier_Compresse_Avec_Notice_Installation",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Captura_De_Codigo_Fuente_En_Pantalla",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Pacote_Com_Manual_E_Executavel_Juntos",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Cartella_Compressa_Con_Foto_E_Documenti",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Bestand_Dat_Zowel_Script_Als_Notitie_Is",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Fil_Som_Ar_Bade_Bild_Och_Ritning",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "sv",
+    "language_name": "Swedish",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Skizze_Die_Auch_Als_Anleitung_Dient",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Archive_Qui_Contient_A_La_Fois_Photos_Et_Factures",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Paquete_Que_Es_A_La_Vez_Instalador_Y_Copia_De_Seguridad",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Foto_Van_Het_Scherm_Met_De_Broncode",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Immagine_Che_Contiene_Anche_Testo_Del_Contratto",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Programm_Das_Sich_Selbst_Als_Archiv_Entpackt",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Ficheiro_Que_Serve_De_Instalador_E_De_Documento",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Fichier_Qui_Ressemble_A_Du_Code_Mais_Est_Un_Document",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Datei_Die_Sowohl_Treiber_Als_Auch_Anleitung_Enthaelt",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "latent_dual_role",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Latent-dual-role review case: the filename plausibly supports two different real categories with neither clearly primary.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": true
+  },
+  {
+    "filename": "Send_This_To_The_Client_Tomorrow",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Client_Deliverables_Package",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Shared_Folder_Export",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Team_Drive_Backup",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": true,
+    "long_name": false
+  },
+  {
+    "filename": "Downloads_Folder_Contents",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Save_This_Before_The_Meeting_Starts",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "en",
+    "language_name": "English",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "instruction_like_imperative"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": true,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Projektordner_Gesamtinhalt",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english",
+      "morphological_inflection_or_compounding"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": true,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Dossier_Partage_Contenu_Complet",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Carpeta_Compartida_Contenido_Total",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Pasta_Compartilhada_Conteudo_Equipe",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Cartella_Progetto_Contenuto_Intero",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Gedeelde_Map_Volledige_Inhoud",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Delad_Mapp_Allt_Innehall",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "sv",
+    "language_name": "Swedish",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Paket_Fuer_Kunden_Uebergabe",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "de",
+    "language_name": "German",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Colis_Numerique_Pour_Le_Client",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "fr",
+    "language_name": "French",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Entrega_Digital_Completa_Cliente",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "es",
+    "language_name": "Spanish",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Pacote_Final_Para_Entrega",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "pt",
+    "language_name": "Portuguese",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Consegna_Completa_Del_Progetto",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "it",
+    "language_name": "Italian",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Levering_Compleet_Klantmap",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "nl",
+    "language_name": "Dutch",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  },
+  {
+    "filename": "Leverans_Till_Kund_Komplett",
+    "expected_outcome": "_ToReview",
+    "primary_stratum": "container_role_ambiguity",
+    "language": "sv",
+    "language_name": "Swedish",
+    "rationale": "Container-role-ambiguity review case: names a generic delivery/container concept without signaling the content type inside.",
+    "secondary_tags": [
+      "non_english"
+    ],
+    "ambiguity_marker_free": true,
+    "morphology": false,
+    "instruction_like": false,
+    "short_name": false,
+    "long_name": false
+  }
+]

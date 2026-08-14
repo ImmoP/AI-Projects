@@ -1,0 +1,114 @@
+{
+  "conditions": {
+    "E3": "production comparator: explicit abstention + two-pass agreement gate (unchanged)",
+    "E4-current": "frozen E4 from the prior Development cycle (comparator; unmodified)",
+    "E4-refined": "precision-oriented deterministic veto (hard vs. soft conflicts; this cycle)"
+  },
+  "created_at": "2026-08-12T20:49:51.169732+00:00",
+  "execution": {
+    "call_accounting": "One shared run_e3 call per repetition (2 model calls); E4-current and E4-refined are derived from that same call via apply_conflict_veto/apply_refined_veto with zero additional model calls. Expected total model calls per fixture = repetitions * 2, not repetitions * len(CONDITIONS) * 2.",
+    "condition_presentation_order": [
+      [
+        "E3",
+        "E4-current",
+        "E4-refined"
+      ],
+      [
+        "E4-current",
+        "E4-refined",
+        "E3"
+      ],
+      [
+        "E4-refined",
+        "E3",
+        "E4-current"
+      ],
+      [
+        "E3",
+        "E4-current",
+        "E4-refined"
+      ],
+      [
+        "E4-current",
+        "E4-refined",
+        "E3"
+      ]
+    ],
+    "failed_run_policy": "record failure and stop; never substitute model; no reruns",
+    "minimum_e3_errors_for_robust_veto_estimate": 3,
+    "model_identity_check": "unchanged",
+    "model_lifecycle": "warm",
+    "repetitions": 5,
+    "scheduled_positions_per_fixture": 15,
+    "standard_timeout_seconds": 600.0,
+    "success_criteria": [
+      "1. unsafe automation no worse than E4-current on the combined Development set",
+      "2. accuracy on decided no worse than E4-current",
+      "3. review recall no worse than E4-current by more than one unique case",
+      "4. automation coverage not more than 3 percentage points below E4-current combined",
+      "5. veto precision materially higher than E4-current (underpowered, not passed, if fewer than 3 unique E3 automatic errors)",
+      "6. improvement not confined to only one Development fixture",
+      "7. no fixture shows an obvious catastrophic false-veto pattern"
+    ],
+    "warmup": "one discarded model request before all measured runs",
+    "warmup_result": {
+      "completion_tokens": 2,
+      "latency_seconds": 10.370277026006079,
+      "status": "ok"
+    }
+  },
+  "experiment_id": "e3-error-four-fixture-development-20260812-739d150",
+  "fixtures_run": [
+    "calibration",
+    "boundary_calibration",
+    "veto_precision_calibration",
+    "e3_error_calibration"
+  ],
+  "model": {
+    "already_loaded_before_warmup": false,
+    "context_length": 8192,
+    "digest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+    "endpoint": "remote endpoint (address redacted)",
+    "endpoint_local": false,
+    "family": "qwen3.5",
+    "identifier": "ollama_chat/qwen3.5:4b",
+    "loaded_context_length": "not loaded",
+    "loaded_size_vram_bytes": "not loaded",
+    "max_tokens": "not configured (provider default)",
+    "parameter_size": "4.7B",
+    "provider_runtime": "Ollama via LiteLLM",
+    "quantization": "Q4_K_M",
+    "request_timeout_seconds": 1800.0,
+    "retry_policy": "zero application retries",
+    "runtime_version": "0.32.1",
+    "seed": "not configured",
+    "structured_output_mode": "json_object",
+    "temperature": 0.0,
+    "thinking": false
+  },
+  "python_environment": {
+    "architecture": "x86_64",
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "litellm": "1.96.0",
+      "pydantic": "2.13.4",
+      "pypdf": "6.15.0",
+      "python-docx": "1.2.0",
+      "python-dotenv": "1.2.2",
+      "smolagents": "1.26.0"
+    },
+    "logical_cpu_count": 8,
+    "operating_system": "macOS-15.7.7-x86_64-i386-64bit-Mach-O",
+    "processor": "i386",
+    "python": "3.13.2"
+  },
+  "source": {
+    "branch": "main",
+    "commit": "739d150488a6815f55ef00c3718ad0b4af610b9a",
+    "dirty": false,
+    "evaluation_script": "evals/run_e4_precision_development.py",
+    "evaluation_script_sha256": "f93540b8bc13839e679c5cf98452f695ef689e70508b9062fb985dd736ead646",
+    "post_holdout_candidates_sha256": "448de95eb5e54421f58a2dbf7f5a4c6be0abc3903187425c37d60d23d2906d5b",
+    "short_commit": "739d150488a6"
+  }
+}

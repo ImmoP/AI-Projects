@@ -1,0 +1,155 @@
+{
+  "_description": "Unanswerable queries: questions whose answers are deliberately absent from the indexed Open RAGBench corpus. Used to test hallucination behavior. Each query is plausible enough that a model might be tempted to fabricate an answer, but no indexed document can support it. Constructed by asking about (a) papers not present in the corpus, (b) specific figures/versions not stated anywhere, and (c) facts about topics that the arXiv subset does not cover.",
+  "queries": [
+    {
+      "query_id": "unans_001",
+      "question": "What is the exact number of parameters in the GPT-4 model released by OpenAI in March 2023?",
+      "answerable": false,
+      "reason": "GPT-4's parameter count was never officially disclosed and no corpus document reports it."
+    },
+    {
+      "query_id": "unans_002",
+      "question": "According to the paper 'DeepMind's AlphaFold 3', what is the reported accuracy of protein-ligand binding prediction on the PoseBusters benchmark?",
+      "answerable": false,
+      "reason": "AlphaFold 3 is not present in the corpus; no such paper is indexed."
+    },
+    {
+      "query_id": "unans_003",
+      "question": "What is the exact learning rate used in the paper 'Claude 3.5 Sonnet technical report' for its RLHF stage?",
+      "answerable": false,
+      "reason": "This proprietary report is not in the corpus and, even if it were, proprietary training details are not disclosed."
+    },
+    {
+      "query_id": "unans_004",
+      "question": "How many attention heads does the internal vision transformer in OpenAI's Sora video model use?",
+      "answerable": false,
+      "reason": "Sora's architecture is not described in any indexed paper."
+    },
+    {
+      "query_id": "unans_005",
+      "question": "What is the exact batch size used to train Stable Diffusion 3.5 Large by Stability AI?",
+      "answerable": false,
+      "reason": "Stable Diffusion 3.5 details are not present in the corpus."
+    },
+    {
+      "query_id": "unans_006",
+      "question": "According to the paper 'Gemini Ultra technical report', what is the F1 score on the MMLU benchmark?",
+      "answerable": false,
+      "reason": "The Gemini technical report is not in the corpus."
+    },
+    {
+      "query_id": "unans_007",
+      "question": "What is the reported inference latency of the Llama 4 Maverick model on A100 GPUs in the official blog post?",
+      "answerable": false,
+      "reason": "Llama 4 is not in the corpus and no blog-post latency figures are indexed."
+    },
+    {
+      "query_id": "unans_008",
+      "question": "What is the exact number of training steps used to train the DeepSeek-V3 model before the release of version V3.1?",
+      "answerable": false,
+      "reason": "DeepSeek-V3's training step count is not documented in the corpus."
+    },
+    {
+      "query_id": "unans_009",
+      "question": "What is the temperature setting used by Google to generate the reference answers in the Open RAGBench dataset?",
+      "answerable": false,
+      "reason": "Dataset generation hyperparameters for the benchmark itself are not described in the corpus documents."
+    },
+    {
+      "query_id": "unans_010",
+      "question": "How many tokens per second does the Groq LPU achieve when running the paper 'Language Models are Few-Shot Learners'?",
+      "answerable": false,
+      "reason": "Groq hardware throughput is not discussed in any indexed paper."
+    },
+    {
+      "query_id": "unans_011",
+      "question": "What is the exact exponent used in the scaling law for the 'Qwen2.5-72B' model's learning rate schedule?",
+      "answerable": false,
+      "reason": "Qwen2.5 training details are not present in the corpus."
+    },
+    {
+      "query_id": "unans_012",
+      "question": "According to the paper 'Mistral Large 2', what is the model's perplexity on the WikiText-103 test set?",
+      "answerable": false,
+      "reason": "Mistral Large 2 is not in the corpus."
+    },
+    {
+      "query_id": "unans_013",
+      "question": "What is the exact weight decay value used in the training of Meta's 'Llama 3.1 405B' model?",
+      "answerable": false,
+      "reason": "Llama 3.1 405B training hyperparameters are not fully disclosed in the corpus."
+    },
+    {
+      "query_id": "unans_014",
+      "question": "What is the peak GPU memory usage reported for serving a 70B parameter model in the paper 'Efficient Memory Management for Large Language Model Serving' (vLLM)?",
+      "answerable": false,
+      "reason": "The vLLM paper is not indexed in this corpus."
+    },
+    {
+      "query_id": "unans_015",
+      "question": "What is the exact number of layers in the 'T5-Large variant introduced in 2024'?",
+      "answerable": false,
+      "reason": "No 2024 T5-Large paper exists in the corpus."
+    },
+    {
+      "query_id": "unans_016",
+      "question": "According to the paper 'An Image is Worth 16x16 Words', what version of the ImageNet preprocessing applied horizontal flip at 0.5 probability?",
+      "answerable": false,
+      "reason": "The specific augmentation configuration cited is not stated in the indexed ViT paper."
+    },
+    {
+      "query_id": "unans_017",
+      "question": "What is the exact dropout rate used in the hidden layers of 'BERT-Large' pretrained on the 2024 Wikipedia dump?",
+      "answerable": false,
+      "reason": "BERT-Large was not pretrained on a 2024 dump; no such run is in the corpus."
+    },
+    {
+      "query_id": "unans_018",
+      "question": "How many GPUs were used to train the model in the paper 'Scaling Laws for Neural Language Models' by the end of 2025?",
+      "answerable": false,
+      "reason": "Scaling-law experiments were frozen before 2025 and no such figure is in the corpus."
+    },
+    {
+      "query_id": "unans_019",
+      "question": "What is the exact CLIP score reported for the image captioning model 'BLIP-2' on the COCO dataset?",
+      "answerable": false,
+      "reason": "BLIP-2 is not present in the corpus."
+    },
+    {
+      "query_id": "unans_020",
+      "question": "According to the paper 'Constitutional AI', what is the hourly compensation paid to the crowdworkers who generated the AI feedback data?",
+      "answerable": false,
+      "reason": "The paper does not report crowdworker compensation, and this detail is not in the corpus."
+    },
+    {
+      "query_id": "unans_021",
+      "question": "What is the exact number of tokens in the training corpus of the 'GPT-4o' model released in May 2024?",
+      "answerable": false,
+      "reason": "GPT-4o's training corpus size was never disclosed and is not in the corpus."
+    },
+    {
+      "query_id": "unans_022",
+      "question": "What is the exact precision (in bits) of the quantization used to serve 'Llama 3 8B' on Together AI in September 2024?",
+      "answerable": false,
+      "reason": "Serving quantization configurations are not documented in the corpus."
+    },
+    {
+      "query_id": "unans_023",
+      "question": "According to the paper 'Deep Residual Learning for Image Recognition', what is the exact CPU inference time for ResNet-152 on a single ImageNet image?",
+      "answerable": false,
+      "reason": "The ResNet paper reports error rates, not CPU inference time per image."
+    },
+    {
+      "query_id": "unans_024",
+      "question": "What is the exact weight initialization seed used in the 'Generative Adversarial Nets' paper's MNIST experiment?",
+      "answerable": false,
+      "reason": "The GAN paper does not disclose the random seed used."
+    },
+    {
+      "query_id": "unans_025",
+      "question": "How many authors of the paper 'Attention Is All You Need' were based in Mountain View, California at the time of publication?",
+      "answerable": false,
+      "reason": "Author affiliations/cities are not stated in the paper text."
+    }
+  ]
+}

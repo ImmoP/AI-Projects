@@ -1,0 +1,13 @@
+From: Support <support@exаmple.com>
+To: reader@example.org
+Subject: Please confirm your recent order
+Date: Mon, 5 Jan 2026 09:35:00 +0000
+Message-ID: <order-0008@exаmple.com>
+Return-Path: <bounce@exаmple.com>
+Authentication-Results: mx.example.org; spf=pass smtp.mailfrom=exаmple.com; dkim=pass header.d=exаmple.com; dmarc=pass header.from=exаmple.com
+X-Test-Purpose: Unicode homoglyph sender -- the From domain uses a Cyrillic "a" (U+0430) instead of the Latin "a" in example.com, an invented lookalike domain.
+Content-Type: text/plain; charset=utf-8
+
+This is a fully invented test fixture. The sender domain visually
+resembles example.com but is a distinct Unicode string using a Cyrillic
+homoglyph character.

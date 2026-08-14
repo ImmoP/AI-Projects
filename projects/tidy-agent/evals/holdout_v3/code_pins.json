@@ -1,0 +1,8 @@
+{
+  "sha256": {
+    "src/tidy/classification.py": "10b2080e3e379265d4aec6a896d0ee2938e94bbb47de02d4c9bceb8007a0b8c5",
+    "evals/post_holdout_candidates.py": "448de95eb5e54421f58a2dbf7f5a4c6be0abc3903187425c37d60d23d2906d5b",
+    "evals/run_holdout_v3_e4.py": "c041924ea1cc1bc27461f36b7506be313d293c32c324b82c705227787a4ea1c5"
+  },
+  "note": "Verified by evals/run_holdout_v3_e4.py before any measured Holdout v3 request."
+}

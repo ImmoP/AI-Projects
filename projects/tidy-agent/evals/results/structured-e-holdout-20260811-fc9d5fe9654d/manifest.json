@@ -1,0 +1,122 @@
+{
+  "created_at": "2026-08-11T21:05:18.761332+00:00",
+  "source": {
+    "commit": "fc9d5fe9654dc127d83d77668be51a03d1cc3d49",
+    "short_commit": "fc9d5fe9654d",
+    "dirty": false,
+    "worktree_exception": "untracked prior reports under evals/results/ and the new evals/run_holdout_e.py harness itself permitted; zero modifications to any other tracked file, and zero other untracked files, required",
+    "branch": "main",
+    "evaluation_script": "evals/run_holdout_e.py",
+    "evaluation_script_sha256": "9b587056d48c4445ba38c16f2d725ca89835be689fb888e48e801e9edfd9c51b",
+    "evaluation_script_is_new_harness": "no single-condition holdout runner existed before this task; wraps run_evaluation() with condition E's exact frozen parameters, unchanged from run_structured_aec.py"
+  },
+  "python_environment": {
+    "operating_system": "macOS-15.7.7-x86_64-i386-64bit-Mach-O",
+    "architecture": "x86_64",
+    "processor": "i386",
+    "logical_cpu_count": 8,
+    "python": "3.13.2",
+    "dependencies": {
+      "smolagents": "1.26.0",
+      "litellm": "1.96.0",
+      "pydantic": "2.13.4",
+      "PyYAML": "6.0.3",
+      "pypdf": "6.15.0",
+      "python-docx": "1.2.0",
+      "python-dotenv": "1.2.2"
+    }
+  },
+  "model": {
+    "identifier": "ollama_chat/qwen3.5:4b",
+    "family": "qwen3.5",
+    "provider_runtime": "Ollama via LiteLLM",
+    "endpoint": "remote endpoint (address redacted)",
+    "endpoint_local": false,
+    "structured_output_mode": "json_object",
+    "temperature": 0.0,
+    "seed": "not configured",
+    "thinking": false,
+    "max_tokens": "not configured (provider default)",
+    "context_length": 8192,
+    "request_timeout_seconds": 1800.0,
+    "retry_policy": "zero application retries",
+    "digest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+    "quantization": "Q4_K_M",
+    "parameter_size": "4.7B",
+    "runtime_version": "0.32.1",
+    "already_loaded_before_warmup": false,
+    "loaded_context_length": "not loaded",
+    "loaded_size_vram_bytes": "not loaded"
+  },
+  "expected_model": {
+    "identifier": "ollama_chat/qwen3.5:4b",
+    "digest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd"
+  },
+  "tidy_configuration": {
+    "rules": [
+      {
+        "path": "config/rules.yaml",
+        "sha256": "2b2bf6f27700adfd22d0d5373a9ff54ff62cf21aa143b8474c4ac0daf27e180b"
+      },
+      {
+        "path": "src/tidy/config/rules.yaml",
+        "sha256": "0f6b03a37a12b3cbcdfd20667315917069106423e22890a32d6cffd72eea6e84"
+      }
+    ],
+    "categories": [
+      "Images",
+      "Documents",
+      "Archives",
+      "Code",
+      "Installers"
+    ],
+    "review_directory": "_ToReview",
+    "condition": {
+      "label": "Two-pass metadata control",
+      "content": false,
+      "metadata_control": true
+    },
+    "remote_content_authorized": false,
+    "max_task_peeks": 4,
+    "max_peek_chars": 1500,
+    "max_plain_text_read_bytes": 4096,
+    "max_text_file_bytes": 262144,
+    "max_pdf_bytes": 8388608,
+    "max_docx_bytes": 8388608,
+    "parser_timeout_seconds": 3.0
+  },
+  "dataset": {
+    "designation": "locked holdout — single evaluation",
+    "holdout_manifest": "evals/holdout/fixture_manifest.json",
+    "holdout_dataset_sha256": "250499c3605bf13eff55f9c53f47bc945618af7fd3ba184b87069fe3bc838dac",
+    "holdout_file_count": 41,
+    "ground_truth_sha256": "da097e642244439375533196552f1231f05a0bcb75dfba74c56f19f18cf283f8"
+  },
+  "development_reference": {
+    "source_report": "evals/results/structured-aec-20260811-fc9d5fe9654d/summary.json",
+    "run_count": 5,
+    "strict_category_accuracy": 0.9578947368421052,
+    "decision_rate": 0.6709677419354838,
+    "accuracy_on_decided": 0.8457142857142856,
+    "review_rate": 0.13421052631578947,
+    "incorrect_decision_rate": 0.04210526315789476,
+    "total_run_latency_seconds": 18.086782178598515,
+    "total_tokens": 1032.2
+  },
+  "execution": {
+    "repetitions": 1,
+    "scheduled_runs": 1,
+    "model_lifecycle": "warm",
+    "warmup": "one discarded model request before the measured run",
+    "standard_timeout_seconds": 240.0,
+    "failed_run_policy": "record failure and stop; never substitute model; never rerun",
+    "selection_policy": "E was preselected from development results before this run; A and C are not executed here and this run cannot change that selection",
+    "warmup_result": {
+      "status": "ok",
+      "latency_seconds": 11.855202236001787,
+      "completion_tokens": 2
+    },
+    "model_identity_check": "unchanged"
+  },
+  "experiment_id": "structured-e-holdout-20260811-fc9d5fe9654d"
+}

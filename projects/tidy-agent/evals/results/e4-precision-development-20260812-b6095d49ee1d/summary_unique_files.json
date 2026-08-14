@@ -1,0 +1,371 @@
+{
+  "artifact_type": "derived_unique_file_correction",
+  "candidate_recommendation": "E4-refined",
+  "combined_unique": {
+    "E3": {
+      "primary": {
+        "accuracy_on_decided": 0.9857142857142858,
+        "automation_coverage": 0.3783783783783784,
+        "raw_counts_unique": {
+          "correct_automatic": 69.0,
+          "incorrect_automatic": 1.0,
+          "review": 115.0
+        },
+        "review_precision": 0.5739130434782609,
+        "review_rate": 0.6216216216216216,
+        "review_recall": 0.9850746268656716,
+        "strict_accuracy": 0.7297297297297297,
+        "total_files_scored_unique": 185.0,
+        "unsafe_automation_rate": 0.005405405405405406
+      }
+    },
+    "E4-current": {
+      "primary": {
+        "accuracy_on_decided": 1.0,
+        "automation_coverage": 0.35135135135135137,
+        "raw_counts_unique": {
+          "correct_automatic": 65.0,
+          "incorrect_automatic": 0.0,
+          "review": 120.0
+        },
+        "review_precision": 0.5583333333333333,
+        "review_rate": 0.6486486486486487,
+        "review_recall": 1.0,
+        "strict_accuracy": 0.7135135135135136,
+        "total_files_scored_unique": 185.0,
+        "unsafe_automation_rate": 0.0
+      },
+      "veto_analysis": {
+        "accepted_unique": 65.0,
+        "coverage_loss_relative_to_e3_unique": 5.0,
+        "e3_automatic_candidates_unique": 70.0,
+        "e3_automatic_errors_surviving_unique": 0.0,
+        "false_positive_vetoes_unique": 4.0,
+        "reason_code_distribution_unique": {
+          "AMBIGUITY_MARKER_WITH_CLAIM": 1.0,
+          "MULTI_CATEGORY_STRONG_CUES": 4.0,
+          "NO_CONFLICT": 65.0
+        },
+        "true_positive_vetoes_unique": 1.0,
+        "veto_precision": 0.2,
+        "veto_recall_for_e3_automatic_errors": 1.0,
+        "vetoed_unique": 5.0
+      }
+    },
+    "E4-refined": {
+      "primary": {
+        "accuracy_on_decided": 1.0,
+        "automation_coverage": 0.3621621621621622,
+        "raw_counts_unique": {
+          "correct_automatic": 67.0,
+          "incorrect_automatic": 0.0,
+          "review": 118.0
+        },
+        "review_precision": 0.5677966101694916,
+        "review_rate": 0.6378378378378379,
+        "review_recall": 1.0,
+        "strict_accuracy": 0.7243243243243244,
+        "total_files_scored_unique": 185.0,
+        "unsafe_automation_rate": 0.0
+      },
+      "veto_analysis": {
+        "accepted_unique": 67.0,
+        "coverage_loss_relative_to_e3_unique": 3.0,
+        "e3_automatic_candidates_unique": 70.0,
+        "e3_automatic_errors_surviving_unique": 0.0,
+        "false_positive_vetoes_unique": 2.0,
+        "reason_code_distribution_unique": {
+          "EXPLICIT_CATEGORY_AMBIGUITY": 1.0,
+          "MULTI_CUE_SOFT_CONFLICT": 3.0,
+          "NO_CONFLICT": 64.0,
+          "PREDICTED_CATEGORY_UNSUPPORTED": 2.0
+        },
+        "true_positive_vetoes_unique": 1.0,
+        "veto_precision": 0.3333333333333333,
+        "veto_recall_for_e3_automatic_errors": 1.0,
+        "vetoed_unique": 3.0
+      }
+    }
+  },
+  "correction": {
+    "minimum_unique_errors_required": 3,
+    "reason": "The frozen harness summed raw E3 error counts across five deterministic repetitions instead of deduplicating by unique file.",
+    "repetition_summed_e3_automatic_errors": 5,
+    "repetitions": 5,
+    "underpowered": true,
+    "unique_e3_automatic_errors": 1.0
+  },
+  "experiment_id": "e4-precision-development-20260812-b6095d49ee1d",
+  "holdout_v3_readiness": "D_MORE_DEVELOPMENT_REQUIRED",
+  "holdout_v3_readiness_note": "E4-refined remains the leading Development candidate: it matched E4-current on unsafe automation (0.0%), accuracy on decided (1.000), and review recall (1.000), while having higher combined automation coverage and fewer combined false-positive vetoes. However, only 1 unique E3 automatic error occurred across the 185 Development files, below the frozen minimum of 3, so veto precision/recall remains underpowered (criterion 5) and the improvement is not clearly demonstrated across all three fixtures (criterion 6: PARTIAL). This is not a safety guarantee and not a Holdout-ready pass -- a further Development cycle targeting additional E3 automatic-error events is required before a new Holdout v3 is spent.",
+  "note": "This file is a derived, corrected unique-file interpretation of the frozen harness's own summary.json. It performs no new measurement and invokes no model inference -- it only divides summary.json's repetition-summed raw counts by the repetition count (5), which is valid because every condition/fixture in this experiment was verified fully deterministic (zero unstable files across all 5 repetitions; see summary.json's 'stability' blocks). Rate/ratio fields (precision, recall, coverage, accuracy, etc.) are carried through unchanged from summary.json, since a ratio of two counts scaled equally by 5 is unaffected by the scaling. summary.json itself is left byte-for-byte unmodified; this file supersedes only the semantic interpretation of unique-file counts and the evidence-strength/success-criteria verdicts that summary.json computed incorrectly from the un-deduplicated raw count.",
+  "per_fixture_unique": {
+    "boundary_calibration": {
+      "E3": {
+        "primary": {
+          "accuracy_on_decided": 0.9375,
+          "automation_coverage": 0.24242424242424243,
+          "raw_counts_unique": {
+            "correct_automatic": 15.0,
+            "incorrect_automatic": 1.0,
+            "review": 50.0
+          },
+          "review_precision": 0.5,
+          "review_rate": 0.7575757575757576,
+          "review_recall": 0.9615384615384616,
+          "strict_accuracy": 0.6060606060606061,
+          "total_files_scored_unique": 66.0,
+          "unsafe_automation_rate": 0.015151515151515152
+        }
+      },
+      "E4-current": {
+        "primary": {
+          "accuracy_on_decided": 1.0,
+          "automation_coverage": 0.19696969696969696,
+          "raw_counts_unique": {
+            "correct_automatic": 13.0,
+            "incorrect_automatic": 0.0,
+            "review": 53.0
+          },
+          "review_precision": 0.49056603773584906,
+          "review_rate": 0.803030303030303,
+          "review_recall": 1.0,
+          "strict_accuracy": 0.5909090909090909,
+          "total_files_scored_unique": 66.0,
+          "unsafe_automation_rate": 0.0
+        },
+        "veto_analysis": {
+          "accepted_unique": 13.0,
+          "coverage_loss_relative_to_e3_unique": 3.0,
+          "e3_automatic_candidates_unique": 16.0,
+          "e3_automatic_errors_surviving_unique": 0.0,
+          "false_positive_vetoes_unique": 2.0,
+          "reason_code_distribution_unique": {
+            "AMBIGUITY_MARKER_WITH_CLAIM": 1.0,
+            "MULTI_CATEGORY_STRONG_CUES": 2.0,
+            "NO_CONFLICT": 13.0
+          },
+          "true_positive_vetoes_unique": 1.0,
+          "veto_precision": 0.3333333333333333,
+          "veto_recall_for_e3_automatic_errors": 1.0,
+          "vetoed_unique": 3.0
+        }
+      },
+      "E4-refined": {
+        "primary": {
+          "accuracy_on_decided": 1.0,
+          "automation_coverage": 0.21212121212121213,
+          "raw_counts_unique": {
+            "correct_automatic": 14.0,
+            "incorrect_automatic": 0.0,
+            "review": 52.0
+          },
+          "review_precision": 0.5,
+          "review_rate": 0.7878787878787878,
+          "review_recall": 1.0,
+          "strict_accuracy": 0.6060606060606061,
+          "total_files_scored_unique": 66.0,
+          "unsafe_automation_rate": 0.0
+        },
+        "veto_analysis": {
+          "accepted_unique": 14.0,
+          "coverage_loss_relative_to_e3_unique": 2.0,
+          "e3_automatic_candidates_unique": 16.0,
+          "e3_automatic_errors_surviving_unique": 0.0,
+          "false_positive_vetoes_unique": 1.0,
+          "reason_code_distribution_unique": {
+            "EXPLICIT_CATEGORY_AMBIGUITY": 1.0,
+            "MULTI_CUE_SOFT_CONFLICT": 2.0,
+            "NO_CONFLICT": 12.0,
+            "PREDICTED_CATEGORY_UNSUPPORTED": 1.0
+          },
+          "true_positive_vetoes_unique": 1.0,
+          "veto_precision": 0.5,
+          "veto_recall_for_e3_automatic_errors": 1.0,
+          "vetoed_unique": 2.0
+        }
+      }
+    },
+    "calibration": {
+      "E3": {
+        "primary": {
+          "accuracy_on_decided": 1.0,
+          "automation_coverage": 0.44680851063829785,
+          "raw_counts_unique": {
+            "correct_automatic": 21.0,
+            "incorrect_automatic": 0.0,
+            "review": 26.0
+          },
+          "review_precision": 0.6538461538461539,
+          "review_rate": 0.5531914893617021,
+          "review_recall": 1.0,
+          "strict_accuracy": 0.8085106382978723,
+          "total_files_scored_unique": 47.0,
+          "unsafe_automation_rate": 0.0
+        }
+      },
+      "E4-current": {
+        "primary": {
+          "accuracy_on_decided": 1.0,
+          "automation_coverage": 0.425531914893617,
+          "raw_counts_unique": {
+            "correct_automatic": 20.0,
+            "incorrect_automatic": 0.0,
+            "review": 27.0
+          },
+          "review_precision": 0.6296296296296297,
+          "review_rate": 0.574468085106383,
+          "review_recall": 1.0,
+          "strict_accuracy": 0.7872340425531915,
+          "total_files_scored_unique": 47.0,
+          "unsafe_automation_rate": 0.0
+        },
+        "veto_analysis": {
+          "accepted_unique": 20.0,
+          "coverage_loss_relative_to_e3_unique": 1.0,
+          "e3_automatic_candidates_unique": 21.0,
+          "e3_automatic_errors_surviving_unique": 0.0,
+          "false_positive_vetoes_unique": 1.0,
+          "reason_code_distribution_unique": {
+            "MULTI_CATEGORY_STRONG_CUES": 1.0,
+            "NO_CONFLICT": 20.0
+          },
+          "true_positive_vetoes_unique": 0.0,
+          "veto_precision": 0.0,
+          "veto_recall_for_e3_automatic_errors": null,
+          "vetoed_unique": 1.0
+        }
+      },
+      "E4-refined": {
+        "primary": {
+          "accuracy_on_decided": 1.0,
+          "automation_coverage": 0.425531914893617,
+          "raw_counts_unique": {
+            "correct_automatic": 20.0,
+            "incorrect_automatic": 0.0,
+            "review": 27.0
+          },
+          "review_precision": 0.6296296296296297,
+          "review_rate": 0.574468085106383,
+          "review_recall": 1.0,
+          "strict_accuracy": 0.7872340425531915,
+          "total_files_scored_unique": 47.0,
+          "unsafe_automation_rate": 0.0
+        },
+        "veto_analysis": {
+          "accepted_unique": 20.0,
+          "coverage_loss_relative_to_e3_unique": 1.0,
+          "e3_automatic_candidates_unique": 21.0,
+          "e3_automatic_errors_surviving_unique": 0.0,
+          "false_positive_vetoes_unique": 1.0,
+          "reason_code_distribution_unique": {
+            "NO_CONFLICT": 20.0,
+            "PREDICTED_CATEGORY_UNSUPPORTED": 1.0
+          },
+          "true_positive_vetoes_unique": 0.0,
+          "veto_precision": 0.0,
+          "veto_recall_for_e3_automatic_errors": null,
+          "vetoed_unique": 1.0
+        }
+      }
+    },
+    "veto_precision_calibration": {
+      "E3": {
+        "primary": {
+          "accuracy_on_decided": 1.0,
+          "automation_coverage": 0.4583333333333333,
+          "raw_counts_unique": {
+            "correct_automatic": 33.0,
+            "incorrect_automatic": 0.0,
+            "review": 39.0
+          },
+          "review_precision": 0.6153846153846154,
+          "review_rate": 0.5416666666666666,
+          "review_recall": 1.0,
+          "strict_accuracy": 0.7916666666666666,
+          "total_files_scored_unique": 72.0,
+          "unsafe_automation_rate": 0.0
+        }
+      },
+      "E4-current": {
+        "primary": {
+          "accuracy_on_decided": 1.0,
+          "automation_coverage": 0.4444444444444444,
+          "raw_counts_unique": {
+            "correct_automatic": 32.0,
+            "incorrect_automatic": 0.0,
+            "review": 40.0
+          },
+          "review_precision": 0.6,
+          "review_rate": 0.5555555555555556,
+          "review_recall": 1.0,
+          "strict_accuracy": 0.7777777777777778,
+          "total_files_scored_unique": 72.0,
+          "unsafe_automation_rate": 0.0
+        },
+        "veto_analysis": {
+          "accepted_unique": 32.0,
+          "coverage_loss_relative_to_e3_unique": 1.0,
+          "e3_automatic_candidates_unique": 33.0,
+          "e3_automatic_errors_surviving_unique": 0.0,
+          "false_positive_vetoes_unique": 1.0,
+          "reason_code_distribution_unique": {
+            "MULTI_CATEGORY_STRONG_CUES": 1.0,
+            "NO_CONFLICT": 32.0
+          },
+          "true_positive_vetoes_unique": 0.0,
+          "veto_precision": 0.0,
+          "veto_recall_for_e3_automatic_errors": null,
+          "vetoed_unique": 1.0
+        }
+      },
+      "E4-refined": {
+        "primary": {
+          "accuracy_on_decided": 1.0,
+          "automation_coverage": 0.4583333333333333,
+          "raw_counts_unique": {
+            "correct_automatic": 33.0,
+            "incorrect_automatic": 0.0,
+            "review": 39.0
+          },
+          "review_precision": 0.6153846153846154,
+          "review_rate": 0.5416666666666666,
+          "review_recall": 1.0,
+          "strict_accuracy": 0.7916666666666666,
+          "total_files_scored_unique": 72.0,
+          "unsafe_automation_rate": 0.0
+        },
+        "veto_analysis": {
+          "accepted_unique": 33.0,
+          "coverage_loss_relative_to_e3_unique": 0.0,
+          "e3_automatic_candidates_unique": 33.0,
+          "e3_automatic_errors_surviving_unique": 0.0,
+          "false_positive_vetoes_unique": 0.0,
+          "reason_code_distribution_unique": {
+            "MULTI_CUE_SOFT_CONFLICT": 1.0,
+            "NO_CONFLICT": 32.0
+          },
+          "true_positive_vetoes_unique": 0.0,
+          "veto_precision": null,
+          "veto_recall_for_e3_automatic_errors": null,
+          "vetoed_unique": 0.0
+        }
+      }
+    }
+  },
+  "source_summary": "summary.json",
+  "success_criteria": {
+    "1_unsafe_automation_no_worse": "PASS",
+    "2_accuracy_on_decided_no_worse": "PASS",
+    "3_review_recall_not_worse_by_more_than_one_case": "PASS",
+    "4_coverage_not_more_than_3pp_below": "PASS",
+    "5_veto_precision_materially_higher": "UNDERPOWERED",
+    "6_improvement_not_confined_to_one_fixture": "PARTIAL",
+    "7_no_catastrophic_false_veto_pattern": "PASS"
+  },
+  "unique_e3_automatic_errors_per_fixture": {
+    "boundary_calibration": 1.0,
+    "calibration": 0.0,
+    "veto_precision_calibration": 0.0
+  }
+}

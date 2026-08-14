@@ -1,0 +1,153 @@
+# Private and generated data
+# Keep documentation and placeholders trackable, but never commit data files.
+data/**
+!data/**/
+!data/**/README*
+!data/**/.gitkeep
+
+# Private extensionless mailbox exports outside data/
+**/[Pp]osteingang_*
+/[Ss]pam_*
+**/[Ss]pamverdacht_*
+
+# Mailbox files and email-client profile data outside data/
+*.mbox
+*.mbx
+*.eml
+*.emlx
+*.maildir/
+Maildir/
+**/.thunderbird/
+**/Thunderbird/Profiles/
+**/ImapMail/
+**/global-messages-db.sqlite
+*.msf
+
+# Except the fully synthetic .eml test fixtures, which must be trackable.
+!tests/fixtures/eml/*.eml
+
+# Downloaded pretrained GPT-2 files and training output
+models/gpt2/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.h5
+*.pb
+*.tflite
+*.joblib
+*.pkl
+*.pickle
+
+# Dataset formats are private/generated in this project
+*.parquet
+data/**/*.csv
+data/**/*.jsonl
+data/**/*.json
+data/**/*.arrow
+data/**/*.feather
+data/**/*.sqlite
+data/**/*.db
+data/**/*.zip
+data/**/*.tar
+data/**/*.tar.gz
+data/**/*.tgz
+data/**/*.gz
+data/**/*.bz2
+data/**/*.xz
+data/**/*.7z
+
+# Python environments, caches, packaging, and test output
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.python-version
+.eggs/
+*.egg
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.envrc
+.direnv/
+.netrc
+.pypirc
+pip.conf
+credentials*.json
+secrets*.json
+service-account*.json
+token*.json
+*.local.json
+*.local.toml
+*.local.yaml
+*.local.yml
+*classification*.json
+classification_outputs/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Logs, caches, and temporary files
+*.log
+logs/
+.cache/
+.tmp/
+.temp/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# IDE/editor state
+.idea/
+.vscode/
+.vs/
+*.code-workspace
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/

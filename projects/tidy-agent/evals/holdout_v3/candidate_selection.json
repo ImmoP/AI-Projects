@@ -1,0 +1,25 @@
+{
+  "selected_candidate": "E4-current",
+  "selection_stage": "post-development-pre-holdout-v3",
+  "development_selection_commit": "46601ab706ceb8b1920c81a9f3ae1d1b37ba3ea1",
+  "selection_closed": true,
+  "holdout_v3_inference_performed": false,
+  "development_rationale_aggregate": {
+    "development_unique_e3_errors": 4,
+    "frozen_minimum_evidence_threshold": 3,
+    "threshold_met": true,
+    "e4_current_vs_e4_refined": {
+      "e4_current_beat_e4_refined_on_highest_priority_selection_metrics": true,
+      "e4_current_had_lower_unsafe_automation": true,
+      "e4_current_had_higher_accuracy_on_decided": true,
+      "e4_current_had_higher_veto_precision": true,
+      "e4_refined_failed_frozen_criteria": [1, 2, 5]
+    }
+  },
+  "pipeline": "frozen E3 -> frozen E4-current",
+  "candidate_frozen_files": [
+    "evals/post_holdout_candidates.py",
+    "src/tidy/classification.py"
+  ],
+  "note": "No case-level Development or historical Holdout data is referenced here; only the aggregate selection facts permitted for documentation."
+}

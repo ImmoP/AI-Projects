@@ -1,0 +1,171 @@
+{
+  "configuration": {
+    "context_length": 1024,
+    "evaluation_batch_size": 1,
+    "random_seed": 123,
+    "device": "cuda",
+    "labels": {
+      "ham": 0,
+      "spam": 1
+    }
+  },
+  "model_selection": {
+    "criterion": "lowest_full_validation_loss",
+    "test_data_used_for_selection": false
+  },
+  "best_checkpoint": {
+    "path": "checkpoints/best_checkpoint.pt",
+    "metadata": {
+      "epoch": 1,
+      "global_step": 17000,
+      "examples_seen": 136000,
+      "stored_eval_loss": 0.013276733310421989
+    },
+    "validation": {
+      "examples": 22369,
+      "ham_examples": 12906,
+      "spam_examples": 9463,
+      "loss": 0.031197108690200426,
+      "accuracy": 0.9895390942822656,
+      "spam_precision": 0.985277105899674,
+      "spam_recall": 0.9900665750818979,
+      "spam_f1": 0.9876660341555977,
+      "roc_auc": 0.9991850861755095,
+      "pr_auc": 0.9989174903069962,
+      "confusion_matrix": {
+        "true_negatives": 12766,
+        "false_positives": 140,
+        "false_negatives": 94,
+        "true_positives": 9369
+      }
+    }
+  },
+  "final_checkpoint": {
+    "path": "checkpoints/final_checkpoint.pt",
+    "metadata": {
+      "epoch": 1,
+      "global_step": 22355,
+      "examples_seen": 178840,
+      "stored_eval_loss": 0.0339129134772044
+    },
+    "validation": {
+      "examples": 22369,
+      "ham_examples": 12906,
+      "spam_examples": 9463,
+      "loss": 0.037020976259667625,
+      "accuracy": 0.9877509052706871,
+      "spam_precision": 0.994298009682625,
+      "spam_recall": 0.976645883969143,
+      "spam_f1": 0.9853928990297474,
+      "roc_auc": 0.9992264930502691,
+      "pr_auc": 0.9989983746490748,
+      "confusion_matrix": {
+        "true_negatives": 12853,
+        "false_positives": 53,
+        "false_negatives": 221,
+        "true_positives": 9242
+      }
+    }
+  },
+  "selected_checkpoint": {
+    "name": "best_checkpoint.pt",
+    "path": "checkpoints/best_checkpoint.pt",
+    "metadata": {
+      "epoch": 1,
+      "global_step": 17000,
+      "examples_seen": 136000,
+      "stored_eval_loss": 0.013276733310421989
+    },
+    "full_validation_metrics": {
+      "examples": 22369,
+      "ham_examples": 12906,
+      "spam_examples": 9463,
+      "loss": 0.031197108690200426,
+      "accuracy": 0.9895390942822656,
+      "spam_precision": 0.985277105899674,
+      "spam_recall": 0.9900665750818979,
+      "spam_f1": 0.9876660341555977,
+      "roc_auc": 0.9991850861755095,
+      "pr_auc": 0.9989174903069962,
+      "confusion_matrix": {
+        "true_negatives": 12766,
+        "false_positives": 140,
+        "false_negatives": 94,
+        "true_positives": 9369
+      }
+    }
+  },
+  "test_evaluations": {
+    "combined_clean": {
+      "path": "data/combined_test_clean.parquet",
+      "role": "primary_test_set",
+      "metrics": {
+        "examples": 22376,
+        "ham_examples": 12912,
+        "spam_examples": 9464,
+        "loss": 0.03012517794083116,
+        "accuracy": 0.98936360386128,
+        "spam_precision": 0.9846606429922252,
+        "spam_recall": 0.9902789518174133,
+        "spam_f1": 0.9874618059213992,
+        "roc_auc": 0.9993150198862236,
+        "pr_auc": 0.999056121369299,
+        "confusion_matrix": {
+          "true_negatives": 12766,
+          "false_positives": 146,
+          "false_negatives": 92,
+          "true_positives": 9372
+        }
+      }
+    },
+    "hf_public": {
+      "path": "data/hf_test_prepared.parquet",
+      "role": "public_domain_evaluation",
+      "metrics": {
+        "examples": 20304,
+        "ham_examples": 10870,
+        "spam_examples": 9434,
+        "loss": 0.030018487908797808,
+        "accuracy": 0.9892631993695824,
+        "spam_precision": 0.9856661045531198,
+        "spam_recall": 0.9913080347678609,
+        "spam_f1": 0.9884790191311701,
+        "roc_auc": 0.9993180141354873,
+        "pr_auc": 0.9991837487169877,
+        "confusion_matrix": {
+          "true_negatives": 10734,
+          "false_positives": 136,
+          "false_negatives": 82,
+          "true_positives": 9352
+        }
+      }
+    },
+    "private": {
+      "path": "data/private_test.parquet",
+      "role": "private_domain_evaluation",
+      "metrics": {
+        "examples": 2076,
+        "ham_examples": 2045,
+        "spam_examples": 31,
+        "loss": 0.031111238879636984,
+        "accuracy": 0.9903660886319846,
+        "spam_precision": 0.6774193548387096,
+        "spam_recall": 0.6774193548387096,
+        "spam_f1": 0.6774193548387096,
+        "roc_auc": 0.9880589951888951,
+        "pr_auc": 0.7035065483154774,
+        "confusion_matrix": {
+          "true_negatives": 2035,
+          "false_positives": 10,
+          "false_negatives": 10,
+          "true_positives": 21
+        }
+      }
+    }
+  },
+  "notes": {
+    "combined_clean_test": "Primary leakage-cleaned combined test set.",
+    "domain_specific_tests": "HF/public and private test files are reported separately as additional domain-specific evaluations.",
+    "private_test_uncertainty": "The private test set contains relatively few spam examples, so private spam recall and F1 have substantially greater sampling uncertainty than the combined/public metrics."
+  }
+}

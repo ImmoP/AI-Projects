@@ -1,0 +1,907 @@
+holdout: v3
+selected_candidate: E4-current
+review_directory: _ToReview
+ambiguity_marker_vocabulary_note: Evaluator-only general vocabulary authored independently
+  of evals/post_holdout_candidates.py; used only to audit marker-free coverage of
+  _ToReview cases, never exposed to the model.
+cases:
+- filename: Druckertreiber_Installationsdatei_Buero
+  expected_outcome: Installers
+  primary_stratum: ordinary_realistic
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: German for 'printer driver installation file, office'; an installer.
+- filename: Familienfeier_Schnappschuesse_Sommer
+  expected_outcome: Images
+  primary_stratum: ordinary_realistic
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: German for family-celebration snapshots, summer; photographs.
+- filename: Nebenkostenabrechnung_2025_Hausverwaltung
+  expected_outcome: Documents
+  primary_stratum: ordinary_realistic
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: German utility-cost statement from a property manager; a billing document.
+- filename: aantekeningen_over_de_race_condition_in_de_scheduler
+  expected_outcome: Code
+  primary_stratum: contextual_relational
+  language: nl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Notes about a race condition in a scheduler; a code-development artifact.
+- filename: alles_wat_we_hebben_bewaard_voor_de_verhuizing
+  expected_outcome: Archives
+  primary_stratum: contextual_relational
+  language: nl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Everything kept before a move; a bundled archive.
+- filename: app_release_notes_and_installer
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Explicitly mixes Documents (release notes) and Installers content.
+- filename: appunti_su_come_i_due_moduli_comunicano_tra_loro
+  expected_outcome: Code
+  primary_stratum: contextual_relational
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Notes on how two modules communicate; a code-development artifact.
+- filename: archive_of_old_branches_before_the_rewrite
+  expected_outcome: Code
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'archive' (Archives vocabulary) but concerns branches/rewrite
+    -- code.
+- filename: backup_generator_service_invoice
+  expected_outcome: Documents
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'backup' (container vocabulary) but is a service invoice --
+    a document.
+- filename: bildverarbeitung_pipeline_quellcode_review
+  expected_outcome: Code
+  primary_stratum: distractor_rich_resolvable
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: Contains 'Bild' (image vocabulary) but 'Quellcode' (source code) review
+    dominates -- code.
+- filename: budget_presentation_backup
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Plausibly Documents (the presentation) or Archives (the backup) -- dual
+    role.
+- filename: bugfix_branch_summary_before_merge
+  expected_outcome: Code
+  primary_stratum: ordinary_realistic
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Summary of a bugfix branch prior to merging; software-development artifact.
+- filename: capturas_de_pantalla_del_paquete_de_iconos
+  expected_outcome: Images
+  primary_stratum: distractor_rich_resolvable
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'paquete' (container vocabulary) but is icon-pack screenshots
+    -- images.
+- filename: choses_recuperees_du_vieux_disque_dur
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: fr
+  secondary_tags: []
+  instruction_like: false
+  rationale: French 'things recovered from the old hard drive'; no type evidence.
+- filename: cio_che_abbiamo_salvato_prima_di_formattare_il_pc
+  expected_outcome: Archives
+  primary_stratum: contextual_relational
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Italian for 'what we saved before formatting the PC'; an archive.
+- filename: cio_che_abbiamo_scattato_durante_l_eclissi
+  expected_outcome: Images
+  primary_stratum: contextual_relational
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Italian for 'what we shot during the eclipse'; photographs.
+- filename: cio_che_serve_per_far_funzionare_la_nuova_stampante
+  expected_outcome: Installers
+  primary_stratum: contextual_relational
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Italian for 'what's needed to make the new printer work'; an installer.
+- filename: codice_fiscale_richiesta_modulo_compilato
+  expected_outcome: Documents
+  primary_stratum: distractor_rich_resolvable
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'codice' (Code vocabulary) but is a completed tax-ID request
+    form -- a document.
+- filename: coleccion_de_capturas_y_notas_de_bug
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Spanish 'collection of screenshots and bug notes'; mixes Images and Documents.
+- filename: colis_logiciel_envoye_par_le_partenaire
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: fr
+  secondary_tags: []
+  instruction_like: false
+  rationale: French 'software parcel sent by the partner'; container role unresolved.
+- filename: commented_python_module_explaining_the_report_generator
+  expected_outcome: Code
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'report' (Documents vocabulary) but is a commented Python module
+    -- code.
+- filename: conference_swag_photos_and_receipts
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Explicitly mixes Images (photos) and Documents (receipts) content.
+- filename: confezione_ricevuta_dal_fornitore_di_attrezzature
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Italian 'package received from the equipment supplier'; container role
+    unresolved.
+- filename: conteudo_recuperado_do_computador_antigo_da_empresa
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: pt
+  secondary_tags: []
+  instruction_like: false
+  rationale: Portuguese 'content recovered from the company's old computer'; no type
+    evidence.
+- filename: copia_de_seguridad_completa_del_servidor
+  expected_outcome: Archives
+  primary_stratum: ordinary_realistic
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Complete server backup; an archive.
+- filename: cose_trovate_nel_vecchio_backup_del_pc
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Italian 'things found in the old PC backup'; container word but no content-type
+    evidence.
+- filename: do_not_archive_these_photos_before_the_album_is_printed
+  expected_outcome: Images
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: Contains 'archive' vocabulary (as a verb) but the imperative is about
+    photographs -- Images.
+- filename: do_not_open_until_you_confirm_with_marco
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: No type cue; instruction gives no evidence about artifact type.
+- filename: dokumentation_der_baustelle_in_bildern
+  expected_outcome: Images
+  primary_stratum: distractor_rich_resolvable
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: Contains 'Dokumentation' (Documents vocabulary) but 'in Bildern' (in
+    pictures) -- images.
+- filename: dokumentierte_treiberinstallation_fuer_den_scanner
+  expected_outcome: Installers
+  primary_stratum: distractor_rich_resolvable
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: Contains 'dokumentierte' (Documents vocabulary) but 'Treiberinstallation'
+    dominates -- an installer.
+- filename: driver_archive_extracted_for_the_scanner_setup
+  expected_outcome: Installers
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'archive' vocabulary but is an extracted driver setup -- an
+    installer.
+- filename: driver_bundle_from_the_hardware_partner
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: '''bundle'' does not establish Archive vs. Installer role.'
+- filename: everything_that_was_on_the_decommissioned_server
+  expected_outcome: Archives
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Requires inferring a full bundled snapshot of a retired server; an archive.
+- filename: extract_this_and_check_what_is_inside_before_using_it
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: Unclear whether the file is the archive itself or instructions about
+    it.
+- filename: firmware_bundle_pulled_from_the_vendor_portal
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: '''bundle'' does not establish Archive vs. Installer role.'
+- filename: fotos_del_cumpleanos_de_la_abuela
+  expected_outcome: Images
+  primary_stratum: ordinary_realistic
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Photos of grandma's birthday; photographs.
+- filename: fotosammlung_komprimiert_vor_dem_festplattenwechsel
+  expected_outcome: Archives
+  primary_stratum: distractor_rich_resolvable
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: Contains 'Foto' (Images vocabulary) but 'komprimiert' (compressed) dominates
+    -- an archive.
+- filename: full_disk_backup_before_the_migration
+  expected_outcome: Archives
+  primary_stratum: ordinary_realistic
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: A full disk backup; an archive artifact.
+- filename: galleria_di_scatti_per_il_catalogo_prodotti
+  expected_outcome: Images
+  primary_stratum: distractor_rich_resolvable
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Gallery of shots for a product catalog; images.
+- filename: install_this_before_connecting_the_new_printer
+  expected_outcome: Installers
+  primary_stratum: ordinary_realistic
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: Imperative phrasing over a driver -- still uniquely an installer artifact.
+- filename: installationsbestaetigung_fuer_die_versicherung
+  expected_outcome: Documents
+  primary_stratum: distractor_rich_resolvable
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: Contains installation vocabulary but is an insurance confirmation letter
+    -- a document.
+- filename: installer_booth_photos_from_the_trade_fair
+  expected_outcome: Images
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'installer' vocabulary but is booth photos from a trade fair
+    -- images.
+- filename: installer_hook_script_for_the_build_pipeline
+  expected_outcome: Code
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'installer' vocabulary but is a build-pipeline hook script --
+    code.
+- filename: kochbuch_mit_familienfotos
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: German 'cookbook with family photos'; mixes Documents and Images.
+- filename: komprimiertes_projektverzeichnis_vom_alten_rechner
+  expected_outcome: Archives
+  primary_stratum: ordinary_realistic
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: German for 'compressed project directory from the old computer'; an archive.
+- filename: leftover_items_from_the_team_offsite
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Leftover items with no type evidence.
+- filename: lettre_de_relance_assurance_habitation
+  expected_outcome: Documents
+  primary_stratum: ordinary_realistic
+  language: fr
+  secondary_tags: []
+  instruction_like: false
+  rationale: Home-insurance reminder letter; a document.
+- filename: lo_que_hay_que_ejecutar_antes_de_usar_el_escaner
+  expected_outcome: Installers
+  primary_stratum: contextual_relational
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Spanish for 'what must be run before using the scanner'; an installer.
+- filename: maybe_important_maybe_not_from_the_old_drive
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Explicit hedging language over an unspecified item; no type evidence.
+- filename: migration_toolkit_package_from_the_old_team
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: '''package'' does not establish Archive vs. Installer vs. Code role.'
+- filename: minutes_from_the_meeting_where_we_picked_the_vendor
+  expected_outcome: Documents
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Requires understanding meeting minutes relate to a vendor decision, not
+    just a keyword.
+- filename: misc_from_the_shared_drive_cleanup
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: '''misc'' signals genuinely unclassified content; not enough evidence.'
+- filename: niejasne_pochodzenie_tych_plikow_z_dysku
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: pl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Polish 'unclear origin of these files from the disk'; explicit uncertainty
+    language.
+- filename: notas_sobre_por_que_el_pipeline_dejo_de_compilar
+  expected_outcome: Code
+  primary_stratum: contextual_relational
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Notes on why a pipeline stopped compiling; a code-development artifact.
+- filename: notatki_z_przegladu_kodu_backendu
+  expected_outcome: Code
+  primary_stratum: ordinary_realistic
+  language: pl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Polish notes from a backend code review; a code-development artifact.
+- filename: notes_comparant_les_deux_devis_d_assurance
+  expected_outcome: Documents
+  primary_stratum: contextual_relational
+  language: fr
+  secondary_tags: []
+  instruction_like: false
+  rationale: Notes comparing two insurance quotes; a written comparison document.
+- filename: o_que_as_cameras_de_seguranca_registaram_ontem
+  expected_outcome: Images
+  primary_stratum: contextual_relational
+  language: pt
+  secondary_tags: []
+  instruction_like: false
+  rationale: What security cameras recorded yesterday; a set of images/stills.
+- filename: o_que_o_suporte_tecnico_enviou_para_a_impressora
+  expected_outcome: Installers
+  primary_stratum: contextual_relational
+  language: pt
+  secondary_tags: []
+  instruction_like: false
+  rationale: What tech support sent for the printer; an installer.
+- filename: old_installer_collection_zipped_from_last_years_setup_drive
+  expected_outcome: Archives
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'installer' vocabulary but is a zipped collection -- an archive.
+- filename: old_source_tree_bundled_for_cold_storage
+  expected_outcome: Archives
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'source' (Code vocabulary) but is a bundle for cold storage
+    -- an archive.
+- filename: onboarding_package_for_new_hires
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Plausibly Documents (a guide) or an Archives/Installers bundle -- dual
+    role.
+- filename: open_the_package_before_you_run_anything_inside
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: Unclear whether the file itself is the container or a description of
+    one.
+- filename: pacchetto_eseguibile_per_il_driver_della_stampante
+  expected_outcome: Installers
+  primary_stratum: distractor_rich_resolvable
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'pacchetto' (container vocabulary) but is a driver executable
+    -- an installer.
+- filename: package_or_just_a_reference_bundle_unclear
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Explicit uncertainty about the container's own role.
+- filename: package_this_up_and_send_it_to_support
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: Plausibly an archive to zip or a software installer package -- dual role,
+    not announced.
+- filename: pacote_comprimido_de_documentos_do_arquivo_morto
+  expected_outcome: Archives
+  primary_stratum: distractor_rich_resolvable
+  language: pt
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains document vocabulary but is a compressed package of a dead-file
+    store -- an archive.
+- filename: paket_vom_alten_projektserver
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: German 'package from the old project server'; container role unresolved.
+- filename: paquete_de_funciones_utilitarias_para_el_backend
+  expected_outcome: Code
+  primary_stratum: distractor_rich_resolvable
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'paquete' (package/container vocabulary) but is utility functions
+    -- code.
+- filename: paquete_de_instalacion_del_software_contable
+  expected_outcome: Installers
+  primary_stratum: ordinary_realistic
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Installation package for accounting software; an installer.
+- filename: paquete_recibido_del_proveedor_de_hardware
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Spanish 'package received from the hardware vendor'; container role unresolved.
+- filename: photo_essay_with_captions_and_credits
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Explicitly mixes Images (photo essay) and Documents (captions/credits).
+- filename: photos_du_mariage_de_ma_cousine
+  expected_outcome: Images
+  primary_stratum: ordinary_realistic
+  language: fr
+  secondary_tags: []
+  instruction_like: false
+  rationale: Photos from a cousin's wedding; photographs.
+- filename: plik_instalacyjny_sterownika_karty_graficznej
+  expected_outcome: Installers
+  primary_stratum: ordinary_realistic
+  language: pl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Installation file of a graphics-card driver; an installer.
+- filename: printout_of_the_zipped_folder_contents_list
+  expected_outcome: Documents
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'zipped' (Archives vocabulary) but is a printed contents list
+    -- a document.
+- filename: product_launch_teaser_assets
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Plausibly Images (visual assets) or Archives (bundled asset pack) --
+    dual role.
+- filename: programme_d_installation_du_scanner
+  expected_outcome: Installers
+  primary_stratum: ordinary_realistic
+  language: fr
+  secondary_tags: []
+  instruction_like: false
+  rationale: Installation program for a scanner; an installer.
+- filename: raccolta_di_script_e_note_di_progetto
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Italian 'collection of scripts and project notes'; mixes Code and Documents.
+- filename: raccolta_zippata_di_vecchi_progetti_di_codice
+  expected_outcome: Archives
+  primary_stratum: distractor_rich_resolvable
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'codice' (Code vocabulary) but 'zippata' (zipped) dominates
+    -- an archive.
+- filename: read_this_before_you_do_anything_with_the_files
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: No type cue of any kind; metadata alone cannot select a category.
+- filename: recueil_de_recettes_et_photos_de_famille
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: fr
+  secondary_tags: []
+  instruction_like: false
+  rationale: French 'collection of recipes and family photos'; mixes Documents and
+    Images.
+- filename: refactor_notes_for_the_payments_module
+  expected_outcome: Code
+  primary_stratum: ordinary_realistic
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Developer notes about refactoring a module; software-development artifact.
+- filename: release_package_for_the_client_review
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: '''package'' does not establish Archive vs. Installer vs. bundled Documents.'
+- filename: reply_to_the_landlords_notice_about_the_deposit
+  expected_outcome: Documents
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: A reply letter; category follows from the correspondence relationship,
+    not a label word.
+- filename: resposta_apos_a_reuniao_com_o_fornecedor
+  expected_outcome: Documents
+  primary_stratum: contextual_relational
+  language: pt
+  secondary_tags: []
+  instruction_like: false
+  rationale: Reply following a supplier meeting; a correspondence document.
+- filename: restjes_van_de_verhuizing_naar_het_nieuwe_kantoor
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: nl
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: Dutch 'leftovers from the move to the new office'; no type evidence.
+- filename: restos_de_la_mudanza_del_ano_pasado
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Spanish 'leftovers from last year's move'; no type evidence.
+- filename: resumen_trimestral_de_impuestos_Q2
+  expected_outcome: Documents
+  primary_stratum: ordinary_realistic
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Quarterly tax summary; a financial document.
+- filename: risposta_alle_osservazioni_del_revisore
+  expected_outcome: Documents
+  primary_stratum: contextual_relational
+  language: it
+  secondary_tags: []
+  instruction_like: false
+  rationale: Reply to an auditor's observations; a correspondence document.
+- filename: run_this_after_you_read_the_instructions
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: Plausibly a runnable script (Code) or a runnable installer -- dual role,
+    not announced.
+- filename: run_this_migration_before_deploying_to_prod
+  expected_outcome: Code
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: Imperative phrasing over a migration -- still uniquely a code artifact.
+- filename: sachen_vom_dachboden_sortiert
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: German 'things from the attic, sorted'; no artifact-type evidence.
+- filename: sauvegarde_compressee_des_anciens_projets
+  expected_outcome: Archives
+  primary_stratum: ordinary_realistic
+  language: fr
+  secondary_tags: []
+  instruction_like: false
+  rationale: Compressed backup of old projects; an archive.
+- filename: screenshot_transcript_of_the_court_hearing
+  expected_outcome: Documents
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'screenshot' (Images vocabulary) but is a hearing transcript
+    -- a document.
+- filename: script_de_migration_base_de_donnees
+  expected_outcome: Code
+  primary_stratum: ordinary_realistic
+  language: fr
+  secondary_tags: []
+  instruction_like: false
+  rationale: French for 'database migration script'; a script, i.e. code.
+- filename: sign_and_return_the_lease_by_friday
+  expected_outcome: Documents
+  primary_stratum: ordinary_realistic
+  language: en
+  secondary_tags: []
+  instruction_like: true
+  rationale: Imperative phrasing over a lease -- still uniquely a signable document.
+- filename: skomprymowany_folder_z_poprzedniego_laptopa
+  expected_outcome: Archives
+  primary_stratum: ordinary_realistic
+  language: pl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Compressed folder from the previous laptop; an archive.
+- filename: skript_zur_automatischen_datensicherung
+  expected_outcome: Code
+  primary_stratum: ordinary_realistic
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: German for 'script for automatic data backup'; a script, i.e. code.
+- filename: skrypt_instalacyjny_sterownika_wideo
+  expected_outcome: Installers
+  primary_stratum: distractor_rich_resolvable
+  language: pl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'skrypt' (Code vocabulary) but is a driver installation script
+    -- an installer.
+- filename: spec_and_reference_implementation_for_the_api
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Explicitly mixes Documents (spec) and Code (implementation) content.
+- filename: stuff_grandpa_left_on_the_old_computer
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: '''stuff'' plus no type evidence; category cannot be safely inferred.'
+- filename: the_pictures_that_convinced_the_insurance_adjuster
+  expected_outcome: Images
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Requires understanding pictures used as evidence; still photographs.
+- filename: the_thing_you_run_before_the_scanner_will_work
+  expected_outcome: Installers
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Describes the function of an installer without naming it directly.
+- filename: todo_lo_que_recuperamos_del_disco_danado
+  expected_outcome: Archives
+  primary_stratum: contextual_relational
+  language: es
+  secondary_tags: []
+  instruction_like: false
+  rationale: Everything recovered from a damaged disk; an archive bundle.
+- filename: toolchain_bundle_from_the_build_server
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: '''bundle'' does not establish whether this is an Archive or an Installers
+    package.'
+- filename: unclear_if_this_is_the_full_package_or_just_part
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Explicit uncertainty about whether this is the whole container or a part
+    of it.
+- filename: unklar_ob_paket_oder_einzeldatei
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: de
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: German 'unclear whether package or single file'; explicit container-role
+    uncertainty.
+- filename: unsure_what_this_folder_actually_contains
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Explicit uncertainty language over unspecified contents.
+- filename: utility_bundle_left_by_the_previous_admin
+  expected_outcome: _ToReview
+  primary_stratum: container_artifact_role_ambiguity
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: '''bundle'' does not establish Archive vs. Installer role.'
+- filename: vacation_snapshots_from_the_lake_house
+  expected_outcome: Images
+  primary_stratum: ordinary_realistic
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Everyday vacation snapshots; photographs.
+- filename: verslag_van_de_vergadering_met_de_notaris
+  expected_outcome: Documents
+  primary_stratum: ordinary_realistic
+  language: nl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Report of a meeting with a notary; a written document.
+- filename: verzameling_van_drivers_en_installatienotities
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: nl
+  secondary_tags:
+  - morphology
+  instruction_like: false
+  rationale: Dutch 'collection of drivers and installation notes'; mixes Installers
+    and Documents.
+- filename: wat_er_overbleef_na_de_storm_in_de_tuin
+  expected_outcome: Images
+  primary_stratum: contextual_relational
+  language: nl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Dutch for 'what remained after the storm in the garden', framed as a
+    photo record.
+- filename: webcam_driver_setup_executable_from_the_photo_studio_vendor
+  expected_outcome: Installers
+  primary_stratum: distractor_rich_resolvable
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Contains 'photo' (Images vocabulary) but is a driver-setup executable
+    -- an installer.
+- filename: what_the_drone_captured_over_the_construction_site
+  expected_outcome: Images
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Requires inferring 'captured by a drone' means photographs, not a label
+    word.
+- filename: what_the_it_department_sent_for_the_new_printer
+  expected_outcome: Installers
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Requires inferring IT sent the needed driver/setup; an installer.
+- filename: what_was_left_after_the_office_move
+  expected_outcome: _ToReview
+  primary_stratum: insufficient_metadata
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Leftover items with no type evidence.
+- filename: what_we_pulled_off_the_old_laptop_before_wiping_it
+  expected_outcome: Archives
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: A pre-wipe salvage bundle; an archive.
+- filename: why_the_build_started_failing_after_the_rebase
+  expected_outcome: Code
+  primary_stratum: contextual_relational
+  language: en
+  secondary_tags: []
+  instruction_like: false
+  rationale: Requires understanding a build/rebase relationship, not a keyword match.
+- filename: zdjecia_z_wycieczki_w_gory
+  expected_outcome: Images
+  primary_stratum: ordinary_realistic
+  language: pl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Photos from a mountain trip; photographs.
+- filename: zestaw_sterownikow_i_dokumentacji_urzadzenia
+  expected_outcome: _ToReview
+  primary_stratum: latent_dual_role
+  language: pl
+  secondary_tags: []
+  instruction_like: false
+  rationale: Polish 'set of drivers and device documentation'; mixes Installers and
+    Documents.

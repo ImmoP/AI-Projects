@@ -1,0 +1,19 @@
+# Shared baseline for the repo-wide pre-commit ruff hook (see
+# .pre-commit-config.yaml). Ruff walks up from each linted file to the
+# nearest config; individual projects with their own pyproject.toml
+# [tool.ruff] section (none currently do) would override this.
+#
+# line-length: ruff's own default (88, Black-style) doesn't match this
+# codebase's actual convention -- 99% of lines across
+# projects/tidy-agent/**/*.py are under 100 chars, but the default
+# would flag ~900 pre-existing lines. 100 cuts that to ~230 without
+# papering over genuinely excessive lines (the max observed is 397 chars).
+# Existing long lines are not being reformatted in this pass -- see the
+# "introduce pre-commit" commit message.
+line-length = 100
+
+# Notebooks are checked separately (nbstripout hook + the CI notebook
+# hygiene job); Jupyter magics (`!pip install`, `%%time`, ...) are valid in
+# a notebook cell but not standalone Python, so linting them here as plain
+# Python produces noise, not real findings.
+exclude = ["*.ipynb"]

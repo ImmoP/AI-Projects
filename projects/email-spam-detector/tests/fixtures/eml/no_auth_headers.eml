@@ -1,0 +1,10 @@
+From: Old Mailing List <list@example.com>
+To: reader@example.org
+Subject: Archived thread digest
+Date: Mon, 5 Jan 2026 09:45:00 +0000
+Message-ID: <archive-0010@example.com>
+X-Test-Purpose: No auth headers at all -- no Authentication-Results, no ARC-Authentication-Results, no Received-SPF, no DKIM-Signature, no Return-Path.
+Content-Type: text/plain; charset=utf-8
+
+This is a fully invented test fixture simulating a message relayed by a
+mail system that never attached any authentication headers.

@@ -1,0 +1,79 @@
+{
+  "experiment_id": "structured-e-holdout-20260811-fc9d5fe9654d",
+  "complete": true,
+  "run_status": "ok",
+  "headline": {
+    "total_files": 41,
+    "correct": 27,
+    "incorrect_automatic": 10,
+    "review": 4,
+    "strict_category_accuracy": 0.6585365853658537,
+    "incorrect_decision_rate": 0.24390243902439024,
+    "review_rate": 0.0975609756097561,
+    "decision_rate": 0.8095238095238095,
+    "accuracy_on_decided": 0.4117647058823529,
+    "classification_latency_seconds": 9.773572341997351,
+    "total_run_latency_seconds": 21.599821730000258,
+    "total_tokens": 1290,
+    "class_input_tokens": 940,
+    "class_completion_tokens": 350,
+    "classification_requests": 2
+  },
+  "mechanism_coverage": {
+    "total_files": 41,
+    "deterministic_rule_resolved": 20,
+    "reached_model_classification": 21,
+    "ended_in_review": 4,
+    "decided_by_model": 17,
+    "correct_automatic": 7,
+    "incorrect_automatic": 10
+  },
+  "structured_output_reliability": {
+    "classification_requests": 2,
+    "native_schema_responses": 0,
+    "json_object_responses": 2,
+    "plain_json_responses": 0,
+    "parse_failures": 0,
+    "schema_validation_failures": 0,
+    "provider_errors": 0,
+    "incomplete_responses": 0,
+    "duplicate_source_responses": 0,
+    "invented_source_responses": 0,
+    "invented_category_responses": 0,
+    "fallback_to_review_count": 0
+  },
+  "confidence_intervals": {
+    "strict_category_accuracy_wilson_95ci": [
+      0.5054983651622621,
+      0.7844119174505298
+    ],
+    "accuracy_on_decided_wilson_95ci": [
+      0.2161105678675709,
+      0.6399455736170317
+    ],
+    "note": "41 files; treat any single-holdout point estimate as imprecise, not as a significance test"
+  },
+  "development_vs_holdout": {
+    "strict_category_accuracy": -0.29935815147625155,
+    "incorrect_decision_rate": 0.20179717586649548,
+    "review_rate": -0.036649550706033374,
+    "decision_rate": 0.13855606758832573,
+    "accuracy_on_decided": -0.4339495798319327
+  },
+  "security": {
+    "zero_content_peeks": true,
+    "zero_file_content_reads": true,
+    "zero_parser_invocations": true,
+    "checked_fields": {
+      "peek_calls": 0,
+      "peek_readable": 0,
+      "peek_nonempty": 0,
+      "peek_bytes_read": 0,
+      "peek_chars_returned": 0,
+      "peek_requests_authorized": 0,
+      "content_unavailable": 0
+    },
+    "read_contents_flag": false,
+    "metadata_control_flag": true
+  }
+}

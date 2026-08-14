@@ -1,0 +1,163 @@
+cases:
+  - id: de_frankfurt_italian
+    prompt: "Finde mir die fünf besten italienischen Restaurants in Frankfurt am Main."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Frankfurt am Main"
+      cuisine: "italienisch"
+
+  - id: en_berlin_japanese
+    prompt: "Find highly rated Japanese restaurants in Berlin."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Berlin"
+      cuisine: "Japanese"
+
+  - id: de_munich_vietnamese_thresholds
+    prompt: "Suche vietnamesische Restaurants in München mit mindestens 4,3 Sternen und 80 Bewertungen."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "München"
+      cuisine: "vietnamesisch"
+      min_rating: 4.3
+      min_reviews: 80
+
+  - id: en_hamburg_vegan
+    prompt: "Show me vegan restaurants in Hamburg with at least 200 reviews."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Hamburg"
+      cuisine: "vegan"
+      min_reviews: 200
+
+  - id: de_cologne_greek
+    prompt: "Welche griechischen Restaurants in Köln sind besonders gut bewertet?"
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Köln"
+      cuisine: "griechisch"
+
+  - id: en_vienna_austrian
+    prompt: "Recommend Austrian restaurants in Vienna."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Vienna"
+      cuisine: "Austrian"
+
+  - id: de_zurich_korean
+    prompt: "Ich suche koreanische Restaurants in Zürich."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Zürich"
+      cuisine: "koreanisch"
+
+  - id: en_london_indian
+    prompt: "What are the best Indian restaurants in London with 500 or more reviews?"
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "London"
+      cuisine: "Indian"
+      min_reviews: 500
+
+  - id: de_paris_french
+    prompt: "Finde französische Restaurants in Paris ab 4,5 Sternen."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Paris"
+      cuisine: "französisch"
+      min_rating: 4.5
+
+  - id: en_madrid_spanish
+    prompt: "Find Spanish restaurants in Madrid rated at least 4.2."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Madrid"
+      cuisine: "Spanish"
+      min_rating: 4.2
+
+  - id: de_rome_italian
+    prompt: "Empfiehl mir italienische Restaurants in Rom mit mindestens 150 Rezensionen."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Rom"
+      cuisine: "italienisch"
+      min_reviews: 150
+
+  - id: en_amsterdam_indonesian
+    prompt: "Where can I find good Indonesian food in Amsterdam?"
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Amsterdam"
+      cuisine: "Indonesian"
+
+  - id: de_copenhagen_nordic
+    prompt: "Zeige mir nordische Restaurants in Kopenhagen."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Kopenhagen"
+      cuisine: "nordisch"
+
+  - id: en_lisbon_portuguese
+    prompt: "Recommend Portuguese restaurants in Lisbon with at least 100 reviews."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Lisbon"
+      cuisine: "Portuguese"
+      min_reviews: 100
+
+  - id: de_warsaw_polish
+    prompt: "Welche polnischen Restaurants in Warschau haben mindestens 4,4 Sterne?"
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Warschau"
+      cuisine: "polnisch"
+      min_rating: 4.4
+
+  - id: en_atlantis_unknown_city
+    prompt: "Find sushi restaurants in Atlantis."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Atlantis"
+      cuisine: "sushi"
+
+  - id: de_no_results_expected
+    prompt: "Finde eritreische Restaurants in Vatikanstadt. Es ist okay, wenn es keine Treffer gibt."
+    tool_needed: true
+    expected_tool: search_restaurants
+    expected_arguments:
+      city: "Vatikanstadt"
+      cuisine: "eritreisch"
+
+  - id: de_ambiguous_request
+    prompt: "Wo soll ich heute essen gehen?"
+    tool_needed: false
+    expected_tool: null
+    expected_arguments: {}
+
+  - id: en_missing_cuisine
+    prompt: "Find me a restaurant in Dublin."
+    tool_needed: false
+    expected_tool: null
+    expected_arguments: {}
+
+  - id: en_not_a_search
+    prompt: "What usually makes a restaurant rating trustworthy?"
+    tool_needed: false
+    expected_tool: null
+    expected_arguments: {}

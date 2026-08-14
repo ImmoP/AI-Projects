@@ -1,0 +1,18 @@
+{
+  "consumed": true,
+  "first_measured_request_timestamp": "2026-08-12T22:37:44Z",
+  "run_complete": false,
+  "selected_candidate": "E4-current",
+  "code_hashes": {
+    "src/tidy/classification.py": "10b2080e3e379265d4aec6a896d0ee2938e94bbb47de02d4c9bceb8007a0b8c5",
+    "evals/post_holdout_candidates.py": "448de95eb5e54421f58a2dbf7f5a4c6be0abc3903187425c37d60d23d2906d5b",
+    "evals/run_holdout_v3_e4.py": "c041924ea1cc1bc27461f36b7506be313d293c32c324b82c705227787a4ea1c5"
+  },
+  "fixture_dataset_sha256": "bf581bc67a3fd520a6f26f9d4120735a0bc402d3d45fe3b2722518c3bb331827",
+  "fixture_ground_truth_sha256": "152691eb8e62e0ffb63b4507118234baa4413d8c5c4374d1b2669788b69e1919",
+  "model_id": "ollama_chat/qwen3.5:4b",
+  "model_digest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+  "measured_model_calls_confirmed": 0,
+  "failure": "The invoking process was interrupted between the frozen runner writing its consumption marker (synchronously, immediately before issuing the first measured request) and completion of evals.post_holdout_candidates.run_e4. The Ollama server log (~/.ollama/logs/server.log) shows no /api/chat or /api/generate request in this time window -- only sub-5ms /api/show metadata probes -- so the actual classification request most likely never reached the model. No per-file results, scoring, or diagnostics were produced by the interrupted process; this manifest and report.md were authored by hand afterward, from the frozen runner's own manifest schema and from directly re-running only its read-only verification functions (verify_code_pins, verify_fixture_hash) against the untouched fixture -- no scoring logic, candidate code, fixture, or runner was modified, and no new measured request was issued.",
+  "note": "Holdout v3 is nonetheless permanently consumed per the frozen consumption-marking design: the marker is written before the request is issued specifically so an ambiguous crash in this window is always treated as consumed. This run must not be restarted or retried."
+}

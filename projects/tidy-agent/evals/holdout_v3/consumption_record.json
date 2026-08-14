@@ -1,0 +1,12 @@
+{
+  "consumed": true,
+  "first_measured_request_timestamp": "2026-08-12T22:37:44Z",
+  "result_dir": "holdout-v3-e4-current-20260813-3bf30aaf2665",
+  "selected_candidate": "E4-current",
+  "model_digest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+  "recorded_commit": "b464656fb723499b54737a4deb947e0b3bac87eb",
+  "recorded_date": "2026-08-13",
+  "designation": "INTERRUPTED, NO USABLE EVIDENCE -- Decision D: INCONCLUSIVE",
+  "summary": "The invoking process was interrupted before any measured model request landed. The consumption marker is written synchronously before the first request, by frozen design, specifically so this exact kind of ambiguous crash is conservatively treated as consumption. Holdout v3 is therefore permanently consumed even though no usable per-file evidence exists; no PASS/CONDITIONAL/FAIL determination about E4-current can be drawn from this event. Full account: evals/results/holdout-v3-e4-current-20260813-3bf30aaf2665/report.md.",
+  "note": "This file is the permanent, committed record that Holdout v3 has been consumed. It is not itself read as a consumption gate by any code -- see evals/holdout_v3/CONSUMED.json, the local, gitignored runtime marker actually checked before a run is permitted."
+}

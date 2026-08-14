@@ -1,0 +1,45 @@
+# Repo-wide line-ending policy: normalize text to LF on checkin, check out
+# as LF everywhere (including Windows, regardless of a machine's local
+# core.autocrlf). This is what actually fixes cross-machine reproducibility
+# for tidy-agent's frozen eval fixtures (see below) instead of only papering
+# over it for their specific paths.
+* text=auto eol=lf
+*.ipynb text eol=lf
+
+# Explicit binary markers: never let `text=auto`'s content heuristic or a
+# renormalize touch these, regardless of what any individual file's bytes
+# look like. This matters most for tidy-agent's synthetic eval fixtures,
+# where a file with e.g. a .jpg/.zip extension is often a tiny, NUL-free
+# text stub standing in for that format (used to test extension-based
+# classification) rather than real binary content -- content-based
+# auto-detection alone would not protect those.
+*.png binary
+*.pt binary
+*.safetensors binary
+*.eml binary
+*.7z binary
+*.tar.gz binary
+*.zip binary
+
+# tidy-agent's frozen eval fixtures: their SHA-256 is verified byte-for-byte
+# against committed fixture_manifest.json files (see
+# projects/tidy-agent/evals/freeze_datasets.py and
+# _verify_dataset_manifest() in
+# projects/tidy-agent/evals/run_structured_abcd.py). Without a pinned
+# eol, a Windows checkout with core.autocrlf=true (the GitHub Actions
+# windows-latest default) silently rewrites LF to CRLF in these files, which
+# breaks that hash check even though nothing "changed". The blanket
+# `* text=auto eol=lf` above already covers this; these lines are kept as
+# explicit, self-documenting pins for the paths that are actually
+# hash-verified, so their normalization doesn't depend on staying in sync
+# with unrelated repo-wide policy changes above.
+projects/tidy-agent/evals/**/fixture/** text eol=lf
+projects/tidy-agent/evals/**/expected.yaml text eol=lf
+projects/tidy-agent/evals/holdout_v4/ground_truth.json text eol=lf
+
+# Exceptions: frozen fixtures whose blob deliberately contains raw binary
+# content (including embedded CR/LF bytes as part of that content, not as
+# line endings). Keep them binary so normalization never rewrites their
+# frozen bytes.
+projects/tidy-agent/evals/fixture/geraetedump -text
+projects/tidy-agent/evals/holdout/fixture/camera_blob -text

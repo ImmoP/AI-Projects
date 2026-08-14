@@ -1,0 +1,13 @@
+{
+  "consumed": true,
+  "run_id": "39423af",
+  "pipeline": "E3+E4-current(holdout-v4)",
+  "fixture_hash": "315b581aeaba820d205cd1eec5c9f279dbca5666d128a8e9d63e0d9fde04f805",
+  "result_dir": "holdout-v4-e4-20260813-39423af",
+  "consumption_timestamp": "2026-08-13T13:46:06Z",
+  "recorded_commit": "39b8e565851b34d515bc555a7e125cc14a291f45",
+  "recorded_date": "2026-08-13",
+  "designation": "PARTIAL_INCONCLUSIVE",
+  "summary": "Both provider requests completed with zero provider errors and zero JSON parse failures, and both the E3 gate and E4-current veto ran to completion, but one response failed structured-output schema validation (incomplete, named a source file that wasn't part of the request). The protocol's precommitted validity rule treats any schema-contract failure on a required response as invalidating the whole evaluation, so evaluation_valid=false and no final Holdout accuracy or generalization estimate is reported. Full account: evals/results/holdout-v4-e4-20260813-39423af/evaluation_status.json and docs/evaluation.md.",
+  "note": "This file is the permanent, committed record that Holdout v4 has been consumed. It is not itself read as a consumption gate by any code -- see evals/holdout_v4/CONSUMED.json, the local, gitignored runtime marker actually checked before a run is permitted."
+}

@@ -1,0 +1,15 @@
+{
+  "run_id": "smoke2",
+  "pipeline": "E3+E4-current(synthetic-smoke)",
+  "model_identity_expected": {
+    "model_id": "ollama_chat/qwen3.5:4b",
+    "digest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+    "quantization": "Q4_K_M",
+    "temperature": 0,
+    "thinking_enabled": false,
+    "num_ctx": 8192
+  },
+  "fixture_hash": "d35ba9af3c66df90f207f45b19a975a462609afc2081a04c01357e936ef416f9",
+  "start_timestamp": "2026-08-13T09:38:36Z",
+  "lifecycle_state": "prepared"
+}

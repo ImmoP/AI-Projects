@@ -1,0 +1,70 @@
+# Packaged fallback for wheel installations. The repository-level
+# config/rules.yaml takes precedence in source and editable installations.
+review_directory: _ToReview
+
+exclude_patterns:
+  - "~$*"
+  - ".*"
+  - "*.tmp"
+  - "*.crdownload"
+  - "*.part"
+
+categories:
+  Images:
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
+    - .webp
+    - .heic
+    - .svg
+    - .tiff
+  Documents:
+    - .pdf
+    - .doc
+    - .docx
+    - .odt
+    - .txt
+    - .rtf
+    - .xls
+    - .xlsx
+    - .csv
+    - .ppt
+    - .pptx
+  Archives:
+    - .zip
+    - .tar
+    - .tar.gz
+    - .tgz
+    - .gz
+    - .7z
+    - .rar
+  Code:
+    - .py
+    - .js
+    - .ts
+    - .tsx
+    - .jsx
+    - .java
+    - .c
+    - .cpp
+    - .h
+    - .hpp
+    - .rs
+    - .go
+    - .rb
+    - .sh
+    - .ipynb
+    - .json
+    - .yaml
+    - .yml
+    - .toml
+  Installers:
+    - .dmg
+    - .pkg
+    - .exe
+    - .msi
+    - .deb
+    - .rpm
+    - .appimage
+

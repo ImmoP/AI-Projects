@@ -1,0 +1,57 @@
+repos:
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.9.1
+    hooks:
+      - id: nbstripout
+        # Intentionally invalid/garbage .ipynb fixtures used to test
+        # tidy-agent's file classification (empty files, or JSON missing
+        # required notebook fields) -- excluded by path, not by swallowing
+        # parse errors. See .github/workflows/ci.yml's notebook hygiene
+        # check for the matching exclusion.
+        exclude: >-
+          ^projects/tidy-agent/evals/(fixture|holdout/fixture)/.*\.ipynb$
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.22
+    hooks:
+      - id: ruff
+        # Kept to E (pycodestyle errors), F (pyflakes), I (import sorting)
+        # for now -- deliberately conservative so this doesn't also produce
+        # hundreds of lines of reformatting across the repo in the same
+        # pass. Widen the ruleset in its own, separate commit.
+        args: [--select, "E,F,I", --fix]
+      - id: ruff-format
+        # Configured for new/future commits, but deliberately NOT applied
+        # repo-wide in the same pass as introducing this config: a first
+        # `pre-commit run --all-files` reformatted 136 files. Repo-wide
+        # formatting is its own, separate, reviewable commit.
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+        # tidy-agent's fixture corpus depends on exact frozen byte content
+        # (manifests pin sha256 per file), and evals/results/ holds frozen
+        # historical Development/Holdout reports -- exclude both rather
+        # than let a routine hygiene fixer touch either.
+        exclude: ^projects/tidy-agent/evals/(.*/fixture/|results/)
+      - id: trailing-whitespace
+        exclude: ^projects/tidy-agent/evals/(.*/fixture/|results/)
+      - id: check-merge-conflict
+
+  - repo: local
+    hooks:
+      - id: check-illegal-windows-names
+        name: check for filenames illegal on Windows
+        description: >-
+          Custom, not upstream: pre-commit-hooks' check-illegal-windows-names
+          id is documented but reported missing or incomplete across several
+          releases (pre-commit/pre-commit-hooks issues #1046, #1091, #1189).
+          scripts/check_illegal_windows_names.py checks the full reserved
+          character set (including ':', the NTFS Alternate Data Stream
+          separator that broke this repo's Windows checkout once already),
+          reserved device names, and trailing dot/space -- not just device
+          names.
+        entry: python scripts/check_illegal_windows_names.py
+        language: python
+        pass_filenames: true

@@ -1,0 +1,76 @@
+{
+  "final_protocol_version": 1,
+  "total_cases": 150,
+  "real_category_cases": 90,
+  "review_cases": 60,
+  "real_category_distribution": {
+    "Documents": 18,
+    "Code": 18,
+    "Images": 18,
+    "Archives": 18,
+    "Installers": 18
+  },
+  "real_strata_distribution": {
+    "ordinary_realistic": 30,
+    "relational_semantics": 30,
+    "distractor_resolvable": 30
+  },
+  "real_strata_per_category": {
+    "ordinary_realistic": {"Documents": 6, "Code": 6, "Images": 6, "Archives": 6, "Installers": 6},
+    "relational_semantics": {"Documents": 6, "Code": 6, "Images": 6, "Archives": 6, "Installers": 6},
+    "distractor_resolvable": {"Documents": 6, "Code": 6, "Images": 6, "Archives": 6, "Installers": 6}
+  },
+  "review_strata_distribution": {
+    "insufficient_metadata": 20,
+    "latent_dual_role": 20,
+    "container_role_ambiguity": 20
+  },
+  "review_marker_free_count": 60,
+  "review_marker_free_minimum_required": 50,
+  "language_distribution": {
+    "en": 36,
+    "de": 24,
+    "fr": 21,
+    "es": 21,
+    "pt": 10,
+    "it": 20,
+    "nl": 14,
+    "sv": 4
+  },
+  "language_total": 8,
+  "non_english_case_count": 114,
+  "non_english_minimum_required": 75,
+  "max_single_non_english_language_share": 0.16,
+  "morphology_case_count": 27,
+  "morphology_minimum_required": 25,
+  "instruction_like_total": 12,
+  "instruction_like_real": 5,
+  "instruction_like_review": 7,
+  "short_name_count": 15,
+  "long_name_count": 15,
+  "short_name_definition": "the 15 filenames with the smallest character length in the fixture, ties broken by casefolded alphabetical order",
+  "long_name_definition": "the 15 filenames with the greatest character length in the fixture, ties broken by casefolded alphabetical order",
+  "short_name_contains_real_and_review": true,
+  "long_name_contains_real_and_review": true,
+  "zero_byte": true,
+  "extensionless": true,
+  "nfc_normalized": true,
+  "windows_safe": true,
+  "deterministic_rule_unresolved": true,
+  "casefold_collision_free": true,
+  "nfc_collision_free": true,
+  "dataset_sha256": "315b581aeaba820d205cd1eec5c9f279dbca5666d128a8e9d63e0d9fde04f805",
+  "ground_truth_sha256": "c980a6004933cec4af02f4b6efe0597b73732a4734bdf6106c839d52529a8570",
+  "historical_files_compared": 589,
+  "exact_historical_overlap_count": 0,
+  "high_lexical_similarity_count": 0,
+  "lexical_diagnostic_algorithm": "evals/holdout_v4/blind_audit.py: NFC+casefold normalization, punctuation/separator tokenization; a historical file is counted once if it is near-similar to any Holdout v4 file under token Jaccard >= 0.70, OR difflib.SequenceMatcher ratio >= 0.82, OR (for the shorter filename having >=5 normalized tokens) >=80% shorter-filename token containment in the other",
+  "lexical_thresholds": {
+    "token_jaccard_min": 0.70,
+    "sequence_matcher_min": 0.82,
+    "shorter_token_containment_min": 0.80,
+    "shorter_token_containment_min_token_count": 5
+  },
+  "exact_overlap_gate_passed": true,
+  "lexical_similarity_role": "diagnostic_only"
+}

@@ -1,0 +1,666 @@
+[
+  {
+    "filename": "Kundenportal_Relaunch_Mockup.png",
+    "ground_truth": [
+      "Images"
+    ],
+    "outcomes": {
+      "A": "Images (5/5)",
+      "B": "Kundenportal_Relaunch (5/5)",
+      "C": "Images (5/5)",
+      "D": "Kundenportal_Relaunch (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "Bachelorarbeit_v3.docx",
+    "ground_truth": [
+      "Documents"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Bachelorarbeit (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Bachelorarbeit (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "Bachelorarbeit_v4.docx",
+    "ground_truth": [
+      "Documents"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Bachelorarbeit (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Bachelorarbeit (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "Bachelorarbeit_v5.docx",
+    "ground_truth": [
+      "Documents"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Bachelorarbeit (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Bachelorarbeit (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "Bachelorarbeit_v6.docx",
+    "ground_truth": [
+      "Documents"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Bachelorarbeit (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Bachelorarbeit (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "Kundenportal_Relaunch_Vertrag.pdf",
+    "ground_truth": [
+      "Documents"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Kundenportal_Relaunch (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Kundenportal_Relaunch (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "Kundenportal_Relaunch_Notizen.txt",
+    "ground_truth": [
+      "Documents"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Kundenportal_Relaunch (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Kundenportal_Relaunch (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "Klimastudie_Daten.csv",
+    "ground_truth": [
+      "Documents"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Klimastudie (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Klimastudie (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "Klimastudie_Entwurf.docx",
+    "ground_truth": [
+      "Documents"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Klimastudie (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Klimastudie (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "Klimastudie_Auswertung.ipynb",
+    "ground_truth": [
+      "Code"
+    ],
+    "outcomes": {
+      "A": "Code (5/5)",
+      "B": "Klimastudie (5/5)",
+      "C": "Code (5/5)",
+      "D": "Klimastudie (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "mystery",
+    "ground_truth": [
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "_ToReview (5/5)",
+      "B": "_ToReview (5/5)",
+      "C": "_ToReview (5/5)",
+      "D": "_ToReview (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "repeatedly sent to _ToReview"
+  },
+  {
+    "filename": "ohne_name",
+    "ground_truth": [
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "_ToReview (5/5)",
+      "B": "_ToReview (5/5)",
+      "C": "_ToReview (5/5)",
+      "D": "_ToReview (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "repeatedly sent to _ToReview"
+  },
+  {
+    "filename": "meeting-notes",
+    "ground_truth": [
+      "Documents",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "_ToReview (5/5)",
+      "B": "Documents (5/5)",
+      "C": "_ToReview (5/5)",
+      "D": "Documents (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "content improved outcome; repeatedly sent to _ToReview"
+  },
+  {
+    "filename": "report:final",
+    "ground_truth": [
+      "Documents",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "_ToReview (5/5)",
+      "C": "Documents (5/5)",
+      "D": "_ToReview (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "content harmed outcome; repeatedly sent to _ToReview"
+  },
+  {
+    "filename": "Überweisung_2024",
+    "ground_truth": [
+      "Documents",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "_ToReview (5/5)",
+      "B": "_ToReview (5/5)",
+      "C": "Documents (5/5)",
+      "D": "_ToReview (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "content improved outcome; content harmed outcome; repeatedly sent to _ToReview"
+  },
+  {
+    "filename": "vertrag.old",
+    "ground_truth": [
+      "Documents",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "Archives (5/5)",
+      "B": "Archives (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Archives (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "content improved outcome; content harmed outcome"
+  },
+  {
+    "filename": "final_final_v2",
+    "ground_truth": [
+      "Documents",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "_ToReview (5/5)",
+      "B": "_ToReview (5/5)",
+      "C": "_ToReview (5/5)",
+      "D": "_ToReview (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "repeatedly sent to _ToReview"
+  },
+  {
+    "filename": "messwerte.dat",
+    "ground_truth": [
+      "Documents",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "Code (5/5)",
+      "B": "Code (5/5)",
+      "C": "Code (5/5)",
+      "D": "Documents (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "content improved outcome"
+  },
+  {
+    "filename": "backup.gw",
+    "ground_truth": [
+      "Archives",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Documents (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Documents (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "consistently wrong"
+  },
+  {
+    "filename": "download",
+    "ground_truth": [
+      "_ToReview",
+      "Archives",
+      "Installers"
+    ],
+    "outcomes": {
+      "A": "Code (5/5)",
+      "B": "Code (5/5)",
+      "C": "_ToReview (5/5)",
+      "D": "_ToReview (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "repeatedly sent to _ToReview"
+  },
+  {
+    "filename": "projektstand",
+    "ground_truth": [
+      "Code",
+      "Archives",
+      "Documents",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "_ToReview (5/5)",
+      "B": "Documents (5/5)",
+      "C": "_ToReview (5/5)",
+      "D": "Documents (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "content improved outcome; repeatedly sent to _ToReview"
+  },
+  {
+    "filename": "Kundenportal_Relaunch_Briefing.md",
+    "ground_truth": [
+      "Documents",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Kundenportal_Relaunch (5/5)",
+      "C": "Documents (5/5)",
+      "D": "Kundenportal_Relaunch (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": true
+    },
+    "analysis_label": "changed by grouping"
+  },
+  {
+    "filename": "music_mix.m3u",
+    "ground_truth": [
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "Images (5/5)",
+      "B": "Images (5/5)",
+      "C": "Images (5/5)",
+      "D": "Code (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "consistently wrong"
+  },
+  {
+    "filename": "sitzungsprotokoll_q3",
+    "ground_truth": [
+      "Documents",
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "_ToReview (5/5)",
+      "B": "Documents (5/5)",
+      "C": "_ToReview (5/5)",
+      "D": "Documents (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "content improved outcome; repeatedly sent to _ToReview"
+  },
+  {
+    "filename": "geraetedump",
+    "ground_truth": [
+      "_ToReview"
+    ],
+    "outcomes": {
+      "A": "Documents (5/5)",
+      "B": "Documents (5/5)",
+      "C": "Code (5/5)",
+      "D": "Code (5/5)"
+    },
+    "stability": "stable",
+    "peeked": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "grouped": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "analysis_label": "consistently wrong"
+  }
+]

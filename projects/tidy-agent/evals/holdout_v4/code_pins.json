@@ -1,0 +1,11 @@
+{
+  "final_protocol_version": 1,
+  "pins": {
+    "src/tidy/classification.py": "10b2080e3e379265d4aec6a896d0ee2938e94bbb47de02d4c9bceb8007a0b8c5",
+    "evals/post_holdout_candidates.py": "448de95eb5e54421f58a2dbf7f5a4c6be0abc3903187425c37d60d23d2906d5b",
+    "evals/one_time_eval_runtime.py": "93092839d80979d705adab1ceeaee26c5a1bf18f7e6405192c5edbb8c616c00d",
+    "evals/run_holdout_v4_e4.py": "35dfae07d665277a29d710f72dd57a238cee5a68ba60f37950a3143bbb8d58fe",
+    "evals/final_portfolio_holdout_protocol.md": "2e04b427fce6762e843aa6478e3fe9018352df0ca62613a901f4e7f1a9e519b9",
+    "evals/holdout_v4/blind_audit.py": "9c9853529160357e1395565624aa42b3c713e21bfbd1c308113abe63b19cff4a"
+  }
+}

@@ -1,0 +1,142 @@
+# Ground truth for both metric families.
+#
+# `files` drives the category metrics and lists every acceptable fixed
+# destination category for one file. Several filenames are genuinely ambiguous
+# from the name alone, so `_ToReview` is an accepted answer for them.
+#
+# `groups`/`scatter` drive the clustering metrics and deliberately describe only
+# membership, never a preferred destination folder name.
+
+files:
+  # --- resolved by extension rules -------------------------------------
+  "Screenshot 2026-08-10 at 10.15.22.png": [Images]
+  "IMG_4821.HEIC": [Images]
+  "urlaub_münchen.jpg": [Images]
+  "logo-final.svg": [Images]
+  "scan-receipt.webp": [Images]
+  "Fahrradverkauf.jpg": [Images]
+  "Kundenportal_Relaunch_Mockup.png": [Images]
+  "Rechnung_2025-11.pdf": [Documents]
+  "Scan_2024-03-11.pdf": [Documents, _ToReview]
+  "Scan_2025-01-09.pdf": [Documents, _ToReview]
+  "dokument.pdf": [Documents, _ToReview]
+  "dokument_final_final.pdf": [Documents, _ToReview]
+  "thesis_draft.docx": [Documents]
+  "Budget Q4.xlsx": [Documents]
+  "präsentation-köln.pptx": [Documents]
+  "notes.txt": [Documents]
+  "unbenannt 3.txt": [Documents, _ToReview]
+  "daten.csv": [Documents]
+  "Bachelorarbeit_v3.docx": [Documents]
+  "Bachelorarbeit_v4.docx": [Documents]
+  "Bachelorarbeit_v5.docx": [Documents]
+  "Bachelorarbeit_v6.docx": [Documents]
+  "Kundenportal_Relaunch_Vertrag.pdf": [Documents]
+  "Kundenportal_Relaunch_Notizen.txt": [Documents]
+  "Klimastudie_Daten.csv": [Documents]
+  "Klimastudie_Entwurf.docx": [Documents]
+  "Geburtstagskarte_Lena.pdf": [Documents]
+  "Kochrezept_Risotto.txt": [Documents]
+  "museum_ticket.pdf": [Documents]
+  "project-source.zip": [Archives]
+  "photos_backup.tar.gz": [Archives]
+  "archive_2024.7z": [Archives]
+  "logs.tgz": [Archives]
+  "tidy_agent.py": [Code]
+  "app.tsx": [Code]
+  "config.yaml": [Code]
+  "notebook.ipynb": [Code]
+  "build.sh": [Code]
+  "package.json": [Code]
+  "server_inventory.yaml": [Code]
+  "Klimastudie_Auswertung.ipynb": [Code]
+  "installer.dmg": [Installers]
+  "setup_windows.exe": [Installers]
+  "app-release.AppImage": [Installers]
+  "tool.deb": [Installers]
+
+  # --- unresolved by extension rules; classified by the agent -----------
+  "mystery": [_ToReview]
+  "ohne_name": [_ToReview]
+  "meeting-notes": [Documents, _ToReview]
+  "invoice_march": [Documents]
+  "rechnung_august": [Documents]
+  "report:final": [Documents, _ToReview]
+  "Überweisung_2024": [Documents, _ToReview]
+  "vertrag.old": [Documents, _ToReview]
+  "final_final_v2": [Documents, _ToReview]
+  "messwerte.dat": [Documents, _ToReview]
+  "vacation-photo": [Images, _ToReview]
+  "urlaub_2025": [Images, _ToReview]
+  "foto_export": [Images, _ToReview]
+  "design.sketch": [Images, _ToReview]
+  "source-code-snippet": [Code, _ToReview]
+  "quellcode_alt": [Code, _ToReview]
+  "data.backup": [Archives, _ToReview]
+  "backup.gw": [Archives, _ToReview]
+  "setup_latest": [Installers, _ToReview]
+  "download": [_ToReview, Archives, Installers]
+  "kundenliste.bak": [Documents, Archives, _ToReview]
+  "README": [Documents, Code, _ToReview]
+  "projektstand": [Code, Archives, Documents, _ToReview]
+  "Kritik_Bachelorarbeit_GPT.md": [Documents, _ToReview]
+  "Pruefbericht_Bachelorarbeit_v4.md": [Documents, _ToReview]
+  "Kundenportal_Relaunch_Briefing.md": [Documents, _ToReview]
+  "Review_Klimastudie.md": [Documents, _ToReview]
+  "music_mix.m3u": [_ToReview]
+
+  # --- added 2026-08-11, before the run that follows -------------------
+  # The four-way comparison could not measure content reading at all: the
+  # parsed formats are the ones the extension rules already resolve, so every
+  # readable file was pre-classified and zero bytes ever reached the model.
+  # These three exist so the widened plain-text path has something to be
+  # measured against, and they tighten the yardstick rather than loosen it:
+  # each is one more file that must be placed correctly.
+  #
+  # Both text files are deliberately unreadable from the name alone and
+  # unambiguous from the first line of content, so filename-only classification
+  # should land on _ToReview while content reading should reach the category.
+  # _ToReview stays accepted: abstaining is never punished here, it simply
+  # cannot score as a content win either, because the decision rate and the
+  # accuracy on decided files are reported separately.
+  "steuerbescheid_2024": [Documents, _ToReview]
+  "sitzungsprotokoll_q3": [Documents, _ToReview]
+  # Binary without an extension. The plain-text fallback must refuse it rather
+  # than guess, so _ToReview is the only correct answer and reading must not
+  # change that.
+  "geraetedump": [_ToReview]
+
+groups:
+  bachelorarbeit:
+    - Bachelorarbeit_v3.docx
+    - Bachelorarbeit_v4.docx
+    - Bachelorarbeit_v5.docx
+    - Bachelorarbeit_v6.docx
+    - Kritik_Bachelorarbeit_GPT.md
+    - Pruefbericht_Bachelorarbeit_v4.md
+    # Added 2026-08-10, before the run that followed. This file belongs to the
+    # same work as Bachelorarbeit_v3..v6 and the two review files, but shares no
+    # prefix with them: recognising the cross-lingual lineage
+    # (thesis/Bachelorarbeit) is a capability we want to measure, not a bonus.
+    # Listing it here tightens the yardstick — it is one more file that must be
+    # placed correctly, and the group now counts as cohesive only if this file
+    # lands in the same folder as the other six.
+    - thesis_draft.docx
+  kundenportal_relaunch:
+    - Kundenportal_Relaunch_Briefing.md
+    - Kundenportal_Relaunch_Mockup.png
+    - Kundenportal_Relaunch_Vertrag.pdf
+    - Kundenportal_Relaunch_Notizen.txt
+  klimastudie:
+    - Klimastudie_Daten.csv
+    - Klimastudie_Auswertung.ipynb
+    - Klimastudie_Entwurf.docx
+    - Review_Klimastudie.md
+
+scatter:
+  - Geburtstagskarte_Lena.pdf
+  - Fahrradverkauf.jpg
+  - server_inventory.yaml
+  - Kochrezept_Risotto.txt
+  - museum_ticket.pdf
+  - music_mix.m3u

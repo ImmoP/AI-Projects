@@ -1,0 +1,15 @@
+From: "Account Security - Example Corp" <security-alert@example-corp-verify.example>
+To: reader@example.org
+Subject: Unusual sign-in detected on your account
+Date: Mon, 5 Jan 2026 09:30:00 +0000
+Message-ID: <alert-0007@example-corp-verify.example>
+Return-Path: <bounce@example-corp-verify.example>
+Reply-To: security-alert@example-corp-verify.example
+Authentication-Results: mx.example.org; spf=pass smtp.mailfrom=example-corp-verify.example; dkim=pass header.d=example-corp-verify.example; dmarc=pass header.from=example-corp-verify.example
+DKIM-Signature: v=1; a=rsa-sha256; d=example-corp-verify.example; s=selector1; c=relaxed/relaxed; h=from:to:subject:date; bh=CCCCfakebodyhash0000000000000000000000000=; b=CCCCfakesignaturedata0000000000000000000000000000000000000000000000CCCC==
+X-Test-Purpose: Display-name spoofing -- display name claims "Example Corp" but the actual sending domain (example-corp-verify.example) is an unrelated lookalike domain, not example.com.
+Content-Type: text/plain; charset=utf-8
+
+This is a fully invented test fixture simulating a display-name spoof:
+the visible sender name suggests a trusted organization while the
+underlying address domain is a different, invented lookalike domain.

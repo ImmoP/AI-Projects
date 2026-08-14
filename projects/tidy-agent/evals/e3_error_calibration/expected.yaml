@@ -1,0 +1,145 @@
+files:
+  acuerdo_derechos_publicacion_coleccion_fotografica:
+  - Documents
+  arbeitsplatz_einrichtung_checkliste_aushang:
+  - Documents
+  archive_note_reflexion:
+  - _ToReview
+  archivkonzept_entwurf:
+  - _ToReview
+  archivspende_vereinbarung_unterschrift_aufnahme:
+  - Images
+  arkusz_specyfikacji_wizualny_wykres_porownawczy:
+  - Images
+  arquivo_historico_departamental:
+  - _ToReview
+  batch_photo_resize_tool_sourcecode:
+  - Code
+  charity_gala_photo_retrospective_writeup:
+  - Documents
+  codigo_fonte_pipeline_exportacao_documentos:
+  - Code
+  codigo_revision_bitacora:
+  - _ToReview
+  coleccion_comprimida_contratos_firmados_ejercicio_fiscal:
+  - Archives
+  contenido_empaquetado_referencia:
+  - _ToReview
+  deployment_rollback_procedure_writeup:
+  - Documents
+  driver_compatibility_regression_test_harness:
+  - Code
+  duplicate_finder_utility_user_guide:
+  - Documents
+  einrichtungsassistent_bildschirmfoto_anmerkungswerkzeug:
+  - Installers
+  employee_onboarding_checklist_app_sourcecode:
+  - Code
+  esportazione_compressa_galleria_immagini_catalogo:
+  - Archives
+  familientreffen_diashow_sprechertext:
+  - Documents
+  firmware_flashing_progress_bar_screenshot:
+  - Images
+  folder_deduplication_scanner_implementation:
+  - Code
+  foto_carpeta_copia_seguridad_descomprimida_monitor:
+  - Images
+  fotoproject_conceptnota:
+  - _ToReview
+  gepackte_sammlung_veralteter_druckertreiber_referenz:
+  - Archives
+  image_processing_reflection:
+  - _ToReview
+  instalacja_notatka_wewnetrzna:
+  - _ToReview
+  instalador_paquete_lanzamiento_historial_portapapeles:
+  - Installers
+  instalator_dodatku_automatycznego_generowania_raportow:
+  - Installers
+  installatiebestand_archiefverkenner_companion_app:
+  - Installers
+  installatieflow_integratietest_suite_afrekenmodule:
+  - Code
+  installationsassistent_schrittsequenzer_quellcode:
+  - Code
+  installer_feedback_summary:
+  - _ToReview
+  instantaneo_comprimido_ambiente_implantacao_desativado:
+  - Archives
+  interfaccia_anteprima_pacchetto:
+  - _ToReview
+  internal_build_automation_toolkit_source_package:
+  - Archives
+  leichtgewichtiger_quellcode_verwaltung_client_installer:
+  - Installers
+  media_holdings_overview:
+  - _ToReview
+  nachtsicherung_planungsdienst_quellcode:
+  - Code
+  onboarding_kit_reference:
+  - _ToReview
+  pacote_distribuicao_legado:
+  - _ToReview
+  paquet_deploiement_utilitaire_signature_documents:
+  - Installers
+  photo_tagging_desktop_app_setup_package:
+  - Installers
+  plan_pruebas_certificacion_controlador_cumplimiento:
+  - Documents
+  portrait_groupe_journee_collecte_fondation_annuelle:
+  - Images
+  project_wrapup_package_summary:
+  - _ToReview
+  projektbestand_uebertragung:
+  - _ToReview
+  projektquellen_sammelablage:
+  - _ToReview
+  protokollstil_bildunterschriften_infografik:
+  - Images
+  prototyp_visualisierung_quellmaterial:
+  - _ToReview
+  quarterly_review_slide_deck_export:
+  - _ToReview
+  quellcode_schnappschuesse_vor_refaktorierung_gepackt:
+  - Archives
+  raccolta_risorse_progetto:
+  - _ToReview
+  recuerdos_viaje_respaldo:
+  - _ToReview
+  release_notities_maphelper_toepassing:
+  - Documents
+  release_tagging_automation_script:
+  - Code
+  sicherungsplanung_menueleisten_dienstprogramm_setup:
+  - Installers
+  sicherungsrotation_richtlinie_memo:
+  - Documents
+  system_design_notes_repository:
+  - _ToReview
+  technische_onderdelen_overzicht:
+  - _ToReview
+  ten_year_photo_portfolio_compressed_package:
+  - Archives
+  toepassing_buildresultaat:
+  - _ToReview
+  treibernotiz_intern:
+  - _ToReview
+  utility_unione_raccolte_playlist_sorgente:
+  - Code
+  veraltete_installationsbinaerdateien_tarball:
+  - Archives
+  verkaufsstart_veranstaltungsfotografie_rohmaterial:
+  - Images
+  verpacktes_filmmaterial_export_kaltlagerung:
+  - Archives
+  verteilungspaket_schriftartenverwaltung_dienstprogramm:
+  - Installers
+  werkstroom_documentatie_stilstaand_beeld_export:
+  - Images
+  whiteboard_code_architecture_sketch_snapshot:
+  - Images
+  workbench_printed_installer_manual_photo:
+  - Images
+  περιγραφή_αρχιτεκτονικής_διαδικασίας_δημιουργίας:
+  - Documents

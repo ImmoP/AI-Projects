@@ -1,0 +1,20 @@
+# The endpoint in .env identifies a private host and stays out of the repository.
+.env
+.venv/
+__pycache__/
+build/
+dryrun.py
+*.egg-info/
+
+# OS and editor noise that must never be committed, even if present in the
+# eval fixture directory.
+.DS_Store
+*.tmp
+*.pyc
+*.pyo
+*~
+
+# evals/results/ is deliberately tracked: the reports are measurement data, and
+# the ground-truth hash a report prints is only worth something if there is a
+# commit it can be resolved against. Losing an overwritten report once was
+# enough.

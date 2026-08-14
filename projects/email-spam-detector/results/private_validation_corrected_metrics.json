@@ -1,0 +1,53 @@
+{
+  "evaluation_scope": "private validation set with corrected labels from documented manual adjudications",
+  "important_note": "The initial manual review covered 24 GPT-versus-label disagreements. Additional agreement cases were later reviewed during diagnostic work, but not all later review events were persistently recorded in the adjudication metadata; therefore, the exact total number of manually reviewed examples cannot be reconstructed. The full 2,076-example private validation set was not manually verified. The corrected_label field nevertheless supports seven documented label changes: four ham-to-spam and three spam-to-ham.",
+  "manual_review": {
+    "reviewed_original_disagreements": 24,
+    "label_changes_within_original_disagreements": 6,
+    "ham_to_spam_within_original_disagreements": 3,
+    "spam_to_ham_within_original_disagreements": 3,
+    "additional_recorded_agreement_reviews": 1,
+    "additional_recorded_label_changes": 1,
+    "additional_recorded_ham_to_spam_corrections": 1,
+    "additional_recorded_spam_to_ham_corrections": 0,
+    "minimum_recorded_manually_reviewed_examples": 25,
+    "total_label_changes_in_corrected_labels": 7,
+    "total_ham_to_spam_corrections": 4,
+    "total_spam_to_ham_corrections": 3,
+    "review_provenance_complete": false
+  },
+  "original_metrics": {
+    "examples": 2076,
+    "ham_examples": 2044,
+    "spam_examples": 32,
+    "accuracy": 0.9884393063583815,
+    "spam_precision": 0.6111111111111112,
+    "spam_recall": 0.6875,
+    "spam_f1": 0.6470588235294118,
+    "roc_auc": 0.9526357632093932,
+    "pr_auc": 0.6091003233319346,
+    "confusion_matrix": {
+      "true_negatives": 2030,
+      "false_positives": 14,
+      "false_negatives": 10,
+      "true_positives": 22
+    }
+  },
+  "adjudicated_metrics": {
+    "examples": 2076,
+    "ham_examples": 2043,
+    "spam_examples": 33,
+    "accuracy": 0.9908477842003853,
+    "spam_precision": 0.6944444444444444,
+    "spam_recall": 0.7575757575757576,
+    "spam_f1": 0.7246376811594203,
+    "roc_auc": 0.9823046915557929,
+    "pr_auc": 0.7286476839506643,
+    "confusion_matrix": {
+      "true_negatives": 2032,
+      "false_positives": 11,
+      "false_negatives": 8,
+      "true_positives": 25
+    }
+  }
+}

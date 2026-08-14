@@ -1,0 +1,12 @@
+From: Notifications <notifications@example.com>
+To: reader@example.org
+Subject: New comment on your post
+Date: Mon, 5 Jan 2026 09:10:00 +0000
+Message-ID: <notify-0003@example.com>
+Return-Path: <bounce@example.com>
+Authentication-Results: mx.example.org; dkim=pass header.d=example.com; dmarc=pass header.from=example.com
+X-Test-Purpose: SPF missing -- no Received-SPF header and no spf= clause in Authentication-Results at all.
+Content-Type: text/plain; charset=utf-8
+
+This is a fully invented test fixture for a mail server that never
+evaluated SPF for this message.

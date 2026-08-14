@@ -1,0 +1,15 @@
+{
+  "run_id": "39423af",
+  "pipeline": "E3+E4-current(holdout-v4)",
+  "model_identity_expected": {
+    "model_id": "ollama_chat/qwen3.5:4b",
+    "digest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+    "quantization": "Q4_K_M",
+    "temperature": 0,
+    "thinking_enabled": false,
+    "num_ctx": 8192
+  },
+  "fixture_hash": "315b581aeaba820d205cd1eec5c9f279dbca5666d128a8e9d63e0d9fde04f805",
+  "start_timestamp": "2026-08-13T13:46:06Z",
+  "lifecycle_state": "prepared"
+}

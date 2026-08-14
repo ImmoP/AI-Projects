@@ -1,0 +1,51 @@
+{
+  "holdout": "v3",
+  "selected_candidate": "E4-current",
+  "total_files": 120,
+  "real_category_count": 75,
+  "review_count": 45,
+  "real_category_counts": {
+    "Documents": 15,
+    "Code": 15,
+    "Images": 15,
+    "Archives": 15,
+    "Installers": 15
+  },
+  "primary_stratum_counts": {
+    "ordinary_realistic": 25,
+    "contextual_relational": 25,
+    "distractor_rich_resolvable": 25,
+    "insufficient_metadata": 15,
+    "latent_dual_role": 15,
+    "container_artifact_role_ambiguity": 15
+  },
+  "multilingual_count": 65,
+  "multilingual_language_counts": {
+    "de": 14,
+    "es": 12,
+    "fr": 9,
+    "nl": 6,
+    "it": 12,
+    "pt": 5,
+    "pl": 7
+  },
+  "marker_free_review_count": 39,
+  "morphology_count": 16,
+  "instruction_like_count": 10,
+  "instruction_like_split": {
+    "real": 4,
+    "review": 6
+  },
+  "assertions": {
+    "zero_byte": true,
+    "extensionless": true,
+    "deterministic_rule_unresolved": true,
+    "nfc_normalized": true,
+    "windows_safe": true,
+    "casefold_collision_free": true,
+    "nfc_collision_free": true,
+    "unique_count": 120
+  },
+  "dataset_sha256": "bf581bc67a3fd520a6f26f9d4120735a0bc402d3d45fe3b2722518c3bb331827",
+  "ground_truth_sha256": "152691eb8e62e0ffb63b4507118234baa4413d8c5c4374d1b2669788b69e1919"
+}

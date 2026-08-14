@@ -1,0 +1,9 @@
+{
+  "selected_candidate": "E4-current",
+  "selection_closed": true,
+  "candidate_pipeline": "E3 -> E4-current",
+  "development_selection_commit": "46601ab706ceb8b1920c81a9f3ae1d1b37ba3ea1",
+  "runtime_hardening_commit": "8910b546e33e3014b3b568f4bdd6ff54ab441008",
+  "holdout_v4_inference_performed": false,
+  "post_holdout_tuning_permitted": false
+}

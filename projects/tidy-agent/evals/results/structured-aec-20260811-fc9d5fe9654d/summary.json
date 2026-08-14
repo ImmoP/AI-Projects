@@ -1,0 +1,739 @@
+{
+  "experiment_id": "structured-aec-20260811-fc9d5fe9654d",
+  "complete": true,
+  "run_count": 15,
+  "condition_order": [
+    [
+      "A",
+      "E",
+      "C"
+    ],
+    [
+      "E",
+      "C",
+      "A"
+    ],
+    [
+      "C",
+      "A",
+      "E"
+    ],
+    [
+      "A",
+      "E",
+      "C"
+    ],
+    [
+      "E",
+      "C",
+      "A"
+    ]
+  ],
+  "conditions": {
+    "A": {
+      "label": "One-pass metadata",
+      "runs": 5,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "metrics": {
+        "strict_category_accuracy": {
+          "mean": 0.9105263157894737,
+          "median": 0.9078947368421053,
+          "standard_deviation": 0.005884389414473099,
+          "minimum": 0.9078947368421053,
+          "maximum": 0.9210526315789473,
+          "individual_values": [
+            0.9210526315789473,
+            0.9078947368421053,
+            0.9078947368421053,
+            0.9078947368421053,
+            0.9078947368421053
+          ]
+        },
+        "decision_rate": {
+          "mean": 0.8258064516129032,
+          "median": 0.8387096774193549,
+          "standard_deviation": 0.028852490032255373,
+          "minimum": 0.7741935483870968,
+          "maximum": 0.8387096774193549,
+          "individual_values": [
+            0.7741935483870968,
+            0.8387096774193549,
+            0.8387096774193549,
+            0.8387096774193549,
+            0.8387096774193549
+          ]
+        },
+        "accuracy_on_decided": {
+          "mean": 0.7346153846153846,
+          "median": 0.7307692307692307,
+          "standard_deviation": 0.008600261451922287,
+          "minimum": 0.7307692307692307,
+          "maximum": 0.75,
+          "individual_values": [
+            0.75,
+            0.7307692307692307,
+            0.7307692307692307,
+            0.7307692307692307,
+            0.7307692307692307
+          ]
+        },
+        "review_rate": {
+          "mean": 0.07105263157894737,
+          "median": 0.06578947368421052,
+          "standard_deviation": 0.011768778828946261,
+          "minimum": 0.06578947368421052,
+          "maximum": 0.09210526315789473,
+          "individual_values": [
+            0.09210526315789473,
+            0.06578947368421052,
+            0.06578947368421052,
+            0.06578947368421052,
+            0.06578947368421052
+          ]
+        },
+        "incorrect_decision_rate": {
+          "mean": 0.08947368421052629,
+          "median": 0.09210526315789469,
+          "standard_deviation": 0.005884389414473099,
+          "minimum": 0.07894736842105265,
+          "maximum": 0.09210526315789469,
+          "individual_values": [
+            0.07894736842105265,
+            0.09210526315789469,
+            0.09210526315789469,
+            0.09210526315789469,
+            0.09210526315789469
+          ]
+        },
+        "total_run_latency_seconds": {
+          "mean": 16.406397703800756,
+          "median": 16.323594091001723,
+          "standard_deviation": 1.6330732426209655,
+          "minimum": 15.043491486001585,
+          "maximum": 19.067214249000244,
+          "individual_values": [
+            16.500683436002873,
+            15.043491486001585,
+            15.097005256997363,
+            19.067214249000244,
+            16.323594091001723
+          ]
+        },
+        "classification_latency_seconds": {
+          "mean": 8.90194998539955,
+          "median": 8.939190714001597,
+          "standard_deviation": 0.1189095778487445,
+          "minimum": 8.771653964002326,
+          "maximum": 9.01934323599562,
+          "individual_values": [
+            8.939190714001597,
+            8.771653964002326,
+            9.01934323599562,
+            8.779970527997648,
+            8.999591485000565
+          ]
+        },
+        "total_tokens": {
+          "mean": 645.8,
+          "median": 645.0,
+          "standard_deviation": 1.7888543819998317,
+          "minimum": 645.0,
+          "maximum": 649.0,
+          "individual_values": [
+            649.0,
+            645.0,
+            645.0,
+            645.0,
+            645.0
+          ]
+        },
+        "authorized_peeks": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "nonempty_peeks": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "characters_delivered": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "informative_peek_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "totals": {
+        "classification_requests": 5,
+        "native_schema_responses": 0,
+        "json_object_responses": 5,
+        "plain_json_responses": 0,
+        "parse_failures": 0,
+        "schema_validation_failures": 0,
+        "provider_errors": 0,
+        "incomplete_responses": 5,
+        "duplicate_source_responses": 0,
+        "invented_source_responses": 0,
+        "invented_category_responses": 0,
+        "fallback_to_review_count": 5,
+        "peek_candidates_total": 0,
+        "peek_candidates_eligible": 0,
+        "peek_candidates_empty": 0,
+        "peek_candidates_oversized": 0,
+        "peek_candidates_unsupported": 0,
+        "peek_requests_model": 0,
+        "peek_requests_unique": 0,
+        "peek_requests_authorized": 0,
+        "peek_requests_control_selected": 0,
+        "peek_requests_rejected": 0,
+        "peek_requests_deduplicated": 0,
+        "peek_calls": 0,
+        "peek_readable": 0,
+        "peek_nonempty": 0,
+        "content_unavailable": 0,
+        "peek_source_bytes_considered": 0,
+        "peek_bytes_read": 0,
+        "peek_chars_returned": 0,
+        "peek_parser_skipped": 0,
+        "peek_parser_timeouts": 0,
+        "peek_parser_errors": 0,
+        "peek_phase_input_tokens": 0,
+        "peek_phase_completion_tokens": 0,
+        "final_classification_input_tokens": 1475,
+        "final_classification_completion_tokens": 1754
+      },
+      "requested_source_frequency": {},
+      "authorized_source_frequency": {}
+    },
+    "E": {
+      "label": "Two-pass metadata control",
+      "runs": 5,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "metrics": {
+        "strict_category_accuracy": {
+          "mean": 0.9578947368421052,
+          "median": 0.9605263157894737,
+          "standard_deviation": 0.005884389414473149,
+          "minimum": 0.9473684210526315,
+          "maximum": 0.9605263157894737,
+          "individual_values": [
+            0.9473684210526315,
+            0.9605263157894737,
+            0.9605263157894737,
+            0.9605263157894737,
+            0.9605263157894737
+          ]
+        },
+        "decision_rate": {
+          "mean": 0.6709677419354838,
+          "median": 0.6774193548387096,
+          "standard_deviation": 0.014426245016127662,
+          "minimum": 0.6451612903225806,
+          "maximum": 0.6774193548387096,
+          "individual_values": [
+            0.6451612903225806,
+            0.6774193548387096,
+            0.6774193548387096,
+            0.6774193548387096,
+            0.6774193548387096
+          ]
+        },
+        "accuracy_on_decided": {
+          "mean": 0.8457142857142856,
+          "median": 0.8571428571428571,
+          "standard_deviation": 0.025555062599997555,
+          "minimum": 0.8,
+          "maximum": 0.8571428571428571,
+          "individual_values": [
+            0.8,
+            0.8571428571428571,
+            0.8571428571428571,
+            0.8571428571428571,
+            0.8571428571428571
+          ]
+        },
+        "review_rate": {
+          "mean": 0.13421052631578947,
+          "median": 0.13157894736842105,
+          "standard_deviation": 0.005884389414473137,
+          "minimum": 0.13157894736842105,
+          "maximum": 0.14473684210526316,
+          "individual_values": [
+            0.14473684210526316,
+            0.13157894736842105,
+            0.13157894736842105,
+            0.13157894736842105,
+            0.13157894736842105
+          ]
+        },
+        "incorrect_decision_rate": {
+          "mean": 0.04210526315789476,
+          "median": 0.03947368421052633,
+          "standard_deviation": 0.005884389414473149,
+          "minimum": 0.03947368421052633,
+          "maximum": 0.052631578947368474,
+          "individual_values": [
+            0.052631578947368474,
+            0.03947368421052633,
+            0.03947368421052633,
+            0.03947368421052633,
+            0.03947368421052633
+          ]
+        },
+        "total_run_latency_seconds": {
+          "mean": 18.086782178598515,
+          "median": 18.467191567993723,
+          "standard_deviation": 1.1755112047217242,
+          "minimum": 16.723194763995707,
+          "maximum": 19.3220292219994,
+          "individual_values": [
+            16.969379984002444,
+            19.3220292219994,
+            16.723194763995707,
+            18.467191567993723,
+            18.952115355001297
+          ]
+        },
+        "classification_latency_seconds": {
+          "mean": 10.394618280201394,
+          "median": 10.381863335998787,
+          "standard_deviation": 0.15082774908366073,
+          "minimum": 10.247022146002564,
+          "maximum": 10.639719664002769,
+          "individual_values": [
+            10.639719664002769,
+            10.404121526997187,
+            10.300364728005661,
+            10.381863335998787,
+            10.247022146002564
+          ]
+        },
+        "total_tokens": {
+          "mean": 1032.2,
+          "median": 1032.0,
+          "standard_deviation": 0.4472135954999579,
+          "minimum": 1032.0,
+          "maximum": 1033.0,
+          "individual_values": [
+            1033.0,
+            1032.0,
+            1032.0,
+            1032.0,
+            1032.0
+          ]
+        },
+        "authorized_peeks": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "nonempty_peeks": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "characters_delivered": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "informative_peek_rate": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "totals": {
+        "classification_requests": 10,
+        "native_schema_responses": 0,
+        "json_object_responses": 10,
+        "plain_json_responses": 0,
+        "parse_failures": 0,
+        "schema_validation_failures": 0,
+        "provider_errors": 0,
+        "incomplete_responses": 5,
+        "duplicate_source_responses": 0,
+        "invented_source_responses": 0,
+        "invented_category_responses": 0,
+        "fallback_to_review_count": 5,
+        "peek_candidates_total": 155,
+        "peek_candidates_eligible": 15,
+        "peek_candidates_empty": 140,
+        "peek_candidates_oversized": 0,
+        "peek_candidates_unsupported": 0,
+        "peek_requests_model": 15,
+        "peek_requests_unique": 15,
+        "peek_requests_authorized": 0,
+        "peek_requests_control_selected": 15,
+        "peek_requests_rejected": 0,
+        "peek_requests_deduplicated": 0,
+        "peek_calls": 0,
+        "peek_readable": 0,
+        "peek_nonempty": 0,
+        "content_unavailable": 0,
+        "peek_source_bytes_considered": 0,
+        "peek_bytes_read": 0,
+        "peek_chars_returned": 0,
+        "peek_parser_skipped": 0,
+        "peek_parser_timeouts": 0,
+        "peek_parser_errors": 0,
+        "peek_phase_input_tokens": 1185,
+        "peek_phase_completion_tokens": 170,
+        "final_classification_input_tokens": 2010,
+        "final_classification_completion_tokens": 1796
+      },
+      "requested_source_frequency": {
+        "geraetedump": 5,
+        "sitzungsprotokoll_q3": 5,
+        "steuerbescheid_2024": 5
+      },
+      "authorized_source_frequency": {}
+    },
+    "C": {
+      "label": "Two-pass metadata + content",
+      "runs": 5,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "metrics": {
+        "strict_category_accuracy": {
+          "mean": 0.9342105263157895,
+          "median": 0.9342105263157895,
+          "standard_deviation": 0.0,
+          "minimum": 0.9342105263157895,
+          "maximum": 0.9342105263157895,
+          "individual_values": [
+            0.9342105263157895,
+            0.9342105263157895,
+            0.9342105263157895,
+            0.9342105263157895,
+            0.9342105263157895
+          ]
+        },
+        "decision_rate": {
+          "mean": 0.7419354838709677,
+          "median": 0.7419354838709677,
+          "standard_deviation": 0.0,
+          "minimum": 0.7419354838709677,
+          "maximum": 0.7419354838709677,
+          "individual_values": [
+            0.7419354838709677,
+            0.7419354838709677,
+            0.7419354838709677,
+            0.7419354838709677,
+            0.7419354838709677
+          ]
+        },
+        "accuracy_on_decided": {
+          "mean": 0.782608695652174,
+          "median": 0.782608695652174,
+          "standard_deviation": 0.0,
+          "minimum": 0.782608695652174,
+          "maximum": 0.782608695652174,
+          "individual_values": [
+            0.782608695652174,
+            0.782608695652174,
+            0.782608695652174,
+            0.782608695652174,
+            0.782608695652174
+          ]
+        },
+        "review_rate": {
+          "mean": 0.10526315789473684,
+          "median": 0.10526315789473684,
+          "standard_deviation": 0.0,
+          "minimum": 0.10526315789473684,
+          "maximum": 0.10526315789473684,
+          "individual_values": [
+            0.10526315789473684,
+            0.10526315789473684,
+            0.10526315789473684,
+            0.10526315789473684,
+            0.10526315789473684
+          ]
+        },
+        "incorrect_decision_rate": {
+          "mean": 0.06578947368421051,
+          "median": 0.06578947368421051,
+          "standard_deviation": 0.0,
+          "minimum": 0.06578947368421051,
+          "maximum": 0.06578947368421051,
+          "individual_values": [
+            0.06578947368421051,
+            0.06578947368421051,
+            0.06578947368421051,
+            0.06578947368421051,
+            0.06578947368421051
+          ]
+        },
+        "total_run_latency_seconds": {
+          "mean": 17.898887212001135,
+          "median": 18.28780214300059,
+          "standard_deviation": 1.3253593652262636,
+          "minimum": 16.07968164200429,
+          "maximum": 19.33092958299676,
+          "individual_values": [
+            18.76829841700237,
+            18.28780214300059,
+            16.07968164200429,
+            17.027724275001674,
+            19.33092958299676
+          ]
+        },
+        "classification_latency_seconds": {
+          "mean": 10.425315486002365,
+          "median": 10.404854976004572,
+          "standard_deviation": 0.05735097275300276,
+          "minimum": 10.355525468999986,
+          "maximum": 10.493412625997735,
+          "individual_values": [
+            10.404854976004572,
+            10.397761553009332,
+            10.355525468999986,
+            10.475022806000197,
+            10.493412625997735
+          ]
+        },
+        "total_tokens": {
+          "mean": 1227.0,
+          "median": 1227.0,
+          "standard_deviation": 0.0,
+          "minimum": 1227.0,
+          "maximum": 1227.0,
+          "individual_values": [
+            1227.0,
+            1227.0,
+            1227.0,
+            1227.0,
+            1227.0
+          ]
+        },
+        "authorized_peeks": {
+          "mean": 3.0,
+          "median": 3.0,
+          "standard_deviation": 0.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "individual_values": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        },
+        "nonempty_peeks": {
+          "mean": 2.0,
+          "median": 2.0,
+          "standard_deviation": 0.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "individual_values": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ]
+        },
+        "characters_delivered": {
+          "mean": 467.0,
+          "median": 467.0,
+          "standard_deviation": 0.0,
+          "minimum": 467.0,
+          "maximum": 467.0,
+          "individual_values": [
+            467.0,
+            467.0,
+            467.0,
+            467.0,
+            467.0
+          ]
+        },
+        "informative_peek_rate": {
+          "mean": 0.6666666666666666,
+          "median": 0.6666666666666666,
+          "standard_deviation": 0.0,
+          "minimum": 0.6666666666666666,
+          "maximum": 0.6666666666666666,
+          "individual_values": [
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666
+          ]
+        }
+      },
+      "totals": {
+        "classification_requests": 10,
+        "native_schema_responses": 0,
+        "json_object_responses": 10,
+        "plain_json_responses": 0,
+        "parse_failures": 0,
+        "schema_validation_failures": 0,
+        "provider_errors": 0,
+        "incomplete_responses": 5,
+        "duplicate_source_responses": 0,
+        "invented_source_responses": 0,
+        "invented_category_responses": 0,
+        "fallback_to_review_count": 5,
+        "peek_candidates_total": 155,
+        "peek_candidates_eligible": 15,
+        "peek_candidates_empty": 140,
+        "peek_candidates_oversized": 0,
+        "peek_candidates_unsupported": 0,
+        "peek_requests_model": 15,
+        "peek_requests_unique": 15,
+        "peek_requests_authorized": 15,
+        "peek_requests_control_selected": 0,
+        "peek_requests_rejected": 0,
+        "peek_requests_deduplicated": 0,
+        "peek_calls": 15,
+        "peek_readable": 10,
+        "peek_nonempty": 10,
+        "content_unavailable": 5,
+        "peek_source_bytes_considered": 12655,
+        "peek_bytes_read": 12655,
+        "peek_chars_returned": 2335,
+        "peek_parser_skipped": 0,
+        "peek_parser_timeouts": 0,
+        "peek_parser_errors": 0,
+        "peek_phase_input_tokens": 1185,
+        "peek_phase_completion_tokens": 170,
+        "final_classification_input_tokens": 3005,
+        "final_classification_completion_tokens": 1775
+      },
+      "requested_source_frequency": {
+        "geraetedump": 5,
+        "sitzungsprotokoll_q3": 5,
+        "steuerbescheid_2024": 5
+      },
+      "authorized_source_frequency": {
+        "geraetedump": 5,
+        "sitzungsprotokoll_q3": 5,
+        "steuerbescheid_2024": 5
+      }
+    }
+  },
+  "paired_transitions": {
+    "A_vs_E": {
+      "correct → review": 10,
+      "correct → wrong": 5,
+      "review → correct": 4,
+      "unchanged": 338,
+      "wrong → correct": 5,
+      "wrong → review": 18
+    },
+    "E_vs_C": {
+      "correct → review": 4,
+      "correct → wrong": 5,
+      "review → correct": 10,
+      "review → wrong": 5,
+      "unchanged": 355,
+      "wrong → correct": 1
+    }
+  },
+  "content_evidence": {
+    "nonempty_content_changed_count": 5,
+    "nonempty_content_improved_count": 5,
+    "nonempty_content_harmed_count": 0,
+    "improved_files": [
+      "steuerbescheid_2024"
+    ],
+    "harmed_files": []
+  }
+}

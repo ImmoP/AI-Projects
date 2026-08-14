@@ -1,0 +1,13 @@
+From: Payroll <payroll@example.com>
+To: reader@example.org
+Subject: Updated payslip attached
+Date: Mon, 5 Jan 2026 09:20:00 +0000
+Message-ID: <payslip-0005@example.com>
+Return-Path: <bounce@example.com>
+Authentication-Results: mx.example.org; spf=pass smtp.mailfrom=example.com; dkim=fail header.d=example.com
+DKIM-Signature: v=1; a=rsa-sha256; d=example.com; s=selector1; c=relaxed/relaxed; h=from:to:subject:date; bh=AAAAfakebodyhash0000000000000000000000000=; b=AAAAfakesignaturedata0000000000000000000000000000000000000000000000AAAA==
+X-Test-Purpose: DKIM invalid -- a DKIM-Signature header is present but the signature fails verification, dkim=fail.
+Content-Type: text/plain; charset=utf-8
+
+This is a fully invented test fixture with a DKIM signature that was
+tampered with after signing (fake, non-cryptographic placeholder values).

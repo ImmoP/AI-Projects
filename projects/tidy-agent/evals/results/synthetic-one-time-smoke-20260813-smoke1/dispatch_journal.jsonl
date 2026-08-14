@@ -1,0 +1,4 @@
+{"event": "request_started", "phase": "pass1", "ordinal": 1, "timestamp": "2026-08-13T09:35:39Z", "fixture_hash": "d35ba9af3c66df90f207f45b19a975a462609afc2081a04c01357e936ef416f9"}
+{"event": "response_received", "phase": "pass1", "ordinal": 1, "timestamp": "2026-08-13T09:36:41Z", "parse_status": "received", "latency_seconds": 62.08192991200485, "input_tokens": 1571, "completion_tokens": 2647}
+{"event": "request_started", "phase": "pass2", "ordinal": 2, "timestamp": "2026-08-13T09:36:41Z", "fixture_hash": "d35ba9af3c66df90f207f45b19a975a462609afc2081a04c01357e936ef416f9"}
+{"event": "response_received", "phase": "pass2", "ordinal": 2, "timestamp": "2026-08-13T09:37:44Z", "parse_status": "received", "latency_seconds": 62.33658708399162, "input_tokens": 1571, "completion_tokens": 2647}

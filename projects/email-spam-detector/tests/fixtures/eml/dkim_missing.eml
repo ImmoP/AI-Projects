@@ -1,0 +1,12 @@
+From: Support <support@example.com>
+To: reader@example.org
+Subject: We received your ticket
+Date: Mon, 5 Jan 2026 09:15:00 +0000
+Message-ID: <ticket-0004@example.com>
+Return-Path: <bounce@example.com>
+Authentication-Results: mx.example.org; spf=pass smtp.mailfrom=example.com
+X-Test-Purpose: DKIM missing -- no DKIM-Signature header and no dkim= clause in Authentication-Results.
+Content-Type: text/plain; charset=utf-8
+
+This is a fully invented test fixture for a message that was never DKIM
+signed by the sending domain.

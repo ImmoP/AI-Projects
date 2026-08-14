@@ -1,0 +1,145 @@
+files:
+  algoritmo_de_ordenamiento_implementacion:
+  - Code
+  anleitung_oder_installationsdatei_unklar:
+  - _ToReview
+  archiv_moeglicherweise_gemischte_inhalte:
+  - _ToReview
+  archivformat_spezifikation_dokument:
+  - Documents
+  archivierungssoftware_setup_ausfuehrbar:
+  - Installers
+  archivo_comprimido_documentos_antiguos:
+  - Archives
+  archivpflege_backend_verwaltung_quellcode:
+  - Code
+  audiotreiber_setup_neueversion:
+  - Installers
+  aufnahme_oder_renderingskript_ungewiss:
+  - _ToReview
+  bericht_oder_bildmaterial_ungewiss_typ:
+  - _ToReview
+  bild_oder_layoutdokument_vorlage_unklar:
+  - _ToReview
+  bildbearbeitung_software_setup_datei:
+  - Installers
+  bildkompression_algorithmus_quellcode:
+  - Code
+  bildkonvertierung_stapelverarbeitung_skript:
+  - Code
+  bildschirmfoto_oder_installationsscreen_unklar:
+  - _ToReview
+  datenmigrationsskript_v4_final:
+  - Code
+  datenpaket_herkunft_und_inhalt_unklar:
+  - _ToReview
+  dokumentation_oder_quellcode_referenz_unklar:
+  - _ToReview
+  dokumentenverwaltung_anwendung_installer:
+  - Installers
+  eenheidstest_suite_nieuwe_versie:
+  - Code
+  exportbuendel_ohne_inhaltsangabe:
+  - _ToReview
+  exportiert_am_unbekannten_datum:
+  - _ToReview
+  fotokurs_abschluss_bericht_teilnehmer:
+  - Documents
+  fotometadaten_extraktion_automatisierung_skript:
+  - Code
+  fotos_de_la_boda_completo:
+  - Images
+  fotosammlung_komplettarchiv_2026:
+  - Archives
+  fotosammlung_oder_komprimiertes_paket_unklar:
+  - _ToReview
+  galerie_ausstellung_werke_2026:
+  - Images
+  gesamtpaket_inhalt_nicht_spezifiziert:
+  - _ToReview
+  haushaltsplan_uebersicht_naechstes_jahr:
+  - Documents
+  herbstspaziergang_schnappschuss_familie:
+  - Images
+  infrastructure_as_code_terraform_module:
+  - Code
+  installationsdateien_sicherungsarchiv:
+  - Archives
+  installationsreport_fehleranalyse_dokument:
+  - Documents
+  installationsroutine_entwicklung_quellcode:
+  - Code
+  jahresabschluss_unterlagen_komprimiert:
+  - Archives
+  kompletny_backup_systemu_operacyjnego:
+  - Archives
+  kuendigungsschreiben_muster_vorlage:
+  - Documents
+  lettera_raccomandata_risposta_cliente:
+  - Documents
+  mitarbeitergespraech_protokoll_entwurf_v2:
+  - Documents
+  musiksammlung_gepackt_uebertragung:
+  - Archives
+  namenlose_datei_ohne_zusammenhang:
+  - _ToReview
+  netzwerkadapter_firmware_flashtool:
+  - Installers
+  objektiv_kalibrierung_protokoll_aufnahmen:
+  - Images
+  paketerstellung_build_pipeline_quellcode:
+  - Code
+  produktfotografie_katalog_serie_v3:
+  - Images
+  programma_di_installazione_completo:
+  - Installers
+  programmdokumentation_oder_quelltext_unklar:
+  - _ToReview
+  projektbuendel_ungeklaerte_zusammensetzung:
+  - _ToReview
+  quellcode_editor_installationsprogramm:
+  - Installers
+  quellcode_oder_ausfuehrbare_installationsdatei:
+  - _ToReview
+  quellcode_releasepaket_archiv:
+  - Archives
+  quellcode_review_meeting_schnappschuesse:
+  - Images
+  relatorio_reuniao_diretoria_anual:
+  - Documents
+  sammlung_verschiedener_dateitypen_gemischt:
+  - _ToReview
+  serverkonfiguration_vollsicherung_woche12:
+  - Archives
+  sicherungspaket_oder_installer_unklar:
+  - _ToReview
+  sicherungsstrategie_konzept_dokument:
+  - Documents
+  sin_informacion_adicional_disponible:
+  - _ToReview
+  skript_oder_komprimiertes_projekt_ungewiss:
+  - _ToReview
+  spelclient_installatiebestand_versie2:
+  - Installers
+  treiber_test_aufnahmen_serie:
+  - Images
+  treiber_versionshistorie_aenderungsprotokoll_dokument:
+  - Documents
+  treiberkompatibilitaet_testsuite_skript:
+  - Code
+  vertrag_oder_archivierte_unterlagen_ungewiss:
+  - _ToReview
+  vertragsunterlagen_gesamtarchiv_kunde:
+  - Archives
+  vertragsunterzeichnung_zeremonie_aufnahmen:
+  - Images
+  webanwendung_frontend_komponenten_bibliothek:
+  - Code
+  zdjecia_z_podrozy_zagranicznej:
+  - Images
+  неназванный_объект_без_контекста:
+  - _ToReview
+  内容不明_確認必要:
+  - _ToReview
+  未命名内容待整理:
+  - _ToReview

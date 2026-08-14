@@ -1,0 +1,1856 @@
+{
+  "experiment_id": "structured-abcd-20260811-25b9ba1e89a1",
+  "complete": true,
+  "run_count": 20,
+  "condition_order": [
+    [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    [
+      "B",
+      "C",
+      "D",
+      "A"
+    ],
+    [
+      "C",
+      "D",
+      "A",
+      "B"
+    ],
+    [
+      "D",
+      "A",
+      "B",
+      "C"
+    ],
+    [
+      "A",
+      "C",
+      "B",
+      "D"
+    ]
+  ],
+  "conditions": {
+    "A": {
+      "label": "Metadata only",
+      "runs": 5,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "metrics": {
+        "strict_category_accuracy": {
+          "mean": 0.9210526315789473,
+          "median": 0.9210526315789473,
+          "standard_deviation": 0.0,
+          "minimum": 0.9210526315789473,
+          "maximum": 0.9210526315789473,
+          "individual_values": [
+            0.9210526315789473,
+            0.9210526315789473,
+            0.9210526315789473,
+            0.9210526315789473,
+            0.9210526315789473
+          ]
+        },
+        "decision_rate": {
+          "mean": 0.7741935483870968,
+          "median": 0.7741935483870968,
+          "standard_deviation": 0.0,
+          "minimum": 0.7741935483870968,
+          "maximum": 0.7741935483870968,
+          "individual_values": [
+            0.7741935483870968,
+            0.7741935483870968,
+            0.7741935483870968,
+            0.7741935483870968,
+            0.7741935483870968
+          ]
+        },
+        "accuracy_on_decided": {
+          "mean": 0.75,
+          "median": 0.75,
+          "standard_deviation": 0.0,
+          "minimum": 0.75,
+          "maximum": 0.75,
+          "individual_values": [
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75
+          ]
+        },
+        "review_rate": {
+          "mean": 0.09210526315789473,
+          "median": 0.09210526315789473,
+          "standard_deviation": 0.0,
+          "minimum": 0.09210526315789473,
+          "maximum": 0.09210526315789473,
+          "individual_values": [
+            0.09210526315789473,
+            0.09210526315789473,
+            0.09210526315789473,
+            0.09210526315789473,
+            0.09210526315789473
+          ]
+        },
+        "incorrect_decision_rate": {
+          "mean": 0.07894736842105263,
+          "median": 0.07894736842105263,
+          "standard_deviation": 0.0,
+          "minimum": 0.07894736842105263,
+          "maximum": 0.07894736842105263,
+          "individual_values": [
+            0.07894736842105263,
+            0.07894736842105263,
+            0.07894736842105263,
+            0.07894736842105263,
+            0.07894736842105263
+          ]
+        },
+        "total_run_latency_seconds": {
+          "mean": 22.21339439220028,
+          "median": 20.309222159994533,
+          "standard_deviation": 4.744891514614215,
+          "minimum": 17.16664604900143,
+          "maximum": 29.40850759600289,
+          "individual_values": [
+            24.231505098003254,
+            20.309222159994533,
+            19.951091057999292,
+            29.40850759600289,
+            17.16664604900143
+          ]
+        },
+        "classification_latency_seconds": {
+          "mean": 11.347250062599779,
+          "median": 9.253748017996259,
+          "standard_deviation": 4.74748786045941,
+          "minimum": 9.117269795002358,
+          "maximum": 19.837233204998483,
+          "individual_values": [
+            9.117269795002358,
+            9.404218750998552,
+            9.123780544003239,
+            19.837233204998483,
+            9.253748017996259
+          ]
+        },
+        "peek_phase_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "content_processing_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "final_classification_latency_seconds": {
+          "mean": 11.347250062599779,
+          "median": 9.253748017996259,
+          "standard_deviation": 4.74748786045941,
+          "minimum": 9.117269795002358,
+          "maximum": 19.837233204998483,
+          "individual_values": [
+            9.117269795002358,
+            9.404218750998552,
+            9.123780544003239,
+            19.837233204998483,
+            9.253748017996259
+          ]
+        },
+        "grouping_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "grouping_input_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "grouping_output_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "peek_phase_input_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "peek_phase_output_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "final_classification_input_tokens": {
+          "mean": 295.0,
+          "median": 295.0,
+          "standard_deviation": 0.0,
+          "minimum": 295.0,
+          "maximum": 295.0,
+          "individual_values": [
+            295.0,
+            295.0,
+            295.0,
+            295.0,
+            295.0
+          ]
+        },
+        "final_classification_output_tokens": {
+          "mean": 354.0,
+          "median": 354.0,
+          "standard_deviation": 0.0,
+          "minimum": 354.0,
+          "maximum": 354.0,
+          "individual_values": [
+            354.0,
+            354.0,
+            354.0,
+            354.0,
+            354.0
+          ]
+        },
+        "input_tokens": {
+          "mean": 295.0,
+          "median": 295.0,
+          "standard_deviation": 0.0,
+          "minimum": 295.0,
+          "maximum": 295.0,
+          "individual_values": [
+            295.0,
+            295.0,
+            295.0,
+            295.0,
+            295.0
+          ]
+        },
+        "output_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "total_tokens": {
+          "mean": 649.0,
+          "median": 649.0,
+          "standard_deviation": 0.0,
+          "minimum": 649.0,
+          "maximum": 649.0,
+          "individual_values": [
+            649.0,
+            649.0,
+            649.0,
+            649.0,
+            649.0
+          ]
+        }
+      },
+      "reliability_totals": {
+        "classification_requests": 5,
+        "native_schema_responses": 0,
+        "json_object_responses": 5,
+        "plain_json_responses": 0,
+        "parse_failures": 0,
+        "schema_validation_failures": 0,
+        "provider_errors": 0,
+        "incomplete_responses": 5,
+        "duplicate_source_responses": 0,
+        "invented_source_responses": 0,
+        "invented_category_responses": 0,
+        "fallback_to_review_count": 5,
+        "peek_requests_model": 0,
+        "peek_requests_unique": 0,
+        "peek_requests_authorized": 0,
+        "peek_requests_rejected": 0,
+        "peek_requests_deduplicated": 0,
+        "peek_calls": 0,
+        "peek_readable": 0,
+        "content_unavailable": 0,
+        "peek_parser_errors": 0,
+        "peek_parser_timeouts": 0,
+        "peek_source_bytes_considered": 0,
+        "peek_bytes_read": 0,
+        "peek_chars_returned": 0,
+        "peek_phase_input_tokens": 0,
+        "peek_phase_completion_tokens": 0,
+        "final_classification_input_tokens": 1475,
+        "final_classification_completion_tokens": 1770
+      },
+      "coverage": {
+        "deterministic_rules": {
+          "mean": 45.0,
+          "median": 45.0,
+          "standard_deviation": 0.0,
+          "minimum": 45.0,
+          "maximum": 45.0,
+          "individual_values": [
+            45.0,
+            45.0,
+            45.0,
+            45.0,
+            45.0
+          ]
+        },
+        "structured_classification": {
+          "mean": 31.0,
+          "median": 31.0,
+          "standard_deviation": 0.0,
+          "minimum": 31.0,
+          "maximum": 31.0,
+          "individual_values": [
+            31.0,
+            31.0,
+            31.0,
+            31.0,
+            31.0
+          ]
+        },
+        "content_assisted": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "grouping": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "review": {
+          "mean": 7.0,
+          "median": 7.0,
+          "standard_deviation": 0.0,
+          "minimum": 7.0,
+          "maximum": 7.0,
+          "individual_values": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ]
+        }
+      },
+      "category_denominators": [
+        76,
+        76,
+        76,
+        76,
+        76
+      ],
+      "grouping": {}
+    },
+    "B": {
+      "label": "Metadata + Grouping",
+      "runs": 5,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "metrics": {
+        "strict_category_accuracy": {
+          "mean": 0.9076923076923077,
+          "median": 0.9076923076923077,
+          "standard_deviation": 0.0,
+          "minimum": 0.9076923076923077,
+          "maximum": 0.9076923076923077,
+          "individual_values": [
+            0.9076923076923077,
+            0.9076923076923077,
+            0.9076923076923077,
+            0.9076923076923077,
+            0.9076923076923077
+          ]
+        },
+        "decision_rate": {
+          "mean": 0.8333333333333334,
+          "median": 0.8333333333333334,
+          "standard_deviation": 0.0,
+          "minimum": 0.8333333333333334,
+          "maximum": 0.8333333333333334,
+          "individual_values": [
+            0.8333333333333334,
+            0.8333333333333334,
+            0.8333333333333334,
+            0.8333333333333334,
+            0.8333333333333334
+          ]
+        },
+        "accuracy_on_decided": {
+          "mean": 0.76,
+          "median": 0.76,
+          "standard_deviation": 0.0,
+          "minimum": 0.76,
+          "maximum": 0.76,
+          "individual_values": [
+            0.76,
+            0.76,
+            0.76,
+            0.76,
+            0.76
+          ]
+        },
+        "review_rate": {
+          "mean": 0.07692307692307693,
+          "median": 0.07692307692307693,
+          "standard_deviation": 0.0,
+          "minimum": 0.07692307692307693,
+          "maximum": 0.07692307692307693,
+          "individual_values": [
+            0.07692307692307693,
+            0.07692307692307693,
+            0.07692307692307693,
+            0.07692307692307693,
+            0.07692307692307693
+          ]
+        },
+        "incorrect_decision_rate": {
+          "mean": 0.09230769230769231,
+          "median": 0.09230769230769231,
+          "standard_deviation": 0.0,
+          "minimum": 0.09230769230769231,
+          "maximum": 0.09230769230769231,
+          "individual_values": [
+            0.09230769230769231,
+            0.09230769230769231,
+            0.09230769230769231,
+            0.09230769230769231,
+            0.09230769230769231
+          ]
+        },
+        "total_run_latency_seconds": {
+          "mean": 35.31373489980179,
+          "median": 36.1964064950007,
+          "standard_deviation": 3.3293839355932557,
+          "minimum": 30.08771522800089,
+          "maximum": 38.10319480700127,
+          "individual_values": [
+            36.1964064950007,
+            37.995991034003964,
+            34.185366935002094,
+            38.10319480700127,
+            30.08771522800089
+          ]
+        },
+        "classification_latency_seconds": {
+          "mean": 8.440945510800521,
+          "median": 8.403946092999831,
+          "standard_deviation": 0.07504204361989593,
+          "minimum": 8.384251114999643,
+          "maximum": 8.567424747998302,
+          "individual_values": [
+            8.403946092999831,
+            8.567424747998302,
+            8.384251114999643,
+            8.39802373600105,
+            8.451081862003775
+          ]
+        },
+        "peek_phase_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "content_processing_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "final_classification_latency_seconds": {
+          "mean": 8.440945510800521,
+          "median": 8.403946092999831,
+          "standard_deviation": 0.07504204361989593,
+          "minimum": 8.384251114999643,
+          "maximum": 8.567424747998302,
+          "individual_values": [
+            8.403946092999831,
+            8.567424747998302,
+            8.384251114999643,
+            8.39802373600105,
+            8.451081862003775
+          ]
+        },
+        "grouping_latency_seconds": {
+          "mean": 16.90747137069702,
+          "median": 15.793792963027954,
+          "standard_deviation": 3.422749412617073,
+          "minimum": 13.842627763748169,
+          "maximum": 21.48027491569519,
+          "individual_values": [
+            15.793792963027954,
+            21.48027491569519,
+            13.842627763748169,
+            19.47067904472351,
+            13.949982166290283
+          ]
+        },
+        "grouping_input_tokens": {
+          "mean": 3020.0,
+          "median": 3020.0,
+          "standard_deviation": 0.0,
+          "minimum": 3020.0,
+          "maximum": 3020.0,
+          "individual_values": [
+            3020.0,
+            3020.0,
+            3020.0,
+            3020.0,
+            3020.0
+          ]
+        },
+        "grouping_output_tokens": {
+          "mean": 530.0,
+          "median": 530.0,
+          "standard_deviation": 0.0,
+          "minimum": 530.0,
+          "maximum": 530.0,
+          "individual_values": [
+            530.0,
+            530.0,
+            530.0,
+            530.0,
+            530.0
+          ]
+        },
+        "peek_phase_input_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "peek_phase_output_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "final_classification_input_tokens": {
+          "mean": 284.0,
+          "median": 284.0,
+          "standard_deviation": 0.0,
+          "minimum": 284.0,
+          "maximum": 284.0,
+          "individual_values": [
+            284.0,
+            284.0,
+            284.0,
+            284.0,
+            284.0
+          ]
+        },
+        "final_classification_output_tokens": {
+          "mean": 333.0,
+          "median": 333.0,
+          "standard_deviation": 0.0,
+          "minimum": 333.0,
+          "maximum": 333.0,
+          "individual_values": [
+            333.0,
+            333.0,
+            333.0,
+            333.0,
+            333.0
+          ]
+        },
+        "input_tokens": {
+          "mean": 3304.0,
+          "median": 3304.0,
+          "standard_deviation": 0.0,
+          "minimum": 3304.0,
+          "maximum": 3304.0,
+          "individual_values": [
+            3304.0,
+            3304.0,
+            3304.0,
+            3304.0,
+            3304.0
+          ]
+        },
+        "output_tokens": {
+          "mean": 863.0,
+          "median": 863.0,
+          "standard_deviation": 0.0,
+          "minimum": 863.0,
+          "maximum": 863.0,
+          "individual_values": [
+            863.0,
+            863.0,
+            863.0,
+            863.0,
+            863.0
+          ]
+        },
+        "total_tokens": {
+          "mean": 4167.0,
+          "median": 4167.0,
+          "standard_deviation": 0.0,
+          "minimum": 4167.0,
+          "maximum": 4167.0,
+          "individual_values": [
+            4167.0,
+            4167.0,
+            4167.0,
+            4167.0,
+            4167.0
+          ]
+        }
+      },
+      "reliability_totals": {
+        "classification_requests": 5,
+        "native_schema_responses": 0,
+        "json_object_responses": 5,
+        "plain_json_responses": 0,
+        "parse_failures": 0,
+        "schema_validation_failures": 0,
+        "provider_errors": 0,
+        "incomplete_responses": 5,
+        "duplicate_source_responses": 0,
+        "invented_source_responses": 0,
+        "invented_category_responses": 0,
+        "fallback_to_review_count": 5,
+        "peek_requests_model": 0,
+        "peek_requests_unique": 0,
+        "peek_requests_authorized": 0,
+        "peek_requests_rejected": 0,
+        "peek_requests_deduplicated": 0,
+        "peek_calls": 0,
+        "peek_readable": 0,
+        "content_unavailable": 0,
+        "peek_parser_errors": 0,
+        "peek_parser_timeouts": 0,
+        "peek_source_bytes_considered": 0,
+        "peek_bytes_read": 0,
+        "peek_chars_returned": 0,
+        "peek_phase_input_tokens": 0,
+        "peek_phase_completion_tokens": 0,
+        "final_classification_input_tokens": 1420,
+        "final_classification_completion_tokens": 1665
+      },
+      "coverage": {
+        "deterministic_rules": {
+          "mean": 35.0,
+          "median": 35.0,
+          "standard_deviation": 0.0,
+          "minimum": 35.0,
+          "maximum": 35.0,
+          "individual_values": [
+            35.0,
+            35.0,
+            35.0,
+            35.0,
+            35.0
+          ]
+        },
+        "structured_classification": {
+          "mean": 30.0,
+          "median": 30.0,
+          "standard_deviation": 0.0,
+          "minimum": 30.0,
+          "maximum": 30.0,
+          "individual_values": [
+            30.0,
+            30.0,
+            30.0,
+            30.0,
+            30.0
+          ]
+        },
+        "content_assisted": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "grouping": {
+          "mean": 11.0,
+          "median": 11.0,
+          "standard_deviation": 0.0,
+          "minimum": 11.0,
+          "maximum": 11.0,
+          "individual_values": [
+            11.0,
+            11.0,
+            11.0,
+            11.0,
+            11.0
+          ]
+        },
+        "review": {
+          "mean": 5.0,
+          "median": 5.0,
+          "standard_deviation": 0.0,
+          "minimum": 5.0,
+          "maximum": 5.0,
+          "individual_values": [
+            5.0,
+            5.0,
+            5.0,
+            5.0,
+            5.0
+          ]
+        }
+      },
+      "category_denominators": [
+        65,
+        65,
+        65,
+        65,
+        65
+      ],
+      "grouping": {
+        "groups_proposed": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "groups_accepted": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "groups_discarded": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "groups_rejected": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "grouped_total": [
+          11,
+          11,
+          11,
+          11,
+          11
+        ],
+        "clustering_purity": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group_cohesion": [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "scatter_in_group": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "group_input_tokens": [
+          3020,
+          3020,
+          3020,
+          3020,
+          3020
+        ],
+        "group_completion_tokens": [
+          530,
+          530,
+          530,
+          530,
+          530
+        ],
+        "grouped_rule_resolved_count": [
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "grouped_unresolved_count": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "C": {
+      "label": "Metadata + Content",
+      "runs": 5,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "metrics": {
+        "strict_category_accuracy": {
+          "mean": 0.9473684210526315,
+          "median": 0.9473684210526315,
+          "standard_deviation": 0.0,
+          "minimum": 0.9473684210526315,
+          "maximum": 0.9473684210526315,
+          "individual_values": [
+            0.9473684210526315,
+            0.9473684210526315,
+            0.9473684210526315,
+            0.9473684210526315,
+            0.9473684210526315
+          ]
+        },
+        "decision_rate": {
+          "mean": 0.7741935483870968,
+          "median": 0.7741935483870968,
+          "standard_deviation": 0.0,
+          "minimum": 0.7741935483870968,
+          "maximum": 0.7741935483870968,
+          "individual_values": [
+            0.7741935483870968,
+            0.7741935483870968,
+            0.7741935483870968,
+            0.7741935483870968,
+            0.7741935483870968
+          ]
+        },
+        "accuracy_on_decided": {
+          "mean": 0.8333333333333334,
+          "median": 0.8333333333333334,
+          "standard_deviation": 0.0,
+          "minimum": 0.8333333333333334,
+          "maximum": 0.8333333333333334,
+          "individual_values": [
+            0.8333333333333334,
+            0.8333333333333334,
+            0.8333333333333334,
+            0.8333333333333334,
+            0.8333333333333334
+          ]
+        },
+        "review_rate": {
+          "mean": 0.09210526315789473,
+          "median": 0.09210526315789473,
+          "standard_deviation": 0.0,
+          "minimum": 0.09210526315789473,
+          "maximum": 0.09210526315789473,
+          "individual_values": [
+            0.09210526315789473,
+            0.09210526315789473,
+            0.09210526315789473,
+            0.09210526315789473,
+            0.09210526315789473
+          ]
+        },
+        "incorrect_decision_rate": {
+          "mean": 0.05263157894736842,
+          "median": 0.05263157894736842,
+          "standard_deviation": 0.0,
+          "minimum": 0.05263157894736842,
+          "maximum": 0.05263157894736842,
+          "individual_values": [
+            0.05263157894736842,
+            0.05263157894736842,
+            0.05263157894736842,
+            0.05263157894736842,
+            0.05263157894736842
+          ]
+        },
+        "total_run_latency_seconds": {
+          "mean": 21.255141466399074,
+          "median": 21.629177729999356,
+          "standard_deviation": 2.188035518680934,
+          "minimum": 17.976273141001002,
+          "maximum": 23.449105610001425,
+          "individual_values": [
+            22.87409666399617,
+            21.629177729999356,
+            23.449105610001425,
+            20.34705418699741,
+            17.976273141001002
+          ]
+        },
+        "classification_latency_seconds": {
+          "mean": 11.183261800801848,
+          "median": 11.197283623005205,
+          "standard_deviation": 0.22651339679275673,
+          "minimum": 10.856172364001395,
+          "maximum": 11.484280961994955,
+          "individual_values": [
+            11.484280961994955,
+            11.12860635000834,
+            11.197283623005205,
+            11.24996570499934,
+            10.856172364001395
+          ]
+        },
+        "peek_phase_latency_seconds": {
+          "mean": 1.9182695848008735,
+          "median": 1.8865762700006599,
+          "standard_deviation": 0.12486401784981212,
+          "minimum": 1.7961476359996595,
+          "maximum": 2.1231972179957666,
+          "individual_values": [
+            2.1231972179957666,
+            1.9323636410044855,
+            1.8530631590037956,
+            1.8865762700006599,
+            1.7961476359996595
+          ]
+        },
+        "content_processing_latency_seconds": {
+          "mean": 0.0009623735997593031,
+          "median": 0.001047295008902438,
+          "standard_deviation": 0.00034618814067148286,
+          "minimum": 0.0005728579999413341,
+          "maximum": 0.0014383239977178164,
+          "individual_values": [
+            0.001047295008902438,
+            0.0005728579999413341,
+            0.0006776469963369891,
+            0.0014383239977178164,
+            0.0010757439958979376
+          ]
+        },
+        "final_classification_latency_seconds": {
+          "mean": 9.264992216000973,
+          "median": 9.34422046400141,
+          "standard_deviation": 0.1340996603181731,
+          "minimum": 9.060024728001736,
+          "maximum": 9.36338943499868,
+          "individual_values": [
+            9.361083743999188,
+            9.196242709003855,
+            9.34422046400141,
+            9.36338943499868,
+            9.060024728001736
+          ]
+        },
+        "grouping_latency_seconds": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "grouping_input_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "grouping_output_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "peek_phase_input_tokens": {
+          "mean": 242.0,
+          "median": 242.0,
+          "standard_deviation": 0.0,
+          "minimum": 242.0,
+          "maximum": 242.0,
+          "individual_values": [
+            242.0,
+            242.0,
+            242.0,
+            242.0,
+            242.0
+          ]
+        },
+        "peek_phase_output_tokens": {
+          "mean": 40.0,
+          "median": 40.0,
+          "standard_deviation": 0.0,
+          "minimum": 40.0,
+          "maximum": 40.0,
+          "individual_values": [
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0
+          ]
+        },
+        "final_classification_input_tokens": {
+          "mean": 483.0,
+          "median": 483.0,
+          "standard_deviation": 0.0,
+          "minimum": 483.0,
+          "maximum": 483.0,
+          "individual_values": [
+            483.0,
+            483.0,
+            483.0,
+            483.0,
+            483.0
+          ]
+        },
+        "final_classification_output_tokens": {
+          "mean": 369.0,
+          "median": 369.0,
+          "standard_deviation": 0.0,
+          "minimum": 369.0,
+          "maximum": 369.0,
+          "individual_values": [
+            369.0,
+            369.0,
+            369.0,
+            369.0,
+            369.0
+          ]
+        },
+        "input_tokens": {
+          "mean": 725.0,
+          "median": 725.0,
+          "standard_deviation": 0.0,
+          "minimum": 725.0,
+          "maximum": 725.0,
+          "individual_values": [
+            725.0,
+            725.0,
+            725.0,
+            725.0,
+            725.0
+          ]
+        },
+        "output_tokens": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "total_tokens": {
+          "mean": 1134.0,
+          "median": 1134.0,
+          "standard_deviation": 0.0,
+          "minimum": 1134.0,
+          "maximum": 1134.0,
+          "individual_values": [
+            1134.0,
+            1134.0,
+            1134.0,
+            1134.0,
+            1134.0
+          ]
+        }
+      },
+      "reliability_totals": {
+        "classification_requests": 10,
+        "native_schema_responses": 0,
+        "json_object_responses": 10,
+        "plain_json_responses": 0,
+        "parse_failures": 0,
+        "schema_validation_failures": 0,
+        "provider_errors": 0,
+        "incomplete_responses": 0,
+        "duplicate_source_responses": 0,
+        "invented_source_responses": 0,
+        "invented_category_responses": 0,
+        "fallback_to_review_count": 0,
+        "peek_requests_model": 15,
+        "peek_requests_unique": 15,
+        "peek_requests_authorized": 15,
+        "peek_requests_rejected": 0,
+        "peek_requests_deduplicated": 0,
+        "peek_calls": 15,
+        "peek_readable": 15,
+        "content_unavailable": 0,
+        "peek_parser_errors": 0,
+        "peek_parser_timeouts": 0,
+        "peek_source_bytes_considered": 0,
+        "peek_bytes_read": 0,
+        "peek_chars_returned": 0,
+        "peek_phase_input_tokens": 1210,
+        "peek_phase_completion_tokens": 200,
+        "final_classification_input_tokens": 2415,
+        "final_classification_completion_tokens": 1845
+      },
+      "coverage": {
+        "deterministic_rules": {
+          "mean": 45.0,
+          "median": 45.0,
+          "standard_deviation": 0.0,
+          "minimum": 45.0,
+          "maximum": 45.0,
+          "individual_values": [
+            45.0,
+            45.0,
+            45.0,
+            45.0,
+            45.0
+          ]
+        },
+        "structured_classification": {
+          "mean": 31.0,
+          "median": 31.0,
+          "standard_deviation": 0.0,
+          "minimum": 31.0,
+          "maximum": 31.0,
+          "individual_values": [
+            31.0,
+            31.0,
+            31.0,
+            31.0,
+            31.0
+          ]
+        },
+        "content_assisted": {
+          "mean": 3.0,
+          "median": 3.0,
+          "standard_deviation": 0.0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "individual_values": [
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ]
+        },
+        "grouping": {
+          "mean": 0.0,
+          "median": 0.0,
+          "standard_deviation": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "individual_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "review": {
+          "mean": 7.0,
+          "median": 7.0,
+          "standard_deviation": 0.0,
+          "minimum": 7.0,
+          "maximum": 7.0,
+          "individual_values": [
+            7.0,
+            7.0,
+            7.0,
+            7.0,
+            7.0
+          ]
+        }
+      },
+      "category_denominators": [
+        76,
+        76,
+        76,
+        76,
+        76
+      ],
+      "grouping": {}
+    },
+    "D": {
+      "label": "Metadata + Grouping + Content",
+      "runs": 5,
+      "statuses": [
+        "ok",
+        "ok",
+        "ok",
+        "ok",
+        "ok"
+      ],
+      "metrics": {
+        "strict_category_accuracy": {
+          "mean": 0.9384615384615385,
+          "median": 0.9384615384615385,
+          "standard_deviation": 0.0,
+          "minimum": 0.9384615384615385,
+          "maximum": 0.9384615384615385,
+          "individual_values": [
+            0.9384615384615385,
+            0.9384615384615385,
+            0.9384615384615385,
+            0.9384615384615385,
+            0.9384615384615385
+          ]
+        },
+        "decision_rate": {
+          "mean": 0.8,
+          "median": 0.8,
+          "standard_deviation": 0.0,
+          "minimum": 0.8,
+          "maximum": 0.8,
+          "individual_values": [
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.8
+          ]
+        },
+        "accuracy_on_decided": {
+          "mean": 0.8333333333333334,
+          "median": 0.8333333333333334,
+          "standard_deviation": 0.0,
+          "minimum": 0.8333333333333334,
+          "maximum": 0.8333333333333334,
+          "individual_values": [
+            0.8333333333333334,
+            0.8333333333333334,
+            0.8333333333333334,
+            0.8333333333333334,
+            0.8333333333333334
+          ]
+        },
+        "review_rate": {
+          "mean": 0.09230769230769231,
+          "median": 0.09230769230769231,
+          "standard_deviation": 0.0,
+          "minimum": 0.09230769230769231,
+          "maximum": 0.09230769230769231,
+          "individual_values": [
+            0.09230769230769231,
+            0.09230769230769231,
+            0.09230769230769231,
+            0.09230769230769231,
+            0.09230769230769231
+          ]
+        },
+        "incorrect_decision_rate": {
+          "mean": 0.06153846153846154,
+          "median": 0.06153846153846154,
+          "standard_deviation": 0.0,
+          "minimum": 0.06153846153846154,
+          "maximum": 0.06153846153846154,
+          "individual_values": [
+            0.06153846153846154,
+            0.06153846153846154,
+            0.06153846153846154,
+            0.06153846153846154,
+            0.06153846153846154
+          ]
+        },
+        "total_run_latency_seconds": {
+          "mean": 33.3167289658013,
+          "median": 33.84255437400134,
+          "standard_deviation": 1.695395082435927,
+          "minimum": 30.833420048002154,
+          "maximum": 35.00520541800506,
+          "individual_values": [
+            34.492147302000376,
+            35.00520541800506,
+            33.84255437400134,
+            32.41031768699759,
+            30.833420048002154
+          ]
+        },
+        "classification_latency_seconds": {
+          "mean": 9.809998330798408,
+          "median": 9.833427388002747,
+          "standard_deviation": 0.17008555240675358,
+          "minimum": 9.533068869001,
+          "maximum": 9.956894153991016,
+          "individual_values": [
+            9.833427388002747,
+            9.938190145992849,
+            9.533068869001,
+            9.788411097004428,
+            9.956894153991016
+          ]
+        },
+        "peek_phase_latency_seconds": {
+          "mean": 1.3035453695993056,
+          "median": 1.340773639996769,
+          "standard_deviation": 0.08583343204333482,
+          "minimum": 1.150032760000613,
+          "maximum": 1.3441959229967324,
+          "individual_values": [
+            1.3398220460003358,
+            1.3441959229967324,
+            1.3429024790020776,
+            1.150032760000613,
+            1.340773639996769
+          ]
+        },
+        "content_processing_latency_seconds": {
+          "mean": 0.0007240732025820762,
+          "median": 0.0005501730047399178,
+          "standard_deviation": 0.0002774453081782669,
+          "minimum": 0.0005347860060282983,
+          "maximum": 0.0011640680022537708,
+          "individual_values": [
+            0.0005351909931050614,
+            0.0011640680022537708,
+            0.0005347860060282983,
+            0.0008361480067833327,
+            0.0005501730047399178
+          ]
+        },
+        "final_classification_latency_seconds": {
+          "mean": 8.506452961199102,
+          "median": 8.593994222996116,
+          "standard_deviation": 0.1852680530170365,
+          "minimum": 8.190166389998922,
+          "maximum": 8.638378337003815,
+          "individual_values": [
+            8.493605342002411,
+            8.593994222996116,
+            8.190166389998922,
+            8.638378337003815,
+            8.616120513994247
+          ]
+        },
+        "grouping_latency_seconds": {
+          "mean": 13.865039730072022,
+          "median": 13.901290893554688,
+          "standard_deviation": 0.0896798521742946,
+          "minimum": 13.759757041931152,
+          "maximum": 13.95232892036438,
+          "individual_values": [
+            13.95232892036438,
+            13.901290893554688,
+            13.93332290649414,
+            13.778498888015747,
+            13.759757041931152
+          ]
+        },
+        "grouping_input_tokens": {
+          "mean": 3020.0,
+          "median": 3020.0,
+          "standard_deviation": 0.0,
+          "minimum": 3020.0,
+          "maximum": 3020.0,
+          "individual_values": [
+            3020.0,
+            3020.0,
+            3020.0,
+            3020.0,
+            3020.0
+          ]
+        },
+        "grouping_output_tokens": {
+          "mean": 530.0,
+          "median": 530.0,
+          "standard_deviation": 0.0,
+          "minimum": 530.0,
+          "maximum": 530.0,
+          "individual_values": [
+            530.0,
+            530.0,
+            530.0,
+            530.0,
+            530.0
+          ]
+        },
+        "peek_phase_input_tokens": {
+          "mean": 231.0,
+          "median": 231.0,
+          "standard_deviation": 0.0,
+          "minimum": 231.0,
+          "maximum": 231.0,
+          "individual_values": [
+            231.0,
+            231.0,
+            231.0,
+            231.0,
+            231.0
+          ]
+        },
+        "peek_phase_output_tokens": {
+          "mean": 30.0,
+          "median": 30.0,
+          "standard_deviation": 0.0,
+          "minimum": 30.0,
+          "maximum": 30.0,
+          "individual_values": [
+            30.0,
+            30.0,
+            30.0,
+            30.0,
+            30.0
+          ]
+        },
+        "final_classification_input_tokens": {
+          "mean": 425.0,
+          "median": 425.0,
+          "standard_deviation": 0.0,
+          "minimum": 425.0,
+          "maximum": 425.0,
+          "individual_values": [
+            425.0,
+            425.0,
+            425.0,
+            425.0,
+            425.0
+          ]
+        },
+        "final_classification_output_tokens": {
+          "mean": 335.0,
+          "median": 335.0,
+          "standard_deviation": 0.0,
+          "minimum": 335.0,
+          "maximum": 335.0,
+          "individual_values": [
+            335.0,
+            335.0,
+            335.0,
+            335.0,
+            335.0
+          ]
+        },
+        "input_tokens": {
+          "mean": 3676.0,
+          "median": 3676.0,
+          "standard_deviation": 0.0,
+          "minimum": 3676.0,
+          "maximum": 3676.0,
+          "individual_values": [
+            3676.0,
+            3676.0,
+            3676.0,
+            3676.0,
+            3676.0
+          ]
+        },
+        "output_tokens": {
+          "mean": 895.0,
+          "median": 895.0,
+          "standard_deviation": 0.0,
+          "minimum": 895.0,
+          "maximum": 895.0,
+          "individual_values": [
+            895.0,
+            895.0,
+            895.0,
+            895.0,
+            895.0
+          ]
+        },
+        "total_tokens": {
+          "mean": 4571.0,
+          "median": 4571.0,
+          "standard_deviation": 0.0,
+          "minimum": 4571.0,
+          "maximum": 4571.0,
+          "individual_values": [
+            4571.0,
+            4571.0,
+            4571.0,
+            4571.0,
+            4571.0
+          ]
+        }
+      },
+      "reliability_totals": {
+        "classification_requests": 10,
+        "native_schema_responses": 0,
+        "json_object_responses": 10,
+        "plain_json_responses": 0,
+        "parse_failures": 0,
+        "schema_validation_failures": 0,
+        "provider_errors": 0,
+        "incomplete_responses": 5,
+        "duplicate_source_responses": 0,
+        "invented_source_responses": 0,
+        "invented_category_responses": 0,
+        "fallback_to_review_count": 5,
+        "peek_requests_model": 10,
+        "peek_requests_unique": 10,
+        "peek_requests_authorized": 10,
+        "peek_requests_rejected": 0,
+        "peek_requests_deduplicated": 0,
+        "peek_calls": 10,
+        "peek_readable": 10,
+        "content_unavailable": 0,
+        "peek_parser_errors": 0,
+        "peek_parser_timeouts": 0,
+        "peek_source_bytes_considered": 0,
+        "peek_bytes_read": 0,
+        "peek_chars_returned": 0,
+        "peek_phase_input_tokens": 1155,
+        "peek_phase_completion_tokens": 150,
+        "final_classification_input_tokens": 2125,
+        "final_classification_completion_tokens": 1675
+      },
+      "coverage": {
+        "deterministic_rules": {
+          "mean": 35.0,
+          "median": 35.0,
+          "standard_deviation": 0.0,
+          "minimum": 35.0,
+          "maximum": 35.0,
+          "individual_values": [
+            35.0,
+            35.0,
+            35.0,
+            35.0,
+            35.0
+          ]
+        },
+        "structured_classification": {
+          "mean": 30.0,
+          "median": 30.0,
+          "standard_deviation": 0.0,
+          "minimum": 30.0,
+          "maximum": 30.0,
+          "individual_values": [
+            30.0,
+            30.0,
+            30.0,
+            30.0,
+            30.0
+          ]
+        },
+        "content_assisted": {
+          "mean": 2.0,
+          "median": 2.0,
+          "standard_deviation": 0.0,
+          "minimum": 2.0,
+          "maximum": 2.0,
+          "individual_values": [
+            2.0,
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ]
+        },
+        "grouping": {
+          "mean": 11.0,
+          "median": 11.0,
+          "standard_deviation": 0.0,
+          "minimum": 11.0,
+          "maximum": 11.0,
+          "individual_values": [
+            11.0,
+            11.0,
+            11.0,
+            11.0,
+            11.0
+          ]
+        },
+        "review": {
+          "mean": 6.0,
+          "median": 6.0,
+          "standard_deviation": 0.0,
+          "minimum": 6.0,
+          "maximum": 6.0,
+          "individual_values": [
+            6.0,
+            6.0,
+            6.0,
+            6.0,
+            6.0
+          ]
+        }
+      },
+      "category_denominators": [
+        65,
+        65,
+        65,
+        65,
+        65
+      ],
+      "grouping": {
+        "groups_proposed": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "groups_accepted": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "groups_discarded": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "groups_rejected": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "grouped_total": [
+          11,
+          11,
+          11,
+          11,
+          11
+        ],
+        "clustering_purity": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group_cohesion": [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "scatter_in_group": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "group_input_tokens": [
+          3020,
+          3020,
+          3020,
+          3020,
+          3020
+        ],
+        "group_completion_tokens": [
+          530,
+          530,
+          530,
+          530,
+          530
+        ],
+        "grouped_rule_resolved_count": [
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "grouped_unresolved_count": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  },
+  "paired_content_transitions": {
+    "A_vs_C": {
+      "unchanged": 360,
+      "review → correct": 5,
+      "wrong → correct": 5,
+      "wrong → review": 5,
+      "wrong → wrong": 5
+    },
+    "B_vs_D": {
+      "unchanged": 360,
+      "wrong → correct": 5,
+      "wrong → review": 5,
+      "wrong → wrong": 10
+    },
+    "A_vs_B": {
+      "unchanged": 305,
+      "correct → correct": 55,
+      "review → correct": 15,
+      "correct → review": 5
+    },
+    "C_vs_D": {
+      "unchanged": 285,
+      "correct → correct": 55,
+      "review → correct": 15,
+      "correct → review": 10,
+      "correct → wrong": 5,
+      "wrong → correct": 5,
+      "wrong → wrong": 5
+    }
+  },
+  "error_analysis_count": 25
+}

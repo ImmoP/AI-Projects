@@ -1,0 +1,13 @@
+From: Newsletter <newsletter@example.com>
+To: reader@example.org
+Subject: Monthly product update
+Date: Mon, 5 Jan 2026 09:40:00 +0000
+Message-ID: <update-0009@example.com>
+Return-Path: <bounce@example.com>
+Authentication-Results: mx.example.org; spf=pass smtp.mailfrom=example.com; dkim=pass header.d=example.com; dmarc=pass header.from=example.com
+DKIM-Signature: v=1; a=rsa-sha256; d=example.com; s=selector1; c=relaxed/relaxed; h=from:to:subject:date; bh=DDDDfakebodyhash0000000000000000000000000=; b=DDDDfakesignaturedata0000000000000000000000000000000000000000000000DDDD==
+X-Test-Purpose: Clean ham baseline -- SPF, DKIM and DMARC all pass and are aligned with the From domain. Used as the comparison baseline for the other fixtures.
+Content-Type: text/plain; charset=utf-8
+
+This is a fully invented test fixture representing a well-behaved,
+fully authenticated newsletter from its own domain.

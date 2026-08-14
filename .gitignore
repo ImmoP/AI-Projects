@@ -1,0 +1,133 @@
+# Books (copyrighted and too large for the repository)
+AI Engineering by Chip Huyen.pdf
+Build a Large Language Model (From Scratch) MEAP V08 - Unknown.pdf
+Speech and Language Processing.pdf
+
+# Spam classifier: private/generated data and model artifacts
+Spam_Detector_Email/data/**
+!Spam_Detector_Email/data/**/
+!Spam_Detector_Email/data/**/README*
+!Spam_Detector_Email/data/**/.gitkeep
+Spam_Detector_Email/models/gpt2/
+Spam_Detector_Email/checkpoints/
+
+# Private email exports (including extensionless mbox files)
+**/Posteingang_gmx
+**/posteingang_gmx
+**/Spam_hotmail
+**/spam_hotmail
+**/Spamverdacht_gmx
+**/spamverdacht_gmx
+*.mbox
+*.mbx
+*.eml
+*.emlx
+*.maildir/
+Maildir/
+**/.thunderbird/
+**/Thunderbird/Profiles/
+**/ImapMail/
+**/global-messages-db.sqlite
+*.msf
+
+# Python environments, caches, packaging, and test output
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.python-version
+.eggs/
+*.egg
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.envrc
+.direnv/
+.netrc
+.pypirc
+pip.conf
+credentials*.json
+secrets*.json
+service-account*.json
+token*.json
+*.local.json
+*.local.toml
+*.local.yaml
+*.local.yml
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Logs, caches, and temporary files
+*.log
+logs/
+.cache/
+.tmp/
+.temp/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+!projects/**/evals/**/*.bak
+*.swp
+*.swo
+*~
+
+# IDE/editor state
+.idea/
+.vscode/
+.vs/
+*.code-workspace
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Tidy Agent: local runtime consumption markers for one-time Holdouts.
+# These gate whether a real run is still permitted (checked via .exists()
+# by evals/run_holdout_v3_e4.py / run_holdout_v4_e4.py) and are therefore
+# environment/runtime state, not repo state. The committed, permanent
+# record of a consumption event lives in the sibling, tracked
+# consumption_record.json instead -- see the "Holdout protocol" section in
+# projects/tidy-agent/README.md.
+projects/tidy-agent/evals/holdout_v3/CONSUMED.json
+projects/tidy-agent/evals/holdout_v4/CONSUMED.json

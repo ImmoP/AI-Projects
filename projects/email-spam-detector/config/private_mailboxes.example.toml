@@ -1,0 +1,17 @@
+# Copy this file to private_mailboxes.local.toml and replace placeholders.
+# Entry order is meaningful and must match the private preparation workflow.
+
+[[mailboxes]]
+path = "<PRIVATE_HAM_MAILBOX>"
+label = "ham"
+source = "<PRIVATE_SOURCE_IDENTIFIER_A>"
+
+[[mailboxes]]
+path = "<PRIVATE_SPAM_MAILBOX_A>"
+label = "spam"
+source = "<PRIVATE_SOURCE_IDENTIFIER_B>"
+
+[[mailboxes]]
+path = "<PRIVATE_SPAM_MAILBOX_B>"
+label = "spam"
+source = "<PRIVATE_SOURCE_IDENTIFIER_C>"

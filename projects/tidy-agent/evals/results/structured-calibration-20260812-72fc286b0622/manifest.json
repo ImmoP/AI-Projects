@@ -1,0 +1,133 @@
+{
+  "created_at": "2026-08-12T09:51:00.056692+00:00",
+  "source": {
+    "commit": "72fc286b06225f5d6978f8515a188ef1a485c65f",
+    "short_commit": "72fc286b0622",
+    "dirty": false,
+    "branch": "main",
+    "evaluation_script": "evals/run_structured_calibration.py",
+    "evaluation_script_sha256": "20819255ac667e65e81499925cb9fec291886c3710ec2b6470b32435aa828acb",
+    "calibration_candidates_sha256": "b3b0aa827dab2845da61a8af27a03295baf5f711ee9e737f39794bc47fda065e"
+  },
+  "python_environment": {
+    "operating_system": "macOS-15.7.7-x86_64-i386-64bit-Mach-O",
+    "architecture": "x86_64",
+    "processor": "i386",
+    "logical_cpu_count": 8,
+    "python": "3.13.2",
+    "dependencies": {
+      "smolagents": "1.26.0",
+      "litellm": "1.96.0",
+      "pydantic": "2.13.4",
+      "PyYAML": "6.0.3",
+      "pypdf": "6.15.0",
+      "python-docx": "1.2.0",
+      "python-dotenv": "1.2.2"
+    }
+  },
+  "model": {
+    "identifier": "ollama_chat/qwen3.5:4b",
+    "family": "qwen3.5",
+    "provider_runtime": "Ollama via LiteLLM",
+    "endpoint": "remote endpoint (address redacted)",
+    "endpoint_local": false,
+    "structured_output_mode": "json_object",
+    "temperature": 0.0,
+    "seed": "not configured",
+    "thinking": false,
+    "max_tokens": "not configured (provider default)",
+    "context_length": 8192,
+    "request_timeout_seconds": 1800.0,
+    "retry_policy": "zero application retries",
+    "digest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+    "quantization": "Q4_K_M",
+    "parameter_size": "4.7B",
+    "runtime_version": "0.32.1",
+    "already_loaded_before_warmup": false,
+    "loaded_context_length": "not loaded",
+    "loaded_size_vram_bytes": "not loaded"
+  },
+  "tidy_configuration": {
+    "rules": [
+      {
+        "path": "config/rules.yaml",
+        "sha256": "2b2bf6f27700adfd22d0d5373a9ff54ff62cf21aa143b8474c4ac0daf27e180b"
+      },
+      {
+        "path": "src/tidy/config/rules.yaml",
+        "sha256": "0f6b03a37a12b3cbcdfd20667315917069106423e22890a32d6cffd72eea6e84"
+      }
+    ],
+    "categories": [
+      "Images",
+      "Documents",
+      "Archives",
+      "Code",
+      "Installers"
+    ],
+    "review_directory": "_ToReview",
+    "conditions": {
+      "E0": "two-pass metadata control (production, unchanged)",
+      "E1": "deterministic disagreement abstention (two independent passes)",
+      "E2": "explicit structured abstention (decision + nullable category)",
+      "E3": "explicit abstention + agreement gate (two independent passes)"
+    },
+    "content_mode": false,
+    "remote_content_authorized": false
+  },
+  "dataset": {
+    "designation": "development-calibration",
+    "fixture_manifest": "evals/calibration/fixture_manifest.json",
+    "fixture_dataset_sha256": "94f222f68acaaa795f68688ef36a13073231746c5c4b440ed845df82467efd64",
+    "fixture_file_count": 47,
+    "ground_truth_sha256": "5baf17d9b8d42743c4e55407b02f7198dfb9af508a93d88c6d7af3c917f6dddc",
+    "holdout_referenced": false
+  },
+  "execution": {
+    "repetitions": 5,
+    "scheduled_runs": 20,
+    "condition_order": [
+      [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      [
+        "E1",
+        "E2",
+        "E3",
+        "E0"
+      ],
+      [
+        "E2",
+        "E3",
+        "E0",
+        "E1"
+      ],
+      [
+        "E3",
+        "E0",
+        "E1",
+        "E2"
+      ],
+      [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ]
+    ],
+    "model_lifecycle": "warm",
+    "warmup": "one discarded model request before all measured runs",
+    "standard_timeout_seconds": 240.0,
+    "failed_run_policy": "record failure and stop; never substitute model; no reruns",
+    "warmup_result": {
+      "status": "ok",
+      "latency_seconds": 16.326803712000014,
+      "completion_tokens": 2
+    },
+    "model_identity_check": "unchanged"
+  },
+  "experiment_id": "structured-calibration-20260812-72fc286b0622"
+}

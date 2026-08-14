@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+data/vector_db/
+
+# Benchmark output (reproducible) and the large embedded-corpus cache
+benchmark/results/
+
+# Downloaded Open RAGBench dataset
+benchmark/open_ragbench/

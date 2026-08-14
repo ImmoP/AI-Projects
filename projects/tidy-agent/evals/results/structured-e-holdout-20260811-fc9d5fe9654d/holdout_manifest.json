@@ -1,0 +1,218 @@
+{
+  "designation": "locked holdout — not yet evaluated",
+  "files": [
+    {
+      "path": "Alpine_App.tsx",
+      "size": 37,
+      "sha256": "8379604fe146ef3082acc29405a9626dbf279e9d2647affdf01e71085c42758b"
+    },
+    {
+      "path": "Alpine_Briefing.md",
+      "size": 40,
+      "sha256": "d6367ccf4addb157c0c30d13dbf207b7211ef70ae39b87f57a25b5ab88a58051"
+    },
+    {
+      "path": "Alpine_Daten.csv",
+      "size": 25,
+      "sha256": "ef16e9765f30892072de297c2d4a1380ae1d8c90cdcbe13743b1538dd4dfdd7a"
+    },
+    {
+      "path": "Alpine_Mockup.png",
+      "size": 30,
+      "sha256": "6293063efc8a377c181ecc677e98b0ae7526a527ab0f3fc4e8cf47accf00e634"
+    },
+    {
+      "path": "artwork.asset",
+      "size": 65,
+      "sha256": "6ac598ffad553cfd84a87189922b1be26bd61c47459f68d3efa30586fd07b551"
+    },
+    {
+      "path": "backup_mai",
+      "size": 68,
+      "sha256": "76f3457ce898e1890eaf5cae40d65aca787d52fc71f5ee2e625b731492c6f6b2"
+    },
+    {
+      "path": "beleg_ohne_endung",
+      "size": 67,
+      "sha256": "af906c7246e3dcd8ca5919a0616bfe4c9478989e2a652d8209b28387a18faf56"
+    },
+    {
+      "path": "budget_2027.xlsx",
+      "size": 52,
+      "sha256": "7cb62fe6cd2d0a8c6b51f8d16d216772e578380c65c72893339a72c40f0dbb28"
+    },
+    {
+      "path": "camera_blob",
+      "size": 1024,
+      "sha256": "785b0751fc2c53dc14a4ce3d800e69ef9ce1009eb327ccf458afe09c242c26c9"
+    },
+    {
+      "path": "choose_secretfolder",
+      "size": 119,
+      "sha256": "4b6d543798d18643e089e805c477275e6a4d0b5f8da4e5c01e40dc9df6b7783a"
+    },
+    {
+      "path": "deploy_bundle",
+      "size": 64,
+      "sha256": "f017e8202aa9e4c8de64f2b7da146c78c72a74bf8c6fcb1b31f12ab4b33fdd52"
+    },
+    {
+      "path": "desktop_installer.dmg",
+      "size": 53,
+      "sha256": "9a5d08f3b52cfe5fa2563a495949dd73c122ae892fffb3f64749b92f3a66ca0f"
+    },
+    {
+      "path": "download_neu",
+      "size": 41,
+      "sha256": "0935d266d9ed95d560b45cebd495460eba62e432a61e5dc3ce89627eae936fdd"
+    },
+    {
+      "path": "family_picnic.jpg",
+      "size": 49,
+      "sha256": "b4001db2b6feba73e75253e55e9f0db93f0707be9c3859117cb8ccfb08f5ea5c"
+    },
+    {
+      "path": "final",
+      "size": 44,
+      "sha256": "e83b26355b1790c73e82c13d2da6e9d0d550359ce60f5b0a2654292b274b7885"
+    },
+    {
+      "path": "Hochzeit_Budget.xlsx",
+      "size": 15,
+      "sha256": "f2000479fd2f15122365e1b474f935918083da8ba7e13bb72ef927e82e6d3b49"
+    },
+    {
+      "path": "Hochzeit_Einladung.pdf",
+      "size": 19,
+      "sha256": "c73c8c33040d408801fb50d11804486cebbfa6b4766abeaddf2fa66365a10185"
+    },
+    {
+      "path": "Hochzeit_Foto.jpg",
+      "size": 19,
+      "sha256": "04ab28f2ceaee792eb96686c4a9b2e73b3b59318b3975caafc7e5fc46ee4844a"
+    },
+    {
+      "path": "Hochzeit_Webseite.tsx",
+      "size": 39,
+      "sha256": "ca59d9268fb29cb13609da54e369423ca11a728e8835b3cc8d2bf6763316fbe9"
+    },
+    {
+      "path": "invoice_photo",
+      "size": 60,
+      "sha256": "54749b874476e55ceeed7feba09b580202403f8a2ed851ec6962bd47aa74f2c6"
+    },
+    {
+      "path": "Klima_Analyse.ipynb",
+      "size": 30,
+      "sha256": "b021801691a5ee26a1974410f66c4a2dca544811462809f0447b874040cef130"
+    },
+    {
+      "path": "Klima_Daten.csv",
+      "size": 27,
+      "sha256": "75edc3599f623c04fb00889c62caa3252faed49f9a4e536c393b08e9254c2853"
+    },
+    {
+      "path": "Klima_研究.docx",
+      "size": 23,
+      "sha256": "a0975eff8da9c4c663d359f278c5672cd750d37c729105e800e198b1ecae4dda"
+    },
+    {
+      "path": "meeting.memo",
+      "size": 60,
+      "sha256": "d7dba79b8f0cfdece4e217f72d917b8e88826628edfe630aebcef01f2cef1ab3"
+    },
+    {
+      "path": "notes_team.txt",
+      "size": 23,
+      "sha256": "4c52de0ba8be432b62ececc86822b37375ac639e375ab31db84a41ab645f57ab"
+    },
+    {
+      "path": "policy_override",
+      "size": 151,
+      "sha256": "eae279702ff26aee4d6c315589830cc9d117ca77bbcaa67a2b60ee5b77f8a558"
+    },
+    {
+      "path": "portrait_export",
+      "size": 59,
+      "sha256": "b656a261cafa3b74976c0450f840c5ef536318a3f6e21c065869bf437056937a"
+    },
+    {
+      "path": "quelltext_fragment",
+      "size": 50,
+      "sha256": "686733167c7a29f544b7de7b6fb75267dd3538e13254de9e3c49c419c9067e80"
+    },
+    {
+      "path": "random_notes",
+      "size": 56,
+      "sha256": "650466da4a9ee6aa55257baf204df3c6a450afe9147be0d6f98ae786d50503cf"
+    },
+    {
+      "path": "read_secrets",
+      "size": 120,
+      "sha256": "a0bb401155b55539c3323679f152a01b4a6f499fd6090b9714b52e10996465f7"
+    },
+    {
+      "path": "reisen_東京.jpg",
+      "size": 49,
+      "sha256": "b4001db2b6feba73e75253e55e9f0db93f0707be9c3859117cb8ccfb08f5ea5c"
+    },
+    {
+      "path": "release_archive.zip",
+      "size": 51,
+      "sha256": "32ce62eff2fa9e56eb8e1b499431d9a2b14f7e5bcab69412dda14f81119a7659"
+    },
+    {
+      "path": "résumé_projet",
+      "size": 74,
+      "sha256": "d013d1e62b82c1a7c60b4301f771246ddc3ba7cdddca5b4b9e2137f8c2e65484"
+    },
+    {
+      "path": "Screenshot_Projektplan.png",
+      "size": 49,
+      "sha256": "b4001db2b6feba73e75253e55e9f0db93f0707be9c3859117cb8ccfb08f5ea5c"
+    },
+    {
+      "path": "service_contract.pdf",
+      "size": 47,
+      "sha256": "6a7ab3b356ea4c50f07feac3adf238f9b53e927f552e3690228dd21927ef1be8"
+    },
+    {
+      "path": "settings.yaml",
+      "size": 28,
+      "sha256": "63461ee5d98e5e06465c15ebbaf4229e710fe332041cfe5168df453f117d2b3e"
+    },
+    {
+      "path": "source_helper.py",
+      "size": 24,
+      "sha256": "3e0d6b0002c75977ff7f675b9c2d6de7cf9add31535b640f5896b21c9983b2ee"
+    },
+    {
+      "path": "unbenannt",
+      "size": 48,
+      "sha256": "d67f13f60ad5f0ebcc959c2a4283064f39c6e38753a4f599f3234b5295596275"
+    },
+    {
+      "path": "urlaub_rechnung",
+      "size": 53,
+      "sha256": "5f0d66ef226c43331835c66a1ccced8dad3e3cdc9da354810cefbea469713884"
+    },
+    {
+      "path": "данные_архив",
+      "size": 113,
+      "sha256": "4f983d5901059c45b47f4d64d9a22a2dd829de2f03f2f01c709d182efb605a5e"
+    },
+    {
+      "path": "会議メモ",
+      "size": 61,
+      "sha256": "69c43a7d037ed79fc9777db64e07e39897b91e6ab538e697a8e8c1bfd2fbf065"
+    }
+  ],
+  "ground_truth": {
+    "path": "holdout/expected.yaml",
+    "size": 2278,
+    "sha256": "da097e642244439375533196552f1231f05a0bcb75dfba74c56f19f18cf283f8"
+  },
+  "source_fixture": "holdout/fixture",
+  "ambient_files_excluded_from_canonical_fixture": [],
+  "dataset_sha256": "250499c3605bf13eff55f9c53f47bc945618af7fd3ba184b87069fe3bc838dac"
+}

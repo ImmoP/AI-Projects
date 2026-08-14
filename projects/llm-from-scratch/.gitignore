@@ -1,0 +1,34 @@
+# Centralized project-local runtime state
+
+.runtime/
+
+# Local reproducibility environment
+
+.venv-repro/
+
+# Runtime-downloaded text and datasets
+
+data/*
+!data/README.md
+the-verdict.txt
+!data/the-verdict.txt
+instruction-data*.json
+sms_spam_collection.zip
+sms_spam_collection/
+train.csv
+validation.csv
+test.csv
+
+# Runtime-downloaded helpers and model artifacts
+
+gpt_download.py
+gpt2/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Notebook working state
+
+.ipynb_checkpoints/

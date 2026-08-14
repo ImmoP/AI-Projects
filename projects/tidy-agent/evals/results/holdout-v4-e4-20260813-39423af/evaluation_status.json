@@ -1,0 +1,11 @@
+{
+  "provider_errors": 0,
+  "parse_failures": 0,
+  "schema_failures": 1,
+  "all_required_provider_responses_received": true,
+  "E3_gate_completed": true,
+  "E4_current_completed": true,
+  "result_persistence_completed": true,
+  "evaluation_valid": false,
+  "evaluation_status": "partial_inconclusive"
+}

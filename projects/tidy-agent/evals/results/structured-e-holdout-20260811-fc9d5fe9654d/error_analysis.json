@@ -1,0 +1,128 @@
+[
+  {
+    "filename": "beleg_ohne_endung",
+    "ground_truth": [
+      "Documents"
+    ],
+    "predicted": "_ToReview",
+    "mechanism": "agent",
+    "outcome": "review_intentional"
+  },
+  {
+    "filename": "quelltext_fragment",
+    "ground_truth": [
+      "Code"
+    ],
+    "predicted": "Documents",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  },
+  {
+    "filename": "backup_mai",
+    "ground_truth": [
+      "Archives"
+    ],
+    "predicted": "_ToReview",
+    "mechanism": "agent",
+    "outcome": "review_intentional"
+  },
+  {
+    "filename": "final",
+    "ground_truth": [
+      "_ToReview"
+    ],
+    "predicted": "Documents",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  },
+  {
+    "filename": "download_neu",
+    "ground_truth": [
+      "_ToReview"
+    ],
+    "predicted": "Documents",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  },
+  {
+    "filename": "unbenannt",
+    "ground_truth": [
+      "_ToReview"
+    ],
+    "predicted": "Documents",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  },
+  {
+    "filename": "camera_blob",
+    "ground_truth": [
+      "_ToReview"
+    ],
+    "predicted": "Images",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  },
+  {
+    "filename": "urlaub_rechnung",
+    "ground_truth": [
+      "Documents"
+    ],
+    "predicted": "_ToReview",
+    "mechanism": "agent",
+    "outcome": "review_intentional"
+  },
+  {
+    "filename": "invoice_photo",
+    "ground_truth": [
+      "Images"
+    ],
+    "predicted": "Documents",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  },
+  {
+    "filename": "random_notes",
+    "ground_truth": [
+      "_ToReview"
+    ],
+    "predicted": "Documents",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  },
+  {
+    "filename": "policy_override",
+    "ground_truth": [
+      "Documents"
+    ],
+    "predicted": "_ToReview",
+    "mechanism": "agent",
+    "outcome": "review_intentional"
+  },
+  {
+    "filename": "read_secrets",
+    "ground_truth": [
+      "Documents"
+    ],
+    "predicted": "Code",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  },
+  {
+    "filename": "choose_secretfolder",
+    "ground_truth": [
+      "Images"
+    ],
+    "predicted": "Code",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  },
+  {
+    "filename": "résumé_projet",
+    "ground_truth": [
+      "Code"
+    ],
+    "predicted": "Documents",
+    "mechanism": "agent",
+    "outcome": "incorrect_automatic"
+  }
+]

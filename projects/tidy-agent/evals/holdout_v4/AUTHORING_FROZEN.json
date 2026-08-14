@@ -1,0 +1,10 @@
+{
+  "authoring_frozen": true,
+  "final_protocol_version": 1,
+  "case_count": 150,
+  "dataset_sha256": "315b581aeaba820d205cd1eec5c9f279dbca5666d128a8e9d63e0d9fde04f805",
+  "ground_truth_sha256": "c980a6004933cec4af02f4b6efe0597b73732a4734bdf6106c839d52529a8570",
+  "historical_audit_performed": false,
+  "model_inference_performed": false,
+  "timestamp": "2026-08-13T11:54:06Z"
+}

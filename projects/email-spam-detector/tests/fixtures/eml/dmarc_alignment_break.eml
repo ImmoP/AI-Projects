@@ -1,0 +1,13 @@
+From: Billing <billing@example.com>
+To: reader@example.org
+Subject: Your subscription receipt
+Date: Mon, 5 Jan 2026 09:25:00 +0000
+Message-ID: <receipt-0006@bulk-mailer.example.net>
+Return-Path: <bounce@bulk-mailer.example.net>
+Authentication-Results: mx.example.org; spf=pass smtp.mailfrom=bulk-mailer.example.net; dkim=pass header.d=bulk-mailer.example.net; dmarc=fail header.from=example.com
+DKIM-Signature: v=1; a=rsa-sha256; d=bulk-mailer.example.net; s=selector1; c=relaxed/relaxed; h=from:to:subject:date; bh=BBBBfakebodyhash0000000000000000000000000=; b=BBBBfakesignaturedata0000000000000000000000000000000000000000000000BBBB==
+X-Test-Purpose: DMARC alignment break -- SPF and DKIM both pass, but for bulk-mailer.example.net, not the From domain example.com, so DMARC alignment fails.
+Content-Type: text/plain; charset=utf-8
+
+This is a fully invented test fixture simulating a third-party sender
+that authenticates its own domain but not the From domain it displays.

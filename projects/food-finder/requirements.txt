@@ -1,0 +1,7 @@
+smolagents[litellm]>=1.26,<2
+requests>=2.32,<3
+python-dotenv>=1.1,<2
+gradio>=5,<7
+mcp>=1.28,<2
+PyYAML>=6,<7
+pytest>=8,<9

@@ -1,0 +1,12 @@
+From: Newsletter <newsletter@example.com>
+To: reader@example.org
+Subject: Your weekly digest
+Date: Mon, 5 Jan 2026 09:00:00 +0000
+Message-ID: <digest-0001@example.com>
+Return-Path: <bounce@example.com>
+Authentication-Results: mx.example.org; spf=pass smtp.mailfrom=example.com
+X-Test-Purpose: SPF pass -- Authentication-Results reports spf=pass, no DKIM/DMARC clause present.
+Content-Type: text/plain; charset=utf-8
+
+This is a fully invented weekly digest used only as a test fixture.
+No real subscribers, no real content.

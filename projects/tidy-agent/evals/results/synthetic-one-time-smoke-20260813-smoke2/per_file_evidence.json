@@ -1,0 +1,2127 @@
+[
+  {
+    "filename": "synthetic_archive_case_001_backup_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive",
+        "backup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_002_project_snapshot",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "snapshot"
+      ],
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": true,
+    "veto_reason_code": "MULTI_CATEGORY_STRONG_CUES",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_archive_case_003_release_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_004_cold_storage",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_005_export_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_006_migration_snapshot",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "snapshot"
+      ],
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": true,
+    "veto_reason_code": "MULTI_CATEGORY_STRONG_CUES",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_archive_case_007_weekly_backup",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive",
+        "backup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_008_config_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_009_asset_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_010_log_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_011_media_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_012_dataset_snapshot",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "snapshot"
+      ],
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": true,
+    "veto_reason_code": "MULTI_CATEGORY_STRONG_CUES",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_archive_case_013_workspace_backup",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive",
+        "backup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_014_source_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ],
+      "Code": [
+        "source"
+      ]
+    },
+    "conflict_detected": true,
+    "veto_reason_code": "MULTI_CATEGORY_STRONG_CUES",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_archive_case_015_state_snapshot",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "snapshot"
+      ],
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": true,
+    "veto_reason_code": "MULTI_CATEGORY_STRONG_CUES",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_archive_case_016_archive_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_017_monthly_backup",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive",
+        "backup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_018_session_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_019_checkpoint_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_archive_case_020_vault_bundle",
+    "e3_category": "Archives",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Archives",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Archives",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Archives": [
+        "archive"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Archives"
+  },
+  {
+    "filename": "synthetic_code_case_001_parser_module",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code",
+        "module"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_002_utils_helper",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_003_api_client",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_004_test_harness",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_005_config_loader",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_006_build_script",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code",
+        "script"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_007_data_pipeline",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_008_cache_layer",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_009_auth_middleware",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_010_queue_worker",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_011_schema_migration",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_012_cli_entrypoint",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_013_logging_setup",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ],
+      "Installers": [
+        "setup"
+      ]
+    },
+    "conflict_detected": true,
+    "veto_reason_code": "MULTI_CATEGORY_STRONG_CUES",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_code_case_014_retry_policy",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_015_metrics_exporter",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_016_task_scheduler",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_017_template_engine",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_018_session_manager",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_019_router_module",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code",
+        "module"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_code_case_020_validation_layer",
+    "e3_category": "Code",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Code",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Code",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Code": [
+        "code"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Code"
+  },
+  {
+    "filename": "synthetic_document_case_001_project_notes",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_002_meeting_summary",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_003_status_memo",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document",
+        "memo"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_004_budget_outline",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_005_policy_draft",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_006_client_letter",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document",
+        "letter"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_007_release_notes",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_008_audit_summary",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_009_quarterly_review",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_010_onboarding_guide",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_011_expense_summary",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_012_faq_draft",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_013_contract_outline",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "contract",
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_014_training_notes",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_015_survey_summary",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_016_agenda_notes",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_017_handbook_draft",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_018_invoice_summary",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document",
+        "invoice"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_019_proposal_outline",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_document_case_020_briefing_notes",
+    "e3_category": "Documents",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Documents",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Documents",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Documents": [
+        "document"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Documents"
+  },
+  {
+    "filename": "synthetic_image_case_001_event_snapshot",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image",
+        "snapshot"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_002_team_photo",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image",
+        "photo"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_003_product_shot",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_004_banner_graphic",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_005_landscape_capture",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_006_portrait_session",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image",
+        "portrait"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_007_screenshot_capture",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image",
+        "screenshot"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_008_logo_variant",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_009_poster_render",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_010_icon_set",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_011_thumbnail_batch",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image",
+        "thumbnail"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_012_wallpaper_variant",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image",
+        "wallpaper"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_013_diagram_render",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_014_cover_art",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_015_avatar_capture",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_016_scene_render",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_017_gallery_item",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "gallery",
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_018_print_layout",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_019_sticker_art",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_image_case_020_banner_variant",
+    "e3_category": "Images",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Images",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Images",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Images": [
+        "image"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Images"
+  },
+  {
+    "filename": "synthetic_installer_case_001_device_setup",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer",
+        "setup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_002_driver_package",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "driver",
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_003_runtime_installer",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_004_update_package",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_005_firmware_setup",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "firmware",
+        "installer",
+        "setup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_006_toolchain_installer",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_007_client_setup",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer",
+        "setup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_008_agent_installer",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_009_plugin_package",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_010_printer_setup",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer",
+        "setup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_011_codec_package",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_012_sdk_installer",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_013_launcher_setup",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer",
+        "setup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_014_service_installer",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_015_utility_package",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_016_bundle_installer",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_017_patch_package",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_018_component_setup",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer",
+        "setup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_019_extension_installer",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_installer_case_020_suite_setup",
+    "e3_category": "Installers",
+    "e3_pass1_decision": "classify",
+    "e3_pass1_category": "Installers",
+    "e3_pass2_decision": "classify",
+    "e3_pass2_category": "Installers",
+    "e3_agreement": "agree_classify",
+    "veto_applicable": true,
+    "matched_category_cue_families": {
+      "Installers": [
+        "installer",
+        "setup"
+      ]
+    },
+    "conflict_detected": false,
+    "veto_reason_code": "NO_CONFLICT",
+    "final": "Installers"
+  },
+  {
+    "filename": "synthetic_review_case_001_unresolved_material",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_002_unlabeled_item",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_003_unspecified_content",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_004_misc_bundle",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_005_mixed_content",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_006_unsorted_item",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_007_pending_material",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_008_uncategorized_item",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_009_generic_placeholder",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_010_loose_material",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_011_unassigned_item",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_012_leftover_content",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_013_unnamed_bundle",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_014_undetermined_item",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_015_assorted_material",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_016_unfiled_item",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_017_spare_content",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_018_orphaned_item",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_019_unrouted_material",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  },
+  {
+    "filename": "synthetic_review_case_020_catchall_item",
+    "e3_category": "_ToReview",
+    "e3_pass1_decision": "review",
+    "e3_pass1_category": null,
+    "e3_pass2_decision": "review",
+    "e3_pass2_category": null,
+    "e3_agreement": "review_involved",
+    "veto_applicable": false,
+    "matched_category_cue_families": {},
+    "conflict_detected": false,
+    "veto_reason_code": "NOT_APPLICABLE_E3_REVIEW",
+    "final": "_ToReview"
+  }
+]
