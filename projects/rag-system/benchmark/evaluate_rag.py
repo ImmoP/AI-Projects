@@ -25,6 +25,7 @@ from benchmark import config
 from benchmark import generation_metrics as genmetrics
 from benchmark.bm25 import BM25Index
 from benchmark.evaluators import (
+    evaluate_agentic,
     evaluate_hybrid,
     evaluate_naive,
     evaluate_reranker,
@@ -91,6 +92,21 @@ def run_reranker(subset, embedded_chunks, model, bm25_index, reranker, top_k, ca
 
 def run_agentic(subset, embedded_chunks, model, top_k, ollama_model, base_url, max_steps):
     records = []
+    for ex in subset:
+        print()
+        print(f"[agentic] {ex.query_id} :: {ex.question[:60]}")
+        records.append(
+            evaluate_agentic(
+                ex,
+                embedded_chunks,
+                model,
+                top_k=top_k,
+                ollama_model=ollama_model,
+                base_url=base_url,
+                max_steps=max_steps,
+            )
+        )
+    return records
 
 def _mean(values):
     values = [v for v in values if v is not None]
