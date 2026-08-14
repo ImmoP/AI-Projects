@@ -48,6 +48,15 @@ class BM25Index:
     query and returns the top-k as ``RetrievalResult`` objects (the score is
     the BM25 score).  Chunk metadata (source, page, chunk_id, text) is
     preserved so the results can be fused with dense retrieval.
+
+    The term statistics are stored as a *sparse inverted index*: each term
+    maps to its document frequency plus a postings list of
+    ``(doc_idx, term_frequency)`` pairs holding only the documents in which
+    the term occurs.  Memory is therefore proportional to the number of
+    non-zero (term, document) pairs rather than to |vocabulary| * |corpus|,
+    so the index scales to full corpora (tens of thousands of chunks)
+    instead of allocating a dense N-length vector per vocabulary term (which
+    caused a MemoryError on the 37,846-chunk corpus).
     """
 
     chunk_ids: list[int]
@@ -56,8 +65,10 @@ class BM25Index:
     texts: list[str]
     doc_lengths: list[int]
     avgdl: float
-    # term -> (number of chunks containing it, per-chunk term frequencies)
-    term_stats: dict[str, tuple[int, list[int]]]
+    # term -> (document frequency, postings) where postings is a sparse list
+    # of (doc_idx, term_frequency) for only the documents containing the
+    # term.  document frequency == len(postings).
+    term_stats: dict[str, tuple[int, list[tuple[int, int]]]]
     k1: float
     b: float
 
@@ -73,20 +84,23 @@ class BM25Index:
             doc_lengths.append(len(terms))
 
         avgdl = sum(doc_lengths) / len(doc_lengths) if doc_lengths else 0.0
-        n_docs = len(doc_terms)
 
-        # term -> per-chunk term frequencies (computed once, O(total words)).
-        term_lists: dict[str, list[int]] = {}
+        # Sparse inverted index: term -> list of (doc_idx, term_frequency)
+        # holding only the documents in which the term occurs.  This is
+        # O(number of distinct (term, doc) pairs) in memory instead of
+        # O(|vocabulary| * n_docs) for a dense N-length vector per term, so
+        # the index scales to full corpora instead of hitting MemoryError.
+        postings: dict[str, list[tuple[int, int]]] = {}
         for doc_idx, terms in enumerate(doc_terms):
             local: dict[str, int] = {}
             for term in terms:
                 local[term] = local.get(term, 0) + 1
             for term, tf in local.items():
-                term_lists.setdefault(term, [0] * n_docs)[doc_idx] = tf
+                postings.setdefault(term, []).append((doc_idx, tf))
 
+        # document frequency is simply the length of the postings list.
         term_stats = {
-            term: (sum(1 for v in lst if v > 0), lst)
-            for term, lst in term_lists.items()
+            term: (len(plist), plist) for term, plist in postings.items()
         }
 
         return cls(
@@ -118,18 +132,19 @@ class BM25Index:
             stats = self.term_stats.get(term)
             if stats is None:
                 continue
-            n_t, tf_list = stats
+            _n_t, postings = stats
             idf = self._idf(term)
             if idf <= 0.0:
                 continue
-            for i in range(n):
-                tf = tf_list[i]
-                if tf == 0:
-                    continue
+            # Iterate only over documents that contain the query term (sparse
+            # postings) instead of scanning every chunk.  The result is still
+            # a full-length score list, so the downstream ranking/fusion code
+            # that expects one score per chunk is unchanged.
+            for doc_idx, tf in postings:
                 denom = tf + self.k1 * (
-                    1 - self.b + self.b * self.doc_lengths[i] / self.avgdl
+                    1 - self.b + self.b * self.doc_lengths[doc_idx] / self.avgdl
                 )
-                scores[i] += idf * (tf * (self.k1 + 1)) / denom
+                scores[doc_idx] += idf * (tf * (self.k1 + 1)) / denom
 
         return scores
 

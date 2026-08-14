@@ -482,11 +482,18 @@ def main(argv=None):
     if args.corpus_docs != 0 and args.corpus_docs < len(all_doc_ids):
         print("      >>> WARNING: gold-conditioned corpus subset (smoke test).")
         print("      >>> NOT VALID for the final benchmark. Use --corpus-docs 0.")
-    embedded_chunks, _ = get_embedded_corpus(
+    embedded_chunks, cache_path = get_embedded_corpus(
         doc_ids, model, embedding_model_name=args.embedding_model,
         chunk_size=args.chunk_size, overlap=args.overlap,
         use_cache=not args.no_cache,
     )
+
+    if args.prepare_corpus:
+        print(f"[prepare] Embedded corpus ready: {len(embedded_chunks)} chunks")
+        print(f"[prepare] cache path: {cache_path}")
+        print("[prepare] Corpus prepared and cached. Exiting before "
+              "BM25 / reranker / warm-up / generation.")
+        return
 
     bm25_index = None
     need_bm25 = any(s in system_names for s in ("hybrid", "reranker"))
@@ -509,10 +516,6 @@ def main(argv=None):
     print("[2/5] Warming up (unmeasured)...")
     _warmup(subset, embedded_chunks, model, bm25_index, reranker, args)
     print("      warm-up done")
-
-    if args.prepare_corpus:
-        print("[prepare] Corpus prepared and cached. Exiting without generation.")
-        return
 
     summaries = {}
     all_records = {}
