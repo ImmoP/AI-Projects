@@ -1,8 +1,6 @@
 # AI / Machine Learning Portfolio
 
-I'm a recent graduate starting my career in ML/AI engineering, open to both
-Machine Learning Engineer and AI Engineer roles — this repository is not
-scoped to one or the other.
+
 Contact: [@ImmoP](https://github.com/ImmoP) on GitHub, or
 [Immo.Primus@gmx.de](mailto:Immo.Primus@gmx.de).
 
