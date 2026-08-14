@@ -33,7 +33,7 @@ the smoke tests themselves make network calls.
 
 ## Projects
 
-Sorted to serve both roles I'm open to: engineering depth first, then ML
+ Engineering depth first, then ML
 substance, then applied LLM/agent work, then the explicitly educational
 project last.
 
