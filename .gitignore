@@ -131,3 +131,4 @@ $RECYCLE.BIN/
 # projects/tidy-agent/README.md.
 projects/tidy-agent/evals/holdout_v3/CONSUMED.json
 projects/tidy-agent/evals/holdout_v4/CONSUMED.json
+projects/tidy-agent/evals/holdout_v5/CONSUMED.json
