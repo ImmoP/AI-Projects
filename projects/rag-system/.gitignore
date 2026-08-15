@@ -4,7 +4,9 @@ __pycache__/
 data/vector_db/
 
 # Benchmark output (reproducible) and the large embedded-corpus cache
-benchmark/results/
+# (summary.json is kept — it's what the README's numbers are sourced from)
+benchmark/results/*.jsonl
+benchmark/results/cache/
 
 # Downloaded Open RAGBench dataset
 benchmark/open_ragbench/

@@ -350,9 +350,15 @@ consumption events referenced above.
 ## Project status
 
 Implementation is complete for this portfolio's scope, and evaluation is
-closed: the final Holdout has been consumed exactly once and is not rerun,
-Development selection is closed, and there is no post-Holdout tuning. The
-current focus is demonstration and documentation, not a production
+closed for Holdout v4: it has been consumed exactly once and is not rerun,
+Development selection is closed, and there is no post-Holdout tuning. That
+closed run was `PARTIAL_INCONCLUSIVE` (`evaluation_valid = false`), so it
+produced no accuracy claim — see [Evaluation](#evaluation). A further
+evaluation round, Holdout v5, is planned against a revised candidate
+(`E4-batched`); it is not a rerun of v4 and requires an entirely new,
+clean-room-authored fixture and ground truth before it can execute — see
+[`evals/holdout_v5/README.md`](evals/holdout_v5/README.md). The current
+focus otherwise is demonstration and documentation, not a production
 deployment — there is no persistence layer, multi-user support, or
 scheduled/background operation, and the tool is intended to be run
 interactively against one directory at a time.

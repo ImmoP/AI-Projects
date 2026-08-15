@@ -263,13 +263,21 @@ reported.
 | System | Doc Hit@1 | Doc Hit@5 | Doc MRR | Section Hit@1 | Section Hit@5 | Section MRR | Avg Latency | p95 Latency |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | A. Naive Dense | 0.91 | 0.98 | 0.937 | 0.61 | 0.93 | 0.741 | 5.29 s | 9.04 s |
-| B. Hybrid | 0.96 | 1.00 | 0.976 | 0.69 | 0.97 | 0.805 | 5.41 s | 9.35 s |
-| C. Hybrid + Reranker | 0.99 | 1.00 | 0.993 | 0.81 | 0.96 | 0.879 | 8.87 s | 12.54 s |
+| B. Hybrid | 0.96 | 1.00 (ceiling, n=100) | 0.976 (near-ceiling, n=100) | 0.69 | 0.97 | 0.805 | 5.41 s | 9.35 s |
+| C. Hybrid + Reranker | 0.99 | 1.00 (ceiling, n=100) | 0.993 (near-ceiling, n=100) | 0.81 | 0.96 | 0.879 | 8.87 s | 12.54 s |
 | D. Agentic ReAct | 0.82 | 0.93 | 0.860 | 0.46 | 0.81 | 0.598 | 8.44 s | 13.18 s |
+
+Doc Hit@5 and Doc MRR are at or near their ceiling for three of four systems and no
+longer discriminate between them at this n; Doc Hit@1 and the section-level columns
+are the more informative comparison here.
 
 Latency is per-query wall time measured with `time.perf_counter()` after models and
 indexes are loaded and warmed; startup time (corpus embedding, BM25 build, reranker
-load) is recorded separately. Mean and p95 are reported.
+load) is recorded separately. Mean and p95 are reported. **The execution environment
+(CPU/GPU, OS, Ollama version) was not logged for this run and is not recorded
+anywhere in this repository** — whether all four systems ran under identical hardware
+conditions cannot be confirmed from the artifacts, so treat the latency comparisons
+in this section with that gap in mind.
 
 ### Efficiency / Token Usage
 
@@ -312,17 +320,18 @@ A targeted abstention test: 25 deliberately unanswerable questions per system (t
 absent from the corpus). All 25 abstention verdicts were successfully parsed for all
 four systems.
 
-| System | Abstained | Hallucinated | Abstention Rate | Hallucination Rate |
+All rates below are computed on n=25 per system — a small, targeted test, not proof
+of general hallucination safety.
+
+| System | Abstained | Hallucinated | Abstention Rate (n=25) | Hallucination Rate (n=25) |
 |---|---:|---:|---:|---:|
 | A. Naive Dense | 23/25 | 2/25 | 0.92 | 0.08 |
 | B. Hybrid | 23/25 | 2/25 | 0.92 | 0.08 |
-| C. Hybrid + Reranker | 25/25 | 0/25 | 1.00 | 0.00 |
-| D. Agentic ReAct | 25/25 | 0/25 | 1.00 | 0.00 |
+| C. Hybrid + Reranker | 25/25 | 0/25 | 1.00 (ceiling, n=25) | 0.00 (n=25) |
+| D. Agentic ReAct | 25/25 | 0/25 | 1.00 (ceiling, n=25) | 0.00 (n=25) |
 
 For the Agentic unanswerable run: avg steps = 2.0, avg retrieval calls = 1.0,
 `termination_reason = final_answer` for all 25 queries.
-
-n=25 is a targeted test, not proof of general hallucination safety.
 
 ### Generation Quality (LLM-as-a-Judge) — Secondary
 
@@ -333,10 +342,12 @@ n=25 is a targeted test, not proof of general hallucination safety.
 | C. Hybrid + Reranker | 0.688 | 77/100 | 0.66 | 0.85 |
 | D. Agentic ReAct | 0.615 | 78/100 | 0.73 | 0.83 |
 
-The judge is `qwen2.5:3b` with binary VERDICT labels. Faithfulness parse coverage was
-only 77–78/100, and scores are calculated over successfully parsed verdicts. These
-metrics are therefore secondary and should not be interpreted as ground-truth human
-evaluation.
+**The judge is `qwen2.5:3b` — the same model that generated the answers being
+judged.** This is self-grading, not an independent evaluator; scores in this table
+should be read with that conflict of interest in mind. Faithfulness parse coverage
+was only 77–78/100, and scores are calculated over successfully parsed verdicts.
+These metrics are therefore secondary and should not be interpreted as ground-truth
+human evaluation.
 
 ### Results Interpretation
 

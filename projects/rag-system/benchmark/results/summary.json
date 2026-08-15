@@ -1,0 +1,241 @@
+{
+  "benchmark": {
+    "main_queries_per_system": 100,
+    "unanswerable_queries_per_system": 25,
+    "observed_main_counts": {
+      "naive": 100,
+      "hybrid": 100,
+      "reranker": 100,
+      "agentic": 100
+    },
+    "observed_unanswerable_counts": {
+      "naive": 25,
+      "hybrid": 25,
+      "reranker": 25,
+      "agentic": 25
+    }
+  },
+  "startup_time_seconds": null,
+  "startup_time_note": "Not reconstructable from JSONL result files; omitted to avoid fabrication.",
+  "systems": {
+    "naive": {
+      "answerable": {
+        "queries_evaluated": 100,
+        "queries_ok": 100,
+        "queries_error": 0,
+        "hit_at_1": 0.91,
+        "hit_at_3": 0.96,
+        "hit_at_5": 0.98,
+        "hit_at_10": 0.98,
+        "mrr": 0.9373333333333334,
+        "avg_latency_seconds": 5.286203151998343,
+        "median_latency_seconds": 4.6944065499992575,
+        "p95_latency_seconds": 9.043609699991066,
+        "avg_retrieval_calls": 1.0,
+        "avg_input_tokens": 2702.21,
+        "avg_output_tokens": 185.86,
+        "faithfulness": {
+          "score": 0.5897435897435898,
+          "judged": 78,
+          "eligible": 100,
+          "coverage": 0.78
+        },
+        "answer_correctness": {
+          "score": 0.74,
+          "judged": 100,
+          "eligible": 100,
+          "coverage": 1.0
+        },
+        "answer_relevance": {
+          "score": 0.91,
+          "judged": 100,
+          "eligible": 100,
+          "coverage": 1.0
+        }
+      },
+      "unanswerable": {
+        "queries_evaluated": 25,
+        "queries_ok": 25,
+        "abstention_judged": 25,
+        "abstained": 23,
+        "answered": 2,
+        "abstention_rate": 0.92,
+        "hallucinated": 2,
+        "hallucination_rate": 0.08,
+        "judge_parse_failures": 0
+      }
+    },
+    "hybrid": {
+      "answerable": {
+        "queries_evaluated": 100,
+        "queries_ok": 100,
+        "queries_error": 0,
+        "hit_at_1": 0.96,
+        "hit_at_3": 0.99,
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 0.9758333333333333,
+        "avg_latency_seconds": 5.411030673999631,
+        "median_latency_seconds": 4.8335320000041975,
+        "p95_latency_seconds": 9.345675599994138,
+        "avg_retrieval_calls": 1.0,
+        "avg_input_tokens": 2766.99,
+        "avg_output_tokens": 188.35,
+        "faithfulness": {
+          "score": 0.6233766233766234,
+          "judged": 77,
+          "eligible": 100,
+          "coverage": 0.77
+        },
+        "answer_correctness": {
+          "score": 0.73,
+          "judged": 100,
+          "eligible": 100,
+          "coverage": 1.0
+        },
+        "answer_relevance": {
+          "score": 0.89,
+          "judged": 100,
+          "eligible": 100,
+          "coverage": 1.0
+        }
+      },
+      "unanswerable": {
+        "queries_evaluated": 25,
+        "queries_ok": 25,
+        "abstention_judged": 25,
+        "abstained": 23,
+        "answered": 2,
+        "abstention_rate": 0.92,
+        "hallucinated": 2,
+        "hallucination_rate": 0.08,
+        "judge_parse_failures": 0
+      }
+    },
+    "reranker": {
+      "answerable": {
+        "queries_evaluated": 100,
+        "queries_ok": 100,
+        "queries_error": 0,
+        "hit_at_1": 0.99,
+        "hit_at_3": 0.99,
+        "hit_at_5": 1.0,
+        "hit_at_10": 1.0,
+        "mrr": 0.9925,
+        "avg_latency_seconds": 8.867019953999261,
+        "median_latency_seconds": 8.425753650008119,
+        "p95_latency_seconds": 12.542412500013597,
+        "avg_retrieval_calls": 1.0,
+        "avg_input_tokens": 2750.43,
+        "avg_output_tokens": 197.81,
+        "faithfulness": {
+          "score": 0.6883116883116883,
+          "judged": 77,
+          "eligible": 100,
+          "coverage": 0.77
+        },
+        "answer_correctness": {
+          "score": 0.66,
+          "judged": 100,
+          "eligible": 100,
+          "coverage": 1.0
+        },
+        "answer_relevance": {
+          "score": 0.85,
+          "judged": 100,
+          "eligible": 100,
+          "coverage": 1.0
+        }
+      },
+      "unanswerable": {
+        "queries_evaluated": 25,
+        "queries_ok": 25,
+        "abstention_judged": 25,
+        "abstained": 25,
+        "answered": 0,
+        "abstention_rate": 1.0,
+        "hallucinated": 0,
+        "hallucination_rate": 0.0,
+        "judge_parse_failures": 0
+      }
+    },
+    "agentic": {
+      "answerable": {
+        "queries_evaluated": 100,
+        "queries_ok": 100,
+        "queries_error": 0,
+        "hit_at_1": 0.82,
+        "hit_at_3": 0.9,
+        "hit_at_5": 0.93,
+        "hit_at_10": 0.93,
+        "mrr": 0.8598333333333333,
+        "avg_latency_seconds": 8.441684904998983,
+        "median_latency_seconds": 7.8968995999894105,
+        "p95_latency_seconds": 13.175398699997459,
+        "avg_retrieval_calls": 1.0,
+        "avg_input_tokens": 3891.47,
+        "avg_output_tokens": 218.32,
+        "avg_steps": 2.0,
+        "pct_more_than_one_retrieval": 0.0,
+        "pct_hit_step_limit": 0.0,
+        "gold_found_distribution": {
+          "call_1": 93,
+          "call_2": 0,
+          "call_3_plus": 0,
+          "never": 7
+        },
+        "faithfulness": {
+          "score": 0.6153846153846154,
+          "judged": 78,
+          "eligible": 100,
+          "coverage": 0.78
+        },
+        "answer_correctness": {
+          "score": 0.73,
+          "judged": 100,
+          "eligible": 100,
+          "coverage": 1.0
+        },
+        "answer_relevance": {
+          "score": 0.83,
+          "judged": 100,
+          "eligible": 100,
+          "coverage": 1.0
+        },
+        "agent_diagnostics": {
+          "avg_retrieval_calls": 1.0,
+          "pct_more_than_one_retrieval": 0.0,
+          "avg_steps": 2.0,
+          "termination_reasons": {
+            "available": false,
+            "note": "termination_reason field absent on all records (older run); distribution not available."
+          }
+        }
+      },
+      "unanswerable": {
+        "queries_evaluated": 25,
+        "queries_ok": 25,
+        "abstention_judged": 25,
+        "abstained": 25,
+        "answered": 0,
+        "abstention_rate": 1.0,
+        "hallucinated": 0,
+        "hallucination_rate": 0.0,
+        "judge_parse_failures": 0,
+        "agent_diagnostics": {
+          "avg_retrieval_calls": 1.0,
+          "pct_more_than_one_retrieval": 0.0,
+          "avg_steps": 2.0,
+          "termination_reasons": {
+            "final_answer": 25,
+            "max_steps": 0,
+            "invalid_decision_limit": 0,
+            "missing": 0,
+            "other": 0,
+            "available": true
+          }
+        }
+      }
+    }
+  }
+}
