@@ -48,6 +48,18 @@ override the default local-config path.
 
 ## Preparation and splitting
 
+### Public dataset source
+
+The exact Hugging Face dataset (repository name, revision) behind
+`train.parquet`, `eval.parquet`, and `test.parquet` is not recorded anywhere
+in this codebase: there is no `load_dataset()` call, no dataset identifier or
+revision in code, config, or results, and the project does not even depend on
+the `datasets`/`huggingface_hub` packages. The local Hugging Face cache holds
+no matching dataset either. The `dataset_name` column (renamed to `source`
+below) shows the data itself was assembled from multiple sub-sources, but
+those sub-sources are not named anywhere either. This is not reconstructable
+from the current repository state.
+
 `spam_detector.data_processing.prepare_hf_data` preserves the existing public
 train/evaluation/test assignments, maps `dataset_name` to `source`, normalizes
 the selected fields, and writes:

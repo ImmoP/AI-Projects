@@ -92,7 +92,7 @@ Sender rate mismatches: 0
 Domain rate mismatches: 0
 ```
 
-This invariant should remain unchanged when modifying temporal code.
+This invariant should remain unchanged when modifying temporal code; reproducing it requires the private historical data that isn't distributed with this repository.
 
 ## Email Security Features
 
@@ -137,9 +137,16 @@ Tracked aggregate results report the following GPT-2 classifier performance:
 | Public/Hugging Face test | 20,304 | 9,434 | 98.93% | 98.57% | 99.13% | 98.85% |
 | Combined leakage-cleaned test | 22,376 | 9,464 | 98.94% | 98.47% | 99.03% | 98.75% |
 | Private test | 2,076 | 31 | 99.04% | 67.74% | 67.74% | 67.74% |
-| Adjudicated private validation | 2,076 | 33 | 99.08% | 69.44% | 75.76% | 72.46% |
 
-The dual-security fusion achieved 100% accuracy, precision, recall, and F1 on the adjudicated private development set. This is explicitly a **development-set result**, not independent production validation. Feature engineering and threshold selection used this validation environment, the positive class is small, and the private mailbox dataset is not distributed. Independent evaluation requires a future unseen temporal holdout.
+The public/Hugging Face test set is nearly balanced (10,870 ham / 9,434 spam,
+roughly 53%/47%). Real inboxes are far more skewed toward ham, so these
+numbers — especially precision, which is sensitive to class balance — do not
+transfer directly to real-traffic performance. The exact Hugging Face dataset
+(repository, revision) behind this split is not documented anywhere in this
+codebase and could not be reconstructed from the code, results, git history,
+or local caches; see [Data.MD](./Data.MD#public-dataset-source).
+
+Dual security fusion has no reported aggregate result here: `evaluate_dual_security_temporal_fusion.py` is runnable locally, but it writes its metrics under `data/private_error_analysis/`, which `.gitignore` excludes from the repository, so no dual-security-fusion evaluation output is committed. Qualitatively, for an eligible cold-start message the fusion rule (see [Dual Security Fusion](#dual-security-fusion)) overrides the temporal/GPT-2 prediction only when Security V1 and/or V2 agree strongly in one direction; otherwise the temporal/GPT-2 prediction stands unchanged. Feature engineering and threshold selection used the private validation environment, the positive class is small, and the private mailbox dataset is not distributed. Independent evaluation requires a future unseen temporal holdout.
 
 Aggregate metrics do not remove the need to examine calibration, domain shift, class imbalance, and operational error costs.
 
