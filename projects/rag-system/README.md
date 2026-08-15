@@ -1,11 +1,16 @@
 # Rag System
 
-A modular **Retrieval-Augmented Generation** system built from scratch for learning.
-Supports both **Classical RAG** and **Agentic RAG** (ReAct loop) so they can be
-evaluated and compared.
+A modular local Retrieval-Augmented Generation system implementing and benchmarking
+dense retrieval, hybrid BM25+dense retrieval, cross-encoder reranking, and a
+ReAct-style agentic retrieval loop.
 
-Given a question, it finds relevant passages from your PDF library and generates
-a grounded answer using a local LLM (Ollama).
+All inference runs locally through Ollama — no LangChain, LangGraph, or external
+agent frameworks. Every retrieval, fusion, reranking, and agent component is
+implemented manually. The four variants share the same corpus, embedding model, and
+generator so they can be compared under controlled conditions, and are evaluated on
+Open RAGBench.
+
+This is a learning/portfolio project, not a production-ready system.
 
 ---
 
@@ -13,112 +18,72 @@ a grounded answer using a local LLM (Ollama).
 
 ```mermaid
 flowchart TD
-    A[PDF corpus] --> B["Ingest<br/>page-by-page text extraction"]
-    B --> C["Chunking<br/>overlapping word windows"]
-    C --> D["Embeddings<br/>sentence-transformers / BGE"]
-    D --> E[("Chunk + embedding cache")]
-
-    F[Question] --> G{Classical or Agentic?}
-
-    subgraph CLASSICAL["Classical RAG"]
+    A[Open RAGBench corpus] --> B["Ingest &amp; chunk<br/>overlapping 500-word windows"]
+    B --> C["Embeddings<br/>BAAI/bge-small-en-v1.5"]
+    C --> D[("Chunk + embedding cache")]
+    F[Question] --> G{Variant}
+    subgraph VARIANTS["Four benchmarked variants"]
         direction TB
-        H["retrieve()<br/>cosine similarity, top-k"]
-        I["generate_answer()<br/>Ollama LLM"]
-        H --> I
+        H["A · Naive Dense<br/>cosine top-k"]
+        I["B · Hybrid<br/>dense + BM25 + RRF"]
+        J["C · Hybrid + Reranker<br/>cross-encoder rerank"]
+        K["D · Agentic ReAct<br/>agent decides retrieve / answer"]
     end
-
-    subgraph AGENTIC["Agentic RAG (ReAct loop)"]
-        direction TB
-        J["Agent decides:<br/>retrieve or answer"]
-        K["retrieve_tool<br/>observation"]
-        L["final_answer / generate_answer()"]
-        J -- "retrieve(query)" --> K
-        K -- observation --> J
-        J -- "enough evidence" --> L
-    end
-
-    G -- classical --> H
-    G -- agentic --> J
-    E --> H
-    E --> K
-    I --> M[Answer + sources]
-    L --> M
+    G --> H
+    G --> I
+    G --> J
+    G --> K
+    D --> H
+    D --> I
+    D --> J
+    D --> K
+    H --> M["Generator<br/>qwen2.5:3b via Ollama"]
+    I --> M
+    J --> M
+    K --> M
+    M --> N[Answer + sources]
 ```
+
+Variants A–C are fixed single-pass pipelines that differ only in retrieval.
+Variant D wraps a ReAct loop around dense retrieval (its retrieval tool).
 
 ---
 
 ## Project Structure
 
 ```
-Rag System/
-├── pdfs/                 # Academic papers (PDF)
+rag-system/
+├── pdfs/                 # Academic papers (PDF) for manual demos
 ├── data/                 # Cache for chunks & embeddings (gitignored)
-├── tests/                # Offline automated test suite (smoke tests)
+├── tests/                # Offline automated test suite (regression tests)
 ├── examples/             # Manual demo scripts (need live Ollama + real PDFs)
+├── benchmark/            # Four-way RAG benchmark + evaluation
+│   ├── evaluate_rag.py   # CLI: run systems, judge, summarize
+│   ├── metrics.py        # Hit@k / MRR (document + section levels)
+│   ├── bm25.py           # Sparse-postings Okapi BM25
+│   ├── hybrid.py         # Dense + BM25 RRF fusion
+│   ├── reranker.py       # Cross-encoder reranking
+│   ├── evaluators.py     # Per-system run wrappers
+│   ├── generation_metrics.py  # LLM-as-a-judge (faithfulness etc.)
+│   ├── open_ragbench_loader.py # Open RAGBench corpus/query loader
+│   ├── unanswerable_queries.json
+│   ├── results/          # JSONL results + summary.json (do not edit)
+│   └── open_ragbench/    # Local pdf/arxiv dataset
 ├── src/
-│   ├── __init__.py
 │   ├── ingest.py         # Load PDFs, extract text page-by-page
 │   ├── chunking.py       # Split pages into overlapping word chunks
 │   ├── embeddings.py     # Convert chunks to vector embeddings
-│   ├── retriever.py      # Find most similar chunks for a query
+│   ├── retriever.py      # Find top-k most similar chunks for a query
 │   ├── similarity.py     # Manual vector math (dot product, cosine, softmax)
 │   ├── generator.py      # Call Ollama LLM to produce answer from context
 │   ├── rag.py            # Classical RAG orchestrator
 │   └── agent/
-│       ├── __init__.py
 │       ├── state.py      # Agent working memory (AgentState)
 │       ├── tools.py      # Tool wrappers over existing modules
 │       └── react_agent.py  # ReAct decision loop (Agentic RAG)
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-```
-
----
-
-## Classical RAG vs Agentic RAG
-
-### Classical RAG (src/rag.py)
-
-Fixed pipeline: one retrieval pass, then generate.
-
-```
-Question
-   |
-retrieve()
-   |
-Top-k chunks
-   |
-generate_answer()
-   |
-Answer
-```
-
-### Agentic RAG (src/agent/)
-
-The agent decides iteratively whether to retrieve more information
-or produce a final answer.
-
-```
-Question
-   |
-Agent decides
-   |
-retrieve(query_1)
-   |
-Observation
-   |
-Agent evaluates
-   |
-retrieve(query_2)  [if needed]
-   |
-Observation
-   |
-Agent evaluates
-   |
-final_answer / generate_answer()
-   |
-Answer
 ```
 
 ---
@@ -229,163 +194,190 @@ print(f"Answer: {state.final_answer}")
 
 ## Architecture Principles
 
-- **Classical RAG** (rag.py) remains the baseline and is unchanged.
-- **Agentic RAG** (agent/) is a separate package that reuses existing modules.
-- Both share the same document corpus, embedding model, and generator.
-- No LangChain, LangGraph, or external agent frameworks.
+- Four retrieval variants share the same document corpus, embedding model, and generator so the comparison is controlled.
+- Hybrid and reranking components reuse the same chunks and embedding cache as Naive.
+- The agentic loop reuses existing retrieval modules; no external agent framework.
 - Everything is implemented manually for learning.
 
 ---
 
 ## Tests
 
-- **Smoke** (`pytest -m smoke`, or `python scripts/smoke.py` from the repo root): does the pipeline run? Chunking, retrieval (against a 5-document synthetic fixture corpus, `tests/fixtures/corpus/`, with a deterministic hashing embedder), and the full pipeline end-to-end with a scripted generator (`tests/conftest.py`). No network access, no model downloads, no Ollama server.
-- **Unit**: covered by the same smoke-marked tests above -- this project's test layer doesn't currently separate the two tiers further.
-- **Eval** (not in CI, needs a local Ollama server and the real PDF corpus): retrieval/generation quality -- see "RAG Evaluation" below, and the manual demo scripts in [`examples/`](./examples/).
+The test suite runs fully offline — no network, no model downloads, no Ollama server.
+It uses synthetic fixture corpora, a deterministic hashing embedder, and scripted
+generators.
 
 ```bash
-pytest -m smoke   # same as the full suite here, but explicit
-pytest             # the full suite
+python -m pytest tests/ -v
 ```
+
+Benchmark-facing code paths (summary rebuild, unanswerable adapter, output
+isolation) are covered by regression tests that write to isolated temp directories
+so they cannot overwrite real results.
 
 ---
 
-## RAG Evaluation — Four-Way Benchmark
+## Benchmark
 
-All four RAG variants were evaluated on the same deterministic subset of
-**Open RAGBench** (``pdf/arxiv``, text-only queries) using identical:
+### Setup
 
-* corpus (same embedded chunks, same chunking)
-* embedding model (``BAAI/bge-small-en-v1.5``)
-* generator (``qwen2.5:3b`` via Ollama)
-* evaluation queries and seed (``seed=42``)
-* retrieval metric computation
+The four variants were evaluated on the same deterministic subset of
+**Open RAGBench** (`pdf/arxiv`, text-only queries).
 
-**Important limitation:** The measurements below used a **100-document corpus**
-(gold documents + deterministic distractors) rather than the full 1,000-document
-corpus, because embedding the full corpus takes 80+ minutes on CPU.  The same
-corpus was used for ALL systems, so the comparison is internally fair.  The full
-corpus run is available via:
+| Setting | Value |
+|---|---|
+| Benchmark | Open RAGBench pdf/arxiv (text-only) |
+| Eligible text queries | 1,914 in the source dataset |
+| Evaluation subset | 100 queries (deterministic, seed 42) |
+| Corpus | full 1,000 documents (37,846 embedded chunks) |
+| Chunk size / overlap | 500 / 100 words |
+| Embedding model | BAAI/bge-small-en-v1.5 |
+| Generator | qwen2.5:3b via Ollama |
+| Top-k (final) | 5 |
+| BM25 | k1=1.5, b=0.75 |
+| RRF | k=60 |
+| Hybrid candidate pool | 50 |
+| Reranker | cross-encoder/ms-marco-MiniLM-L-6-v2 |
+| Agent MAX_STEPS | 5 (retrieval tool = dense) |
 
-```powershell
-python -m benchmark.evaluate_rag --system all --corpus-docs 0 --limit 100 --seed 42 --eval-generation
-```
-
----
+**Section-level evaluation:** The benchmark `section_id` is stored in each chunk's
+`page` field. Document-level retrieval matches `source == gold_doc_id`; section-level
+matches `(source, page) == (gold_doc_id, gold_section_id)`. Both granularities are
+reported.
 
 ### Variants
 
 | Label | Retrieval | Description |
 |---|---|---|
-| **A. Naive** | Dense vector only | Fixed-size chunking, cosine similarity, dense top-k |
-| **B. Hybrid** | Dense + BM25 (RRF) | Dense + Okapi BM25 fused with Reciprocal Rank Fusion (k=60) |
-| **C. Hybrid + Reranker** | Hybrid + Cross-Encoder | Hybrid retrieval (candidate_k=50) -> cross-encoder rerank -> top-5 |
-| **D. Agentic** | Dense (ReAct loop) | Agent decides when/how to retrieve; max 5 steps; uses dense retrieval (reported explicitly) |
+| A. Naive Dense | Dense vector only | Cosine similarity, dense top-k |
+| B. Hybrid | Dense + BM25 (RRF) | Okapi BM25 fused with Reciprocal Rank Fusion (k=60) |
+| C. Hybrid + Reranker | Hybrid + Cross-Encoder | 50 candidates -> cross-encoder rerank -> top-5 |
+| D. Agentic ReAct | Dense (ReAct loop) | Agent decides retrieve/answer; max 5 steps; dense retrieval tool |
 
 ---
 
-> **Note on section vs page:** During benchmark evaluation the chunk ``page`` field stores the
-> Open RAGBench ``section_id`` (not a physical PDF page number).  Document-level retrieval matches
-> ``source == gold_doc_id``; section-level matches ``(source, page) == (gold_doc_id, gold_section_id)``.
+### Full-Corpus Benchmark Results
 
----
+100 queries · 1,000 documents · seed 42
 
-### Measured Results (5 text-only queries, 100-doc corpus, seed=42)
+| System | Doc Hit@1 | Doc Hit@5 | Doc MRR | Section Hit@1 | Section Hit@5 | Section MRR | Avg Latency | p95 Latency |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| A. Naive Dense | 0.91 | 0.98 | 0.937 | 0.61 | 0.93 | 0.741 | 5.29 s | 9.04 s |
+| B. Hybrid | 0.96 | 1.00 | 0.976 | 0.69 | 0.97 | 0.805 | 5.41 s | 9.35 s |
+| C. Hybrid + Reranker | 0.99 | 1.00 | 0.993 | 0.81 | 0.96 | 0.879 | 8.87 s | 12.54 s |
+| D. Agentic ReAct | 0.82 | 0.93 | 0.860 | 0.46 | 0.81 | 0.598 | 8.44 s | 13.18 s |
 
-The 1.0 Hit@5 values reflect the small corpus (100 docs) — retrieval is easy.
-The real value of this comparison is in the efficiency trade-offs.
+Latency is per-query wall time measured with `time.perf_counter()` after models and
+indexes are loaded and warmed; startup time (corpus embedding, BM25 build, reranker
+load) is recorded separately. Mean and p95 are reported.
 
-| System | Hit@5 | MRR | Avg Latency | Avg Input Tokens | Avg Output Tokens | Avg Ret Calls | Avg Steps |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| A. Naive Dense | 1.00 | 1.00 | 6.4 s | 2,925 | 147 | 1.00 | — |
-| B. Hybrid Search | 1.00 | 1.00 | 3.8 s | 2,751 | 105 | 1.00 | — |
-| C. Hybrid + Reranker | 1.00* | 1.00* | ~37 s* | 3,175* | 156* | 1.00 | — |
-| D. Agentic RAG | 1.00 | 1.00 | 8.5 s | N/A** | N/A** | 1.00 | 2.00 |
+### Efficiency / Token Usage
 
-**Footnotes:**
-- ``*`` — Reranker measured on 2 queries (model loading overhead dominates; per-query latency after warmup is lower).
-- ``**`` — Agentic token counts were None in the initial smoke run (stale results).  Ollama was
-  verified to expose ``prompt_eval_count``/``eval_count``; re-running now captures complete agentic tokens.
+| System | Avg Input Tokens | Avg Output Tokens | Avg Total Tokens |
+|---|---:|---:|---:|
+| A. Naive Dense | 2,702 | 186 | 2,888 |
+| B. Hybrid | 2,767 | 188 | 2,955 |
+| C. Hybrid + Reranker | 2,750 | 198 | 2,948 |
+| D. Agentic ReAct | 3,891 | 218 | 4,110 |
 
----
+Hybrid improves retrieval substantially over Naive while adding only small latency
+and token overhead. Reranking achieves the strongest retrieval quality but increases
+latency. Agentic consumes substantially more tokens and latency while producing weaker
+retrieval in this benchmark.
 
-### Generation Quality (LLM-as-a-Judge, 5 queries, Naive Dense)
+### Agentic Diagnostics
 
-| Faithfulness | Answer Correctness | Answer Relevance |
-|---|---:|---:|
-| 0.80 | 0.80 | 1.00 |
+Measured on the 100 answerable queries:
 
-(Judged by ``qwen2.5:3b`` with binary VERDICT labels.  Only run on Naive in this
-smoke test; available for all systems via ``--eval-generation``.)
-
----
-
-### Analysis
-
-**On this small corpus (100 docs), all systems achieve perfect Hit@5** — retrieval
-is trivially easy because the gold document is almost always in the top-5 among
-only ~100 candidate documents.
-
-**Efficiency observations (from these measured runs):**
-
-| Observation | Detail |
+| Metric | Value |
 |---|---|
-| Hybrid slightly faster than Naive | 3.8s vs 6.4s per query; likely due to LLM serving variance, not retrieval advantage |
-| Reranker has significant overhead | Cross-encoder model loading and inference adds 30+ seconds per query on CPU |
-| Agentic uses 2 steps consistently | All 5 queries were answered in 1 retrieval + 1 final_answer, no multi-step retrieval needed |
-| Agentic latency is moderate | 8.5s vs Naive 6.4s; the ReAct planning LLM call adds ~2s overhead |
+| Avg steps | 2.0 |
+| Avg retrieval calls | 1.0 |
+| Queries with >1 retrieval | 0% |
+| Gold found on retrieval call 1 | 93/100 |
+| Gold never found | 7/100 |
 
-**What the full benchmark (1000 docs, 100 queries) would expose:**
+Under this benchmark configuration and local 3B model, the ReAct agent did not use
+iterative multi-retrieval. In practice it behaved as: question -> LLM retrieval-query
+decision/rewrite -> one dense retrieval -> final answer. The agentic orchestration
+added planning/token cost without a multi-step retrieval advantage under this tested
+policy/model.
 
-* **Retrieval quality differences** — on the full corpus, dense-only retrieval
-  may fail to find gold documents that BM25 can catch, and reranking should
-  improve precision.
-* **Multi-step agent behaviour** — with harder questions, the agent may need
-  multiple retrievals, increasing latency and tokens.
-* **Hallucination on unanswerable questions** — the unanswerable query set
-  (``benchmark/unanswerable_queries.json``, 25 questions) is ready for evaluation
-  via ``--eval-unanswerable`` but was not run in this smoke test.
+> `termination_reason` was unavailable for the older 100-query answerable run (the
+> field postdates those records), so no termination breakdown is reported for it.
+
+### Unanswerable / Hallucination Test
+
+A targeted abstention test: 25 deliberately unanswerable questions per system (topics
+absent from the corpus). All 25 abstention verdicts were successfully parsed for all
+four systems.
+
+| System | Abstained | Hallucinated | Abstention Rate | Hallucination Rate |
+|---|---:|---:|---:|---:|
+| A. Naive Dense | 23/25 | 2/25 | 0.92 | 0.08 |
+| B. Hybrid | 23/25 | 2/25 | 0.92 | 0.08 |
+| C. Hybrid + Reranker | 25/25 | 0/25 | 1.00 | 0.00 |
+| D. Agentic ReAct | 25/25 | 0/25 | 1.00 | 0.00 |
+
+For the Agentic unanswerable run: avg steps = 2.0, avg retrieval calls = 1.0,
+`termination_reason = final_answer` for all 25 queries.
+
+n=25 is a targeted test, not proof of general hallucination safety.
+
+### Generation Quality (LLM-as-a-Judge) — Secondary
+
+| System | Faithfulness | Coverage | Correctness | Relevance |
+|---|---:|---:|---:|---:|
+| A. Naive Dense | 0.590 | 78/100 | 0.74 | 0.91 |
+| B. Hybrid | 0.623 | 77/100 | 0.73 | 0.89 |
+| C. Hybrid + Reranker | 0.688 | 77/100 | 0.66 | 0.85 |
+| D. Agentic ReAct | 0.615 | 78/100 | 0.73 | 0.83 |
+
+The judge is `qwen2.5:3b` with binary VERDICT labels. Faithfulness parse coverage was
+only 77–78/100, and scores are calculated over successfully parsed verdicts. These
+metrics are therefore secondary and should not be interpreted as ground-truth human
+evaluation.
+
+### Results Interpretation
+
+1. **Hybrid is the best efficiency/quality trade-off.** Compared with Naive, Doc
+   Hit@1 rose 0.91 -> 0.96 and Section Hit@1 rose 0.61 -> 0.69, while average latency
+   increased only 5.29 s -> 5.41 s. This is strong evidence that lexical BM25 + dense
+   RRF adds useful retrieval signal at little incremental runtime cost in this setup.
+
+2. **Reranker gives the strongest retrieval.** Doc Hit@1 = 0.99, Section Hit@1 = 0.81,
+   Section MRR = 0.879 — the best of all variants — but at 8.87 s average latency.
+   This is a quality/latency trade-off.
+
+3. **Agentic orchestration did not improve this benchmark.** Doc Hit@1 = 0.82,
+   Section Hit@1 = 0.46, average latency 8.44 s, ~4,110 tokens, and 0/100 queries used
+   more than one retrieval. Under the tested ReAct policy and qwen2.5:3b model, agentic
+   orchestration added planning/token cost without improving retrieval. This does not
+   generalize beyond this experiment.
+
+4. **Abstention benefited from Reranker and Agentic** in this targeted test (25/25 vs
+   23/25 for Naive/Hybrid), though n=25 is too small to draw strong conclusions.
 
 ---
 
-### Failure Analysis (Qualitative)
+## Engineering Notes
 
-**Classical vs Agentic (5 queries):** Both systems found gold documents for all
-5 queries.  No retrieval failures to analyze on this small corpus.
-
-**Unanswerable behaviour:** Not yet evaluated.  The unanswerable query set is
-ready.  A correct abstention looks like: *The provided documents do not contain
-enough information to answer this question.*  The hallucination rate metric will
-quantify how often each system instead produces unsupported factual content.
+- The full corpus is 37,846 chunks; an on-disk embedding cache avoids repeated
+  full-corpus embedding across runs and systems.
+- The custom BM25 uses sparse postings rather than a dense vocabulary x document
+  matrix, allowing the full corpus to fit in memory.
+- Full benchmark code paths (summary rebuild, unanswerable adapter) have regression
+  tests; benchmark tests isolate output paths so they cannot overwrite real results.
+- Malformed ReAct decisions trigger bounded retries, preventing a single bad parse
+  from failing an entire run.
+- The benchmark summary can be rebuilt deterministically from existing JSONLs without
+  rerunning inference (`--summarize-existing`).
 
 ---
 
-### Reproducibility
+## Reproducibility
 
-**Benchmark:** Open RAGBench ``pdf/arxiv``, text-only subset (1,914 queries total)
-
-**Command used for the smoke test (this README):**
-
-```powershell
-# Run individual systems (5 queries each):
-python -m benchmark.evaluate_rag --system naive   --limit 5 --seed 42
-python -m benchmark.evaluate_rag --system hybrid  --limit 5 --seed 42
-python -m benchmark.evaluate_rag --system agentic --limit 5 --seed 42
-```
-
-**Pre-flight checks (recommended before the full run):**
-
-```powershell
-python -m benchmark.evaluate_rag --preflight
-```
-
-**One-time corpus preparation (builds + caches the full 1000-doc embeddings):**
-
-```powershell
-python -m benchmark.evaluate_rag --prepare-corpus --corpus-docs 0
-```
-
-**Command for the full benchmark (not yet executed):**
+Full benchmark (all four systems, generation judging, unanswerable evaluation):
 
 ```powershell
 python -m benchmark.evaluate_rag `
@@ -397,82 +389,68 @@ python -m benchmark.evaluate_rag `
     --eval-unanswerable
 ```
 
-**Latency methodology:** Per-query latency uses ``time.perf_counter()`` and is measured
-only after all models/indexes are loaded and warmed up (unmeasured).  Startup time
-(corpus embedding, BM25 build, reranker load) is recorded separately as
-``startup_time_seconds``.  Mean, median (p50) and p95 latency are reported.
+The original run was interrupted before the unanswerable stage, which was later
+completed independently. To run only the unanswerable stage safely without
+re-touching the answerable JSONLs:
 
-**Settings:**
+```powershell
+python -m benchmark.evaluate_rag `
+    --system all `
+    --corpus-docs 0 `
+    --unanswerable-only
+```
 
-| Setting | Value |
-|---|---|
-| Benchmark | Open RAGBench pdf/arxiv (text-only) |
-| Subset size | 5 queries (smoke) / 100 queries (full) |
-| Seed | 42 |
-| Corpus size | 100 docs (smoke) / 1000 docs (full) |
-| Chunk size | 500 words |
-| Overlap | 100 words |
-| Embedding model | BAAI/bge-small-en-v1.5 |
-| Generator model | qwen2.5:3b (Ollama) |
-| Top-k (final) | 5 |
-| BM25 parameters | k1=1.5, b=0.75 |
-| RRF constant | k=60 |
-| Candidate-k (hybrid) | 50 |
-| Reranker model | cross-encoder/ms-marco-MiniLM-L-6-v2 |
-| Candidate-k (reranker) | 50 -> rerank -> 5 |
-| Agent MAX_STEPS | 5 |
-| Agent retrieval | Dense only (reported explicitly) |
+Rebuild the coverage-aware `summary.json` from existing JSONLs (no models,
+retrieval, generation, or judging):
 
----
+```powershell
+python -m benchmark.evaluate_rag --summarize-existing
+```
 
-### Production Recommendation
+Pre-flight checks (validate environment before a full run):
 
-Based on this smoke test (limited corpus), no definitive recommendation can be
-made — retrieval quality differences only emerge on larger corpora.  However,
-the **latency numbers already show** that:
+```powershell
+python -m benchmark.evaluate_rag --preflight
+```
 
-* **Hybrid Search (B) adds negligible overhead** over Naive (3.8s vs 6.4s) while
-  providing a second retrieval signal that should improve recall on the full corpus.
-* **Reranker (C) has significant latency cost** (~37s on CPU).  It should be
-  evaluated against the expected retrieval quality gain on the full benchmark.
-* **Agentic (D) adds moderate overhead** (~2s for planning) without changing
-  retrieval quality on this easy subset.
+One-time corpus preparation (builds and caches the full 1,000-doc embeddings):
 
-**Anticipated outcome on the full benchmark:**
-
-If Hybrid + Reranker achieves the best retrieval quality, I would deploy it for
-high-value, latency-tolerant use cases (e.g., research search).  If the latency
-is unacceptable, Hybrid alone provides most of the benefit at lower cost.
-
-Agentic RAG becomes valuable when:
-- questions are multi-hop or ambiguous
-- targeted re-retrieval with reformulated queries helps
-- the user wants the system to decide whether it needs more evidence
-
-For simple factual lookup on a well-indexed corpus, Naive or Hybrid is sufficient.
+```powershell
+python -m benchmark.evaluate_rag --prepare-corpus --corpus-docs 0
+```
 
 ---
 
-### Implementation Details
+## Production Recommendation
 
-**Hybrid Search** — Self-contained Okapi BM25 implementation (``benchmark/bm25.py``,
-no external dependency).  Dense and BM25 retrieval run in parallel, fused with
-standard RRF (k=60, not tuned on eval set).  Both use identical chunks.
+For this workload, Hybrid Dense + BM25/RRF offers the strongest quality/latency
+trade-off. Hybrid + Reranker is preferable when retrieval precision matters more than
+latency. The tested Agentic configuration is not justified for simple factual
+retrieval because it added cost without triggering multi-step retrieval.
 
-**Reranker** — ``sentence_transformers.CrossEncoder`` with
-``cross-encoder/ms-marco-MiniLM-L-6-v2`` (small, local, English).  Operates only
-on the hybrid candidate set (50 candidates), never on the full corpus.
+These conclusions are specific to this benchmark configuration and local 3B model;
+they do not generalize to all RAG workloads.
 
-**Agentic RAG** — Existing Stage 1 ReAct loop (``src/agent/react_agent.py``),
-unchanged.  Uses ``retrieve`` (dense) as its retrieval tool.  Explicitly reported
-so the architectural contribution (agent loop) is separated from the retrieval
-contribution (dense vs hybrid).
+---
 
-**Token usage** — Captured from Ollama ``prompt_eval_count`` / ``eval_count``
-fields where available.  Added to ``GenerationResult`` and ``AgentState`` as
+## Implementation Details
+
+**Hybrid Search** — Self-contained Okapi BM25 implementation (`benchmark/bm25.py`,
+no external dependency). Dense and BM25 retrieval run in parallel, fused with
+standard RRF (k=60, not tuned on the eval set). Both use identical chunks.
+
+**Reranker** — `sentence_transformers.CrossEncoder` with
+`cross-encoder/ms-marco-MiniLM-L-6-v2` (small, local, English). Operates only on the
+hybrid candidate set (50 candidates), never on the full corpus.
+
+**Agentic RAG** — ReAct loop (`src/agent/react_agent.py`) using `retrieve` (dense) as
+its retrieval tool, so the architectural contribution (agent loop) is separated from
+the retrieval contribution (dense vs hybrid).
+
+**Token usage** — Captured from Ollama `prompt_eval_count` / `eval_count` fields
+where available. Added to `GenerationResult` and `AgentState` as
 backward-compatible optional fields.
 
 **Unanswerable queries** — 25 manually crafted questions
-(``benchmark/unanswerable_queries.json``).  All ask about topics absent from the
-corpus (papers not indexed, undisclosed hyperparameters).  LLM-as-a-Judge for
-abstention detection via binary ``VERDICT: abstained / answered``.
+(`benchmark/unanswerable_queries.json`) asking about topics absent from the corpus.
+LLM-as-a-Judge for abstention detection via binary `VERDICT: abstained / answered`.
