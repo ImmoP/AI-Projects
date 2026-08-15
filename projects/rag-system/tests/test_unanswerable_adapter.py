@@ -288,7 +288,7 @@ def _examples(n: int = 2) -> list:
 
 
 @pytest.mark.smoke
-def test_unanswerable_only_skips_main_loop_and_generation_and_writes_unanswerable():
+def test_unanswerable_only_skips_main_loop_and_generation_and_writes_unanswerable(tmp_path):
     examples = _examples(2)
     fake_chunk = SimpleNamespace(chunk_id=0)
     fake_cache = Path("/fake/corpus_test.pkl")
@@ -320,7 +320,8 @@ def test_unanswerable_only_skips_main_loop_and_generation_and_writes_unanswerabl
          patch.object(evaluate_rag, "print_summary"), \
          patch.object(evaluate_rag, "print_comparison"):
         evaluate_rag.main(
-            ["--system", "all", "--corpus-docs", "0", "--unanswerable-only"])
+            ["--system", "all", "--corpus-docs", "0", "--unanswerable-only",
+             "--out-dir", str(tmp_path)])
 
     # The embedding model + cached corpus are still loaded normally.
     assert m_model.called
@@ -355,7 +356,7 @@ def test_unanswerable_only_skips_main_loop_and_generation_and_writes_unanswerabl
 
 
 @pytest.mark.smoke
-def test_unanswerable_only_absent_runs_normal_loop():
+def test_unanswerable_only_absent_runs_normal_loop(tmp_path):
     """When --unanswerable-only is absent, normal CLI behavior is unchanged:
     the answerable run_* wrappers ARE called (so we are not accidentally
     short-circuiting the benchmark)."""
@@ -390,7 +391,9 @@ def test_unanswerable_only_absent_runs_normal_loop():
          patch.object(evaluate_rag, "print_summary"), \
          patch.object(evaluate_rag, "print_comparison"), \
          patch.object(evaluate_rag, "save_jsonl", side_effect=fake_save_jsonl):
-        evaluate_rag.main(["--system", "all", "--limit", "1"])
+        evaluate_rag.main(
+            ["--system", "all", "--limit", "1",
+             "--out-dir", str(tmp_path)])
 
     # Normal mode writes the four main result files (proves the loop ran).
     for fname in ("naive_results.jsonl", "hybrid_results.jsonl",

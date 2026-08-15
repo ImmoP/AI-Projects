@@ -230,7 +230,7 @@ def test_term_stats_uses_sparse_postings():
 # ---------------------------------------------------------------------------
 
 @pytest.mark.smoke
-def test_prepare_corpus_exits_before_bm25_construction():
+def test_prepare_corpus_exits_before_bm25_construction(tmp_path):
     """
     With --prepare-corpus, main() must return immediately after the embedded
     corpus is loaded/cached and must NOT, for the default --system "all":
@@ -245,6 +245,9 @@ def test_prepare_corpus_exits_before_bm25_construction():
     branch is exercised), so ALL of these WOULD be called if the
     short-circuit were missing -- this makes every negative assertion
     meaningful rather than trivially true.
+
+    Uses --out-dir tmp_path so no artefacts are written to
+    config.RESULTS_DIR.
     """
     from benchmark import evaluate_rag
 
@@ -271,7 +274,8 @@ def test_prepare_corpus_exits_before_bm25_construction():
          patch.object(evaluate_rag, "run_hybrid") as m_run_hybrid, \
          patch.object(evaluate_rag, "run_reranker") as m_run_reranker, \
          patch.object(evaluate_rag, "run_agentic") as m_run_agentic:
-        ret = evaluate_rag.main(["--prepare-corpus"])
+        ret = evaluate_rag.main(
+            ["--prepare-corpus", "--out-dir", str(tmp_path)])
 
     # Corpus loading happened -- proves execution reached the short-circuit.
     assert m_corpus.called

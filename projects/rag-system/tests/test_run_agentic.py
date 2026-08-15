@@ -134,7 +134,7 @@ def test_run_agentic_forwards_arguments():
 # ---------------------------------------------------------------------------
 
 @pytest.mark.smoke
-def test_system_agentic_path_reaches_save_jsonl_with_iterable():
+def test_system_agentic_path_reaches_save_jsonl_with_iterable(tmp_path):
     examples = _examples(2)
     fake_chunk = SimpleNamespace(chunk_id=0)
     fake_cache = Path("/fake/corpus_test.pkl")
@@ -158,7 +158,9 @@ def test_system_agentic_path_reaches_save_jsonl_with_iterable():
          patch.object(evaluate_rag, "summarize", return_value={}), \
          patch.object(evaluate_rag, "print_summary"), \
          patch.object(evaluate_rag, "save_jsonl", side_effect=fake_save_jsonl):
-        evaluate_rag.main(["--system", "agentic", "--limit", "2"])
+        evaluate_rag.main(
+            ["--system", "agentic", "--limit", "2",
+             "--out-dir", str(tmp_path)])
 
     recs = captured["records"]
     assert recs is not None
@@ -172,7 +174,7 @@ def test_system_agentic_path_reaches_save_jsonl_with_iterable():
 # ---------------------------------------------------------------------------
 
 @pytest.mark.smoke
-def test_system_all_loop_produces_iterable_records_for_each_system():
+def test_system_all_loop_produces_iterable_records_for_each_system(tmp_path):
     examples = _examples(2)
     fake_chunk = SimpleNamespace(chunk_id=0)
     fake_cache = Path("/fake/corpus_test.pkl")
@@ -204,7 +206,9 @@ def test_system_all_loop_produces_iterable_records_for_each_system():
          patch.object(evaluate_rag, "print_summary"), \
          patch.object(evaluate_rag, "print_comparison"), \
          patch.object(evaluate_rag, "save_jsonl", side_effect=fake_save_jsonl):
-        evaluate_rag.main(["--system", "all", "--limit", "2"])
+        evaluate_rag.main(
+            ["--system", "all", "--limit", "2",
+             "--out-dir", str(tmp_path)])
 
     # Every wrapper must hand save_jsonl a non-None iterable (not None).
     for fname in ("naive_results.jsonl", "hybrid_results.jsonl",

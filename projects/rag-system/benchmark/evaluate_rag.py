@@ -191,6 +191,150 @@ def summarize(records, level="document"):
     return summary
 
 
+# ---------------------------------------------------------------------------
+# Summary-rebuild helpers (used only by --summarize-existing)
+# ---------------------------------------------------------------------------
+
+def _load_jsonl(path):
+    """Load JSONL records from *path*. Returns an empty list if the file is
+    missing so callers can warn rather than crash."""
+    if not path.exists():
+        return []
+    records = []
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if line:
+                records.append(json.loads(line))
+    return records
+
+
+def _judge_coverage(records, key, positive_label):
+    """Compute a coverage-aware score for a binary LLM-as-a-Judge field.
+
+    ``records`` should already be the set of records *eligible* for judging
+    (typically the ``status == "ok"`` records with a non-empty answer).
+
+    Returns a dict::
+
+        {
+            "score":    mean of 1.0 for *positive_label*, 0.0 otherwise
+                        (among judged records only),
+            "judged":   count of records where *key* is not None,
+            "eligible": total records passed in,
+            "coverage": judged / eligible
+        }
+
+    A ``None`` verdict (judge parse failure) is excluded from the *score*
+    denominator and reported separately via *coverage*.
+    """
+    eligible = len(records)
+    judged_recs = [r for r in records if r.get(key) is not None]
+    judged = len(judged_recs)
+    score = _mean(
+        [1.0 if r.get(key) == positive_label else 0.0 for r in judged_recs])
+    coverage = judged / eligible if eligible else 0.0
+    return {"score": score, "judged": judged, "eligible": eligible,
+            "coverage": coverage}
+
+
+def _summarize_unanswerable(records):
+    """Summarise unanswerable (hallucination) evaluation records.
+
+    A ``None`` abstention verdict (judge parse failure) is **not** silently
+    treated as ``False``: it is excluded from the judged denominator and
+    reported separately as ``judge_parse_failures``.
+    """
+    ok = [r for r in records if r.get("status") == "ok"]
+    total = len(records)
+    ok_count = len(ok)
+    abstained_vals = [r.get("abstained") for r in ok]
+    judged = [v for v in abstained_vals if v is not None]
+    judge_failures = ok_count - len(judged)
+    abstained_count = sum(1 for v in judged if v is True)
+    answered_count = sum(1 for v in judged if v is False)
+    # Use the recorded hallucinated field when present.
+    halluc_vals = [r.get("hallucinated") for r in ok
+                   if r.get("hallucinated") is not None]
+    hallucinated_count = sum(1 for v in halluc_vals if v is True)
+    denom = len(judged)
+    return {
+        "queries_evaluated": total,
+        "queries_ok": ok_count,
+        "abstention_judged": len(judged),
+        "abstained": abstained_count,
+        "answered": answered_count,
+        "abstention_rate": abstained_count / denom if denom else 0.0,
+        "hallucinated": hallucinated_count,
+        "hallucination_rate": hallucinated_count / denom if denom else 0.0,
+        "judge_parse_failures": judge_failures,
+    }
+
+
+def _termination_reason_distribution(records):
+    """Aggregate ``termination_reason`` across agent records.
+
+    If the field is absent on **all** records (older run), returns
+    ``{"available": False, "note": ...}`` rather than inventing a
+    ``final_answer`` distribution.
+    """
+    ok = [r for r in records if r.get("status") == "ok"]
+    if not ok:
+        return {"available": False,
+                "note": "No ok records to analyse."}
+    has_any = any("termination_reason" in r for r in ok)
+    if not has_any:
+        return {
+            "available": False,
+            "note": ("termination_reason field absent on all records "
+                     "(older run); distribution not available."),
+        }
+    dist = {"final_answer": 0, "max_steps": 0,
+            "invalid_decision_limit": 0, "missing": 0, "other": 0,
+            "available": True}
+    for r in ok:
+        if "termination_reason" not in r or r.get("termination_reason") is None:
+            dist["missing"] += 1
+        else:
+            reason = r.get("termination_reason")
+            if reason in ("final_answer", "max_steps",
+                          "invalid_decision_limit"):
+                dist[reason] += 1
+            else:
+                dist["other"] += 1
+    return dist
+
+
+def _agent_diagnostics(records):
+    """Aggregate agent-specific diagnostics.
+
+    Reports ``avg_steps``, ``avg_retrieval_calls``,
+    ``pct_more_than_one_retrieval`` and the ``termination_reason``
+    distribution.  When a field is absent on all records (older run) it is
+    reported explicitly as not available rather than silently defaulted.
+    """
+    ok = [r for r in records if r.get("status") == "ok"]
+    if not ok:
+        return {"available": False,
+                "note": "No ok records to analyse."}
+    diag = {
+        "avg_retrieval_calls": _mean(
+            [r.get("retrieval_calls") for r in ok]),
+        "pct_more_than_one_retrieval": _mean(
+            [1.0 if r.get("retrieval_calls", 0) > 1 else 0.0 for r in ok]),
+    }
+    steps = [r.get("number_of_steps") for r in ok
+             if r.get("number_of_steps") is not None]
+    if steps:
+        diag["avg_steps"] = _mean(steps)
+    else:
+        diag["avg_steps"] = None
+        diag["avg_steps_note"] = (
+            "number_of_steps field absent on all records.")
+    diag["termination_reasons"] = _termination_reason_distribution(records)
+    return diag
+
+
 def compute_generation_metrics(records, embedded_chunks, ollama_model, base_url):
     import httpx
     text_by_id = {c.chunk_id: c.text for c in embedded_chunks}
@@ -459,6 +603,13 @@ def _parse_args(argv=None):
                    help="Only build/index/embed the corpus, then exit (no generation).")
     p.add_argument("--preflight", action="store_true",
                    help="Run pre-flight checks without generation.")
+    p.add_argument("--summarize-existing", action="store_true",
+                   help="Rebuild summary.json from the existing JSONL result "
+                        "files WITHOUT loading any models, building indexes, "
+                        "or calling Ollama. Reads *_results.jsonl and "
+                        "*_unanswerable.jsonl from --out-dir (default "
+                        "benchmark/results) and writes a fresh summary.json "
+                        "in the same directory.")
     p.add_argument("--out-dir", default=str(config.RESULTS_DIR))
     return p.parse_args(argv)
 
@@ -518,6 +669,132 @@ def _preflight():
     return all(ok for _, ok, _ in checks)
 
 
+def summarize_existing(out_dir):
+    """Rebuild ``summary.json`` from existing JSONL result files.
+
+    This is the safe, deterministic summary-rebuild path invoked by
+    ``--summarize-existing``.  It performs **no** model loading, corpus
+    building, BM25 indexing, reranker loading, Ollama calls, answer
+    generation, LLM-as-a-Judge evaluation, or unanswerable generation.
+    It only *reads* the existing JSONL files and computes summary metrics
+    from the recorded data.
+
+    Parameters
+    ----------
+    out_dir : Path
+        Directory containing the four ``*_results.jsonl`` and four
+        ``*_unanswerable.jsonl`` files (and where ``summary.json`` will be
+        written by the caller).
+
+    Returns
+    -------
+    dict
+        A deterministic summary structure (see module docstring / README
+        for the schema).  Includes a ``warnings`` list when observed
+        record counts differ from the expected final-run configuration.
+    """
+    # Expected final-run configuration.  These are *not* universal
+    # benchmark semantics; they are the counts of the completed final
+    # benchmark.  Observed counts that differ trigger a warning so that
+    # incomplete files are obvious.
+    EXPECTED_MAIN = 100
+    EXPECTED_UNANS = 25
+
+    main_files = {
+        "naive": "naive_results.jsonl",
+        "hybrid": "hybrid_results.jsonl",
+        "reranker": "hybrid_reranker_results.jsonl",
+        "agentic": "agentic_results.jsonl",
+    }
+    unanswerable_files = {
+        "naive": "naive_unanswerable.jsonl",
+        "hybrid": "hybrid_unanswerable.jsonl",
+        "reranker": "hybrid_reranker_unanswerable.jsonl",
+        "agentic": "agentic_unanswerable.jsonl",
+    }
+
+    warnings = []
+    observed_main = {}
+    observed_unans = {}
+    systems_summary = {}
+
+    for sys_name in ("naive", "hybrid", "reranker", "agentic"):
+        # --- Load main (answerable) records ---
+        main_path = out_dir / main_files[sys_name]
+        main_records = _load_jsonl(main_path)
+        main_count = len(main_records)
+        observed_main[sys_name] = main_count
+        if main_count == 0:
+            warnings.append(
+                f"{sys_name}: main results file missing or empty: "
+                f"{main_path.name}")
+        elif main_count != EXPECTED_MAIN:
+            warnings.append(
+                f"{sys_name}: expected {EXPECTED_MAIN} main records, "
+                f"found {main_count}")
+
+        # --- Load unanswerable records ---
+        unans_path = out_dir / unanswerable_files[sys_name]
+        unans_records = _load_jsonl(unans_path)
+        unans_count = len(unans_records)
+        observed_unans[sys_name] = unans_count
+        if unans_count == 0:
+            warnings.append(
+                f"{sys_name}: unanswerable file missing or empty: "
+                f"{unans_path.name}")
+        elif unans_count != EXPECTED_UNANS:
+            warnings.append(
+                f"{sys_name}: expected {EXPECTED_UNANS} unanswerable "
+                f"records, found {unans_count}")
+
+        # --- Build answerable summary (reuse existing summarize()) ---
+        ok = [r for r in main_records if r.get("status") == "ok"]
+        answerable = summarize(main_records, level="document")
+
+        # Replace bare judge scores with coverage-aware versions so that
+        # None verdicts (judge parse failures) are not silently counted
+        # as 0/100 judged.
+        answerable["faithfulness"] = _judge_coverage(
+            ok, "faithfulness", "supported")
+        answerable["answer_correctness"] = _judge_coverage(
+            ok, "answer_correctness", "correct")
+        answerable["answer_relevance"] = _judge_coverage(
+            ok, "answer_relevance", "relevant")
+
+        # Agent diagnostics for agentic answerable records.
+        if sys_name == "agentic":
+            answerable["agent_diagnostics"] = _agent_diagnostics(main_records)
+
+        # --- Build unanswerable summary ---
+        unanswerable = _summarize_unanswerable(unans_records)
+        if sys_name == "agentic":
+            unanswerable["agent_diagnostics"] = _agent_diagnostics(
+                unans_records)
+
+        systems_summary[sys_name] = {
+            "answerable": answerable,
+            "unanswerable": unanswerable,
+        }
+
+    summary = {
+        "benchmark": {
+            "main_queries_per_system": EXPECTED_MAIN,
+            "unanswerable_queries_per_system": EXPECTED_UNANS,
+            "observed_main_counts": observed_main,
+            "observed_unanswerable_counts": observed_unans,
+        },
+        "startup_time_seconds": None,
+        "startup_time_note": (
+            "Not reconstructable from JSONL result files; omitted to "
+            "avoid fabrication."),
+        "systems": systems_summary,
+    }
+    if warnings:
+        summary["warnings"] = warnings
+
+    return summary
+
+
 def _warmup(subset, embedded_chunks, model, bm25_index, reranker, args):
     """Run unmeasured warm-up calls so first-call effects do not leak into
     measured per-query latency.  Nothing returned is recorded."""
@@ -547,6 +824,24 @@ def main(argv=None):
         ok = _preflight()
         print()
         print(f"Pre-flight: {'READY' if ok else 'NOT READY'}")
+        return
+
+    if args.summarize_existing:
+        summary = summarize_existing(out_dir)
+        summary_path = out_dir / "summary.json"
+        with open(summary_path, "w", encoding="utf-8") as fh:
+            json.dump(summary, fh, indent=2, ensure_ascii=False,
+                      default=str)
+        print()
+        print("[summarize-existing] Rebuilt summary.json from existing "
+              "JSONL result files.")
+        print(f"  output: {summary_path}")
+        print("  No models loaded, no corpus built, no Ollama calls, "
+              "no generation/judging performed.")
+        if summary.get("warnings"):
+            print("  Warnings:")
+            for w in summary["warnings"]:
+                print(f"    - {w}")
         return
 
     startup_start = time.perf_counter()
