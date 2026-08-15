@@ -70,7 +70,7 @@ Full walkthrough, including the approval step and undo, in
 ## Testing
 
 Each project has its own layered test suite (**smoke** / **unit** / **eval**
-— see each project's README for the split). `python scripts/smoke.py` (see
+, see each project's README for the split). `python scripts/smoke.py` (see
 [Quickstart](#quickstart)) is the one cross-project command that checks all
 five pipelines run at all, straight after a fresh clone.
 
@@ -80,13 +80,13 @@ filtering so a change in one project doesn't retrigger every other
 project's suite. `tidy-agent`'s suite additionally runs across a 3 OS ×
 3 Python-version matrix (Ubuntu, macOS, Windows; Python 3.10, 3.12, 3.13);
 the other four projects run once each on Ubuntu with Python 3.12, plus one
-repository-wide hygiene job — 14 jobs in total.
+repository-wide hygiene job, 14 jobs in total.
 
 ## Licensing and Attribution
 
-Original code in this repository is MIT licensed — see [LICENSE](./LICENSE).
-Third-party material — Sebastian Raschka's book and companion code,
-pretrained GPT-2 weights, `smolagents`, and Ollama — is used under its own
+Original code in this repository is MIT licensed, see [LICENSE](./LICENSE).
+Third-party material,  Sebastian Raschka's book and companion code,
+pretrained GPT-2 weights, `smolagents`, and Ollama is used under its own
 license and is not relicensed by this repository; see
 [THIRD_PARTY.md](./THIRD_PARTY.md) for the full list, and each project's own
 README/notices for anything project-specific.
@@ -102,8 +102,8 @@ diagnosis / solution.
 ## Limitations
 
 - **No claim of model quality is made by the smoke-test layer.** `python
-  scripts/smoke.py` and CI verify that each pipeline *runs* — imports
-  resolve, a forward pass completes, a plan validates — not that any model
+  scripts/smoke.py` and CI verify that each pipeline *runs*, imports
+  resolve, a forward pass completes, a plan validates, not that any model
   is accurate. Accuracy and quality numbers, where reported, live in each
   project's own README and are scoped to that project's own evaluation
   setup, not to this repository as a whole.
