@@ -56,5 +56,12 @@ class AgentState:
     # kept separate and are not added here).
     input_tokens: int = 0
     output_tokens: int = 0
+    # Why the agent loop terminated.  One of:
+    #   "final_answer"            - the agent emitted a final_answer action
+    #   "max_steps"               - the step budget (MAX_STEPS) was exhausted
+    #   "invalid_decision_limit"  - too many consecutive malformed/unknown
+    #                               decisions (see MAX_INVALID_DECISION_RETRIES)
+    # None while the run is still in progress / not yet set.
+    termination_reason: str | None = None
 
     MAX_STEPS: int = 5

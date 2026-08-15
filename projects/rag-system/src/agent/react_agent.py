@@ -55,6 +55,13 @@ For answering:
 
 from src.generator import DEFAULT_MODEL, OLLAMA_BASE_URL, generate_answer
 
+# Maximum number of *consecutive* malformed/unparseable tool decisions the
+# agent tolerates before giving up.  This is deliberately separate from
+# ``AgentState.MAX_STEPS``: ``state.step`` only counts real tool executions
+# (retrieve / final_answer), so without this guard a model that keeps emitting
+# unparseable JSON can spin the loop forever.
+MAX_INVALID_DECISION_RETRIES = 3
+
 
 def _parse_tool_call(text: str) -> dict:
     """Extract a JSON tool call from the LLM's response text."""
@@ -106,6 +113,47 @@ def _call_llm(messages, model=DEFAULT_MODEL, base_url=OLLAMA_BASE_URL, temperatu
 
 
 
+def _generate_final_answer(state, question, embedded_chunks, model,
+                           ollama_model, ollama_base_url, top_k):
+    """Re-run every accumulated query, de-duplicate the chunks and generate a
+    grounded final answer.
+
+    Shared generation path used by both the explicit ``final_answer`` action
+    and the invalid-decision-limit fallback (when the agent already gathered
+    valid retrieval evidence).  Updates ``state.final_answer`` and the token
+    counters in place; returns the answer string.
+    """
+    from src.retriever import retrieve as _retrieve
+
+    retrieved = []
+    for q in state.queries:
+        qr = _retrieve(query=q, embedded_chunks=embedded_chunks,
+                       model=model, top_k=top_k)
+        retrieved.extend(qr)
+
+    # Deduplicate by chunk_id
+    seen_ids = set()
+    unique_chunks = []
+    for r in retrieved:
+        if r.chunk_id not in seen_ids:
+            seen_ids.add(r.chunk_id)
+            unique_chunks.append(r)
+
+    if not unique_chunks:
+        state.final_answer = "No relevant documents were retrieved to answer this question."
+    else:
+        generation = generate_answer(
+            query=question,
+            chunks=unique_chunks,
+            model=ollama_model,
+            base_url=ollama_base_url,
+        )
+        state.final_answer = generation.answer
+        state.input_tokens += int(generation.input_tokens or 0)
+        state.output_tokens += int(generation.output_tokens or 0)
+    return state.final_answer
+
+
 def run_agent(question, embedded_chunks, model,
               ollama_model=DEFAULT_MODEL, max_steps=5, top_k=5,
               ollama_base_url=OLLAMA_BASE_URL):
@@ -142,6 +190,8 @@ def run_agent(question, embedded_chunks, model,
         {"role": "user", "content": f"Question: {question}\n\nWhat is your first step?"},
     ]
 
+    consecutive_invalid = 0
+
     while state.step < state.MAX_STEPS:
 
         print(f"\n--- Step {state.step + 1} ---")
@@ -156,11 +206,17 @@ def run_agent(question, embedded_chunks, model,
             query = decision.get("query", "").strip()
 
             if not query:
+                consecutive_invalid += 1
+                if consecutive_invalid >= MAX_INVALID_DECISION_RETRIES:
+                    print(f"\n  Invalid decision retry limit ({MAX_INVALID_DECISION_RETRIES}) reached.")
+                    state.termination_reason = "invalid_decision_limit"
+                    break
                 print("  Agent: invalid retrieve - no query. Skipping.")
                 messages.append({"role": "assistant", "content": llm_response})
                 messages.append({"role": "user", "content": "Your retrieve action had no query. Please provide a query."})
                 continue
 
+            consecutive_invalid = 0
             print("  Action: retrieve")
             print(f"  Query: {query}")
 
@@ -191,45 +247,27 @@ def run_agent(question, embedded_chunks, model,
             })
 
         elif action == "final_answer":
+            consecutive_invalid = 0
             print("  Action: final_answer")
-
-            # Re-retrieve with all queries to get proper objects for generator
-            from src.retriever import retrieve as _retrieve
-
-            retrieved = []
-            for q in state.queries:
-                qr = _retrieve(query=q, embedded_chunks=embedded_chunks, model=model, top_k=top_k)
-                retrieved.extend(qr)
-
-            # Deduplicate by chunk_id
-            seen_ids = set()
-            unique_chunks = []
-            for r in retrieved:
-                if r.chunk_id not in seen_ids:
-                    seen_ids.add(r.chunk_id)
-                    unique_chunks.append(r)
-
-            if not unique_chunks:
-                state.final_answer = "No relevant documents were retrieved to answer this question."
-            else:
-                generation = generate_answer(
-                    query=question,
-                    chunks=unique_chunks,
-                    model=ollama_model,
-                    base_url=ollama_base_url,
-                )
-                state.final_answer = generation.answer
-                state.input_tokens += int(generation.input_tokens or 0)
-                state.output_tokens += int(generation.output_tokens or 0)
-
+            _generate_final_answer(
+                state, question, embedded_chunks, model,
+                ollama_model, ollama_base_url, top_k,
+            )
             state.step += 1
             state.observations.append(AgentObservation(
-                step=state.step, action="final_answer", query="", result=state.final_answer or "",
+                step=state.step, action="final_answer", query="",
+                result=state.final_answer or "",
             ))
             print(f"  Answer produced ({len(state.final_answer or '')} chars)")
+            state.termination_reason = "final_answer"
             break
 
         else:
+            consecutive_invalid += 1
+            if consecutive_invalid >= MAX_INVALID_DECISION_RETRIES:
+                print(f"\n  Invalid decision retry limit ({MAX_INVALID_DECISION_RETRIES}) reached.")
+                state.termination_reason = "invalid_decision_limit"
+                break
             print(f"  Agent: unknown action '{action}'. Asking again.")
             messages.append({"role": "assistant", "content": llm_response})
             messages.append({
@@ -244,20 +282,34 @@ def run_agent(question, embedded_chunks, model,
             })
 
     if state.final_answer is None:
-        print(f"\n  Max steps ({state.MAX_STEPS}) reached without final_answer.")
-        from src.retriever import retrieve as _retrieve
-        all_retrieved = []
-        for q in state.queries:
-            qr = _retrieve(query=q, embedded_chunks=embedded_chunks, model=model, top_k=top_k)
-            all_retrieved.extend(qr)
-
-        if all_retrieved:
-            generation = generate_answer(query=question, chunks=all_retrieved, model=ollama_model, base_url=ollama_base_url)
-            state.final_answer = generation.answer
-            state.input_tokens += int(generation.input_tokens or 0)
-            state.output_tokens += int(generation.output_tokens or 0)
+        if state.termination_reason == "invalid_decision_limit":
+            # The decision LLM kept emitting malformed/unknown actions.  If we
+            # already gathered valid retrieval evidence, generate a grounded
+            # answer from it; otherwise return a controlled fallback (never
+            # fabricate an answer to the original question).
+            if state.queries:
+                _generate_final_answer(
+                    state, question, embedded_chunks, model,
+                    ollama_model, ollama_base_url, top_k,
+                )
+            else:
+                state.final_answer = "Unable to produce a valid tool decision after repeated attempts."
         else:
-            state.final_answer = "Maximum steps reached without sufficient evidence to answer."
+            print(f"\n  Max steps ({state.MAX_STEPS}) reached without final_answer.")
+            state.termination_reason = "max_steps"
+            from src.retriever import retrieve as _retrieve
+            all_retrieved = []
+            for q in state.queries:
+                qr = _retrieve(query=q, embedded_chunks=embedded_chunks, model=model, top_k=top_k)
+                all_retrieved.extend(qr)
+
+            if all_retrieved:
+                generation = generate_answer(query=question, chunks=all_retrieved, model=ollama_model, base_url=ollama_base_url)
+                state.final_answer = generation.answer
+                state.input_tokens += int(generation.input_tokens or 0)
+                state.output_tokens += int(generation.output_tokens or 0)
+            else:
+                state.final_answer = "Maximum steps reached without sufficient evidence to answer."
 
     return state
 

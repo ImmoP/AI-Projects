@@ -178,6 +178,7 @@ def evaluate_agentic(example, embedded_chunks, model, top_k=5, ollama_model="qwe
         "queries_generated": list(state.queries),
         "gold_found_at_call": gold_found_call,
         "hit_step_limit": hit_step_limit,
+        "termination_reason": state.termination_reason,
         "latency_seconds": time.perf_counter() - start,
         "input_tokens": getattr(state, "input_tokens", 0),
         "output_tokens": getattr(state, "output_tokens", 0),
