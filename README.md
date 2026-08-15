@@ -31,6 +31,20 @@ exist, or run `python scripts/smoke.py <project-name>` to check a single
 project. Nothing is installed into your own Python interpreter, and none of
 the smoke tests themselves make network calls.
 
+## Projects
+
+The projects below are ordered by engineering depth first, then by ML
+substance, then by applied LLM/agent work, with the explicitly educational
+project listed last.
+
+| Project | What it demonstrates | Core stack | Result / Evidence | Maturity |
+| --- | --- | --- | --- | --- |
+| [tidy-agent](./projects/tidy-agent/) | Safe LLM-assisted filesystem automation with deterministic execution, human approval and fail-closed controls. | Python, smolagents/LiteLLM, Ollama, structured outputs, atomic filesystem operations. | Development calibration: 0/47 incorrect automatic classifications (vs. 14/47 baseline), 21/47 automated. Independent Holdout v4 (n=150) ran once and was invalidated by a schema-contract failure on one response — `evaluation_valid = false`, no accuracy number is reported. Holdout v5, against a revised candidate, is planned but not yet run. | Applied / portfolio-complete implementation. |
+| [email-spam-detector](./projects/email-spam-detector/) | Transformer fine-tuning combined with temporal sender/domain reputation and email-security feature engineering. | PyTorch, GPT-2, SPF/DKIM/DMARC features, logistic regression. | Public test: 98.93% accuracy, 98.57% spam precision, 99.13% spam recall (n=20,304). | Applied research / active development. |
+| [rag-system](./projects/rag-system/) | Four-way RAG benchmark comparing dense retrieval, hybrid BM25+dense RRF, cross-encoder reranking, and a ReAct agentic retrieval loop on Open RAGBench. | Python, SentenceTransformers/BGE, BM25/RRF, cross-encoder reranking, Ollama, ReAct. | Full-corpus benchmark (n=100 queries / 1,000 documents, vs. Naive-dense baseline): Hybrid+Reranker reached 99% document Hit@1 (near-ceiling — Hit@5 = 100% at this n) and 81% section Hit@1; Hybrid gave the strongest quality/latency trade-off. Single-machine consistency across variants is not documented. | Applied / completed comparative benchmark. |
+| [food-finder](./projects/food-finder/) | Tool-using LLM agent over an external search API. | smolagents, LiteLLM, Google Places API, MCP, Gradio. | Demo — working CLI, MCP tool and Gradio interface; no benchmarked result. | Applied demo. |
+| [llm-from-scratch](./projects/llm-from-scratch/) | Transformer and GPT fundamentals implemented explicitly for learning. | PyTorch, tokenization, transformer architecture, GPT-2 weight loading. | Learning project — tokenization → GPT-style model → GPT-2 weight loading → classifier fine-tuning; no benchmarked result. | Educational implementation. |
+
 ## What it looks like
 
 `tidy-agent`'s dry-run output — every run previews a plan before anything
@@ -42,42 +56,16 @@ ORIGIN  SOURCE        DESTINATION             REASON
 ------  ------------  ----------------------  ------------------------------------------
 rule    mystery_file  _ToReview/mystery_file  No matching extension rule; agent disabled
 
-[Archives]
-ORIGIN  SOURCE       DESTINATION           REASON
-------  -----------  --------------------  ------------------------------------
-rule    archive.zip  Archives/archive.zip  Matched extension rule for Archives/
-
 [Documents]
 ORIGIN  SOURCE       DESTINATION            REASON
 ------  -----------  ---------------------  -------------------------------------
 rule    invoice.pdf  Documents/invoice.pdf  Matched extension rule for Documents/
 
-[Images]
-ORIGIN  SOURCE     DESTINATION       REASON
-------  ---------  ----------------  ----------------------------------
-rule    photo.jpg  Images/photo.jpg  Matched extension rule for Images/
-
-Dry-run complete: planned=4
+Dry-run complete: planned=2
 ```
 
 Full walkthrough, including the approval step and undo, in
-[tidy-agent's README](./projects/tidy-agent/README.md#demo). *(A real
-terminal/screenshot capture is still TODO — see
-[docs/TODO-portfolio.md](./docs/TODO-portfolio.md).)*
-
-## Projects
-
- Engineering depth first, then ML
-substance, then applied LLM/agent work, then the explicitly educational
-project last.
-
-| Project | What it demonstrates | Core stack | Result / Evidence | Maturity |
-| --- | --- | --- | --- | --- |
-| [tidy-agent](./projects/tidy-agent/) | Safe LLM-assisted filesystem automation with deterministic execution, human approval and fail-closed controls. | Python, smolagents/LiteLLM, Ollama, structured outputs, atomic filesystem operations. | Development calibration: 0/47 incorrect automatic classifications (vs. 14/47 baseline), 21/47 automated. Independent Holdout v4 (n=150) ran once and was invalidated by a schema-contract failure on one response — `evaluation_valid = false`, no accuracy number is reported. Holdout v5, against a revised candidate, is planned but not yet run. | Applied / portfolio-complete implementation. |
-| [email-spam-detector](./projects/email-spam-detector/) | Transformer fine-tuning combined with temporal sender/domain reputation and email-security feature engineering. | PyTorch, GPT-2, SPF/DKIM/DMARC features, logistic regression. | Public test: 98.93% accuracy, 98.57% spam precision, 99.13% spam recall (n=20,304). | Applied research / active development. |
-| [rag-system](./projects/rag-system/) | Four-way RAG benchmark comparing dense retrieval, hybrid BM25+dense RRF, cross-encoder reranking, and a ReAct agentic retrieval loop on Open RAGBench. | Python, SentenceTransformers/BGE, BM25/RRF, cross-encoder reranking, Ollama, ReAct. | Full-corpus benchmark (n=100 queries / 1,000 documents, vs. Naive-dense baseline): Hybrid+Reranker reached 99% document Hit@1 (near-ceiling — Hit@5 = 100% at this n) and 81% section Hit@1; Hybrid gave the strongest quality/latency trade-off. Single-machine consistency across variants is not documented. | Applied / completed comparative benchmark. |
-| [food-finder](./projects/food-finder/) | Tool-using LLM agent over an external search API. | smolagents, LiteLLM, Google Places API, MCP, Gradio. | Demo — working CLI, MCP tool and Gradio interface; no benchmarked result. | Applied demo. |
-| [llm-from-scratch](./projects/llm-from-scratch/) | Transformer and GPT fundamentals implemented explicitly for learning. | PyTorch, tokenization, transformer architecture, GPT-2 weight loading. | Lernprojekt — tokenization → GPT-style model → GPT-2 weight loading → classifier fine-tuning; no benchmarked result. | Educational implementation. |
+[tidy-agent's README](./projects/tidy-agent/README.md#demo).
 
 ## Testing
 
