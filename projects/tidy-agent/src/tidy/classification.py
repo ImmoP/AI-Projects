@@ -17,6 +17,23 @@ from .tools import (
 CLASSIFICATION_BACKEND = "structured_model"
 _PROVIDER_ERROR = object()
 
+# Deterministic bounded batch size for the batched two-pass agreement gate
+# (``StructuredClassifier.classify_with_agreement_gate_batched``). This is a
+# *transport* concern only: it caps how many sources a single structured-output
+# request may carry so the model returns a short, fully-enumerable list instead
+# of one long list prone to last-item omission / hallucinated extras.
+#
+# Rationale (development evidence only -- no Holdout data was used):
+# ``evals/content_selection_root_cause.md`` documents the model omitting the
+# final candidate on a 31-item structured list while remaining syntactically
+# valid JSON. 20 sits comfortably below that observed long-list failure point
+# and keeps each request/response small relative to the 8192-token context,
+# reducing both omission and truncation risk. It is a fixed, deterministic
+# constant; it was not tuned against any Holdout. When the source count is
+# <= the batch size the batched path degenerates to exactly one batch per pass,
+# i.e. byte-for-byte the pre-batching monolithic behaviour.
+DEFAULT_CLASSIFICATION_BATCH_SIZE = 20
+
 
 @dataclass(frozen=True)
 class ClassificationDecision:
@@ -95,6 +112,23 @@ class ClassificationTelemetry:
     gate_invalid_count: int = 0
     gate_final_automatic_count: int = 0
     gate_final_review_count: int = 0
+    # Batched-transport reliability diagnostics (see
+    # ``classify_with_agreement_gate_batched``). ``classification_batch_size`` is
+    # the configured cap (0 = the monolithic, unbatched path was used).
+    # ``classification_batches`` counts individual batch requests across both
+    # passes; ``batch_validation_failures`` counts batches that failed strict
+    # per-batch source-set validation and were failed closed to review.
+    # ``length_finish_responses`` counts responses whose provider finish reason
+    # indicated output-length truncation. ``request_diagnostics`` holds one
+    # per-batch record (batch size, expected/returned counts, finish reason,
+    # token counts, schema status) so a later audit can distinguish token
+    # truncation from schema failure from missing-item completion behaviour
+    # without storing any file content.
+    classification_batch_size: int = 0
+    classification_batches: int = 0
+    batch_validation_failures: int = 0
+    length_finish_responses: int = 0
+    request_diagnostics: list[dict[str, Any]] = field(default_factory=list)
 
     def snapshot(self) -> dict[str, Any]:
         return asdict(self)
@@ -230,6 +264,64 @@ def _response_format(mode: str, name: str, schema: dict[str, Any]) -> dict[str, 
     return None
 
 
+@dataclass(frozen=True)
+class RawModelResponse:
+    """One provider response with the transport metadata the content-only path
+    used to discard.
+
+    ``content`` is exactly what :meth:`ClassificationBackend.request` returns
+    (the response body, or the ``_PROVIDER_ERROR`` sentinel). ``finish_reason``
+    is the provider's completion/stop reason when exposed (``None`` when the
+    provider or wrapper does not surface it); ``input_tokens`` /
+    ``completion_tokens`` are the per-request token counts when exposed.
+    ``provider_error`` is True only when the request raised and the fail-closed
+    sentinel was substituted. No file content is stored here -- ``content`` is
+    the model's structured response, not source data.
+    """
+
+    content: Any
+    finish_reason: str | None
+    input_tokens: int
+    completion_tokens: int
+    provider_error: bool
+
+
+def _extract_finish_reason(response: Any) -> str | None:
+    """Best-effort provider finish/stop reason; ``None`` when unavailable.
+
+    Different providers expose this differently (a ``finish_reason``
+    attribute, or a raw litellm-style ``response.raw.choices[0].finish_reason``).
+    Never raises and never depends on a field that may be absent -- callers
+    must treat ``None`` as "not reported", not as "not truncated".
+    """
+    direct = getattr(response, "finish_reason", None)
+    if isinstance(direct, str) and direct:
+        return direct
+    raw = getattr(response, "raw", None)
+    if raw is not None:
+        choices = getattr(raw, "choices", None)
+        if choices:
+            try:
+                candidate = getattr(choices[0], "finish_reason", None)
+            except (IndexError, TypeError, AttributeError):
+                candidate = None
+            if isinstance(candidate, str) and candidate:
+                return candidate
+    return None
+
+
+def _is_length_finish(finish_reason: str | None) -> bool:
+    """True when a reported finish reason signals output-token truncation.
+
+    Only fires on an explicit provider signal (``length`` / ``max_tokens`` /
+    ``truncated``); it never guesses, so a provider that omits finish metadata
+    simply yields no truncation signal rather than a false positive.
+    """
+    if not isinstance(finish_reason, str):
+        return False
+    return finish_reason.strip().casefold() in {"length", "max_tokens", "truncated"}
+
+
 class ClassificationBackend:
     """Provider adapter; Python validation remains the security boundary."""
 
@@ -239,14 +331,21 @@ class ClassificationBackend:
             structured_output_mode=_structured_output_mode(model)
         )
 
-    def request(
+    def request_full(
         self,
         prompt: str,
         *,
         schema_name: str,
         schema: dict[str, Any],
         phase: str,
-    ) -> Any:
+    ) -> RawModelResponse:
+        """One structured request, retaining transport metadata.
+
+        Identical provider call, telemetry accounting, and fail-closed provider
+        error handling as :meth:`request`; the only difference is that it also
+        captures the finish/stop reason and per-request token counts and
+        returns them in a :class:`RawModelResponse` instead of discarding them.
+        """
         self.telemetry.classification_requests += 1
         if phase == "peek":
             self.telemetry.peek_phase_requests += 1
@@ -273,7 +372,7 @@ class ClassificationBackend:
             )
         except Exception:
             self.telemetry.provider_errors += 1
-            return _PROVIDER_ERROR
+            return RawModelResponse(_PROVIDER_ERROR, None, 0, 0, True)
         finally:
             elapsed = time.perf_counter() - started
             self.telemetry.latency_seconds += elapsed
@@ -302,7 +401,27 @@ class ClassificationBackend:
             response_counter,
             getattr(self.telemetry, response_counter) + 1,
         )
-        return getattr(response, "content", response)
+        finish_reason = _extract_finish_reason(response)
+        return RawModelResponse(
+            getattr(response, "content", response),
+            finish_reason,
+            input_tokens,
+            completion_tokens,
+            False,
+        )
+
+    def request(
+        self,
+        prompt: str,
+        *,
+        schema_name: str,
+        schema: dict[str, Any],
+        phase: str,
+    ) -> Any:
+        """Backward-compatible content-only view of :meth:`request_full`."""
+        return self.request_full(
+            prompt, schema_name=schema_name, schema=schema, phase=phase
+        ).content
 
 
 def _strict_json_object(raw: Any, telemetry: ClassificationTelemetry) -> dict[str, Any] | None:
@@ -659,6 +778,129 @@ def validate_explicit_abstention_response(
         tuple(unknown),
         metrics.snapshot(),
         {source: reasons[source] for source in invalid_ordered if source in reasons},
+    )
+
+
+def chunk_classification_metadata(
+    metadata: Sequence[Mapping[str, Any]],
+    batch_size: int,
+) -> list[list[Mapping[str, Any]]]:
+    """Partition ``metadata`` into consecutive batches of at most ``batch_size``.
+
+    Fully deterministic: input order is preserved and only the chunk boundaries
+    depend on ``batch_size``. The same input always yields the same batches in
+    the same order, which is what lets the two agreement-gate passes share
+    identical per-batch source membership (see
+    :meth:`StructuredClassifier.classify_with_agreement_gate_batched`). A batch
+    size >= the number of items yields a single batch identical to the
+    pre-batching monolithic behaviour.
+    """
+    if batch_size < 1:
+        raise ValueError("batch_size must be >= 1")
+    items = list(metadata)
+    return [items[i : i + batch_size] for i in range(0, len(items), batch_size)]
+
+
+def _count_returned_decision_items(raw: Any) -> int | None:
+    """Count the decision items a raw response actually carried.
+
+    Returns ``None`` when the body is unparseable or not the expected shape, so
+    diagnostics can distinguish "model returned N items" from "unparseable".
+    Content strings only; never reads source file bytes.
+    """
+    if isinstance(raw, Mapping):
+        payload: Any = raw
+    elif isinstance(raw, str) and raw.strip():
+        try:
+            payload = json.loads(raw)
+        except json.JSONDecodeError:
+            return None
+    else:
+        return None
+    if not isinstance(payload, dict):
+        return None
+    decisions = payload.get("decisions")
+    return len(decisions) if isinstance(decisions, list) else None
+
+
+def validate_abstention_batch(
+    raw: Any,
+    expected_sources: Sequence[str],
+    allowed_categories: Sequence[str],
+    telemetry: ClassificationTelemetry | None = None,
+    *,
+    finish_reason: str | None = None,
+) -> tuple[bool, ValidatedAbstentionClassification]:
+    """Strictly validate one batched classify/review response, failing closed.
+
+    Reuses :func:`validate_explicit_abstention_response` unchanged so every
+    existing per-item rule (malformed item, invalid ``decision`` enum, invalid
+    or invented category, ``review`` carrying a category) is enforced exactly
+    as before. On top of that it enforces the *request-level* contract the
+    monolithic path lacked: the returned source set must equal the expected
+    batch's source set, in both cardinality and membership. A batch is "clean"
+    (``True``) iff:
+
+    * no output-length truncation was reported (``finish_reason``), and
+    * no expected source is missing (``omitted_sources`` empty), and
+    * no source was malformed / duplicated / given an invalid category or
+      verdict (``invalid_sources`` empty), and
+    * no unexpected / hallucinated source appeared (``unknown_sources`` empty).
+
+    A provider error surfaces as an all-invalid validation result, so it is
+    ``not clean`` too. A batch that is not clean must be failed closed by the
+    caller (every one of its sources routed to review) -- a partial response is
+    never silently accepted. Returns ``(clean, validation_result)``.
+    """
+    metrics = telemetry or ClassificationTelemetry()
+    result = validate_explicit_abstention_response(
+        raw, expected_sources, allowed_categories, metrics
+    )
+    truncated = _is_length_finish(finish_reason)
+    if truncated:
+        metrics.length_finish_responses += 1
+    clean = (
+        not truncated
+        and not result.omitted_sources
+        and not result.invalid_sources
+        and not result.unknown_sources
+    )
+    if not clean:
+        metrics.batch_validation_failures += 1
+    return clean, result
+
+
+def _record_batch_diagnostic(
+    telemetry: ClassificationTelemetry,
+    *,
+    pass_number: int,
+    batch_index: int,
+    expected_sources: Sequence[str],
+    raw: RawModelResponse,
+    clean: bool,
+) -> None:
+    """Append one content-free per-batch diagnostic record to the telemetry.
+
+    Captures batch size, expected/returned item counts, schema status, finish
+    reason, and token counts so a later audit can tell token truncation apart
+    from schema failure and from missing-item completion behaviour. Stores only
+    counts and provider metadata -- never source filenames or file content.
+    """
+    telemetry.request_diagnostics.append(
+        {
+            "phase": "final",
+            "pass": pass_number,
+            "batch_index": batch_index,
+            "batch_size": len(expected_sources),
+            "expected_item_count": len(expected_sources),
+            "returned_item_count": _count_returned_decision_items(raw.content),
+            "sources_match": clean,
+            "schema_ok": clean,
+            "finish_reason": raw.finish_reason,
+            "input_tokens": raw.input_tokens,
+            "completion_tokens": raw.completion_tokens,
+            "provider_error": raw.provider_error,
+        }
     )
 
 
@@ -1066,4 +1308,169 @@ class StructuredClassifier:
             (),
             unknown,
             self.backend.telemetry.snapshot(),
+        )
+
+    def classify_with_agreement_gate_batched(
+        self,
+        metadata: Sequence[Mapping[str, Any]],
+        real_categories: Sequence[str],
+        *,
+        review_directory: str,
+        batch_size: int = DEFAULT_CLASSIFICATION_BATCH_SIZE,
+    ) -> ValidatedClassification:
+        """E3 agreement gate over a deterministically batched transport.
+
+        Same classification policy as :meth:`classify_with_agreement_gate`:
+        two independent structured passes, an order perturbation on the second
+        pass, and the unchanged :func:`merge_agreement_gate` state table
+        resolving each source to an automatic category only when both passes
+        agree, else ``review_directory``. The only change is transport
+        reliability: sources are partitioned into deterministic bounded batches
+        (:func:`chunk_classification_metadata`) and every batch response is
+        strictly validated (:func:`validate_abstention_batch`) so a long-list
+        completion defect (missing final item, hallucinated extra, duplicate,
+        malformed item, invalid category/verdict, schema/parse failure,
+        provider error, or output-length truncation) fails that batch closed
+        instead of silently degrading a single source.
+
+        E3 invariants preserved: two independent classifications per source;
+        pass 1 sees a deterministic normal ordering and pass 2 a deterministic
+        perturbation (each batch reversed) with identical per-batch source
+        membership, so a source is never compared against a different group and
+        a batch failure in one pass only abstains that batch's own sources; the
+        agreement decision is still made source-by-source by Python. Fail
+        closed: a source in a batch that failed validation has no decision for
+        that pass, so the gate routes it to ``review_directory``; no prediction
+        is manufactured. When ``len(metadata) <= batch_size`` this is exactly
+        one batch per pass -- identical behaviour to the monolithic gate. Never
+        reads file content and never constructs a peek tool.
+        """
+        self.backend = ClassificationBackend(self.backend.model)
+        backend = self.backend
+        telemetry = backend.telemetry
+        if batch_size < 1:
+            raise ValueError("batch_size must be >= 1")
+        telemetry.classification_batch_size = batch_size
+
+        items = list(metadata)
+        sources = [str(item["name"]) for item in items]
+        batches = chunk_classification_metadata(items, batch_size)
+        telemetry.classification_batches += len(batches) * 2  # two passes
+
+        pass1_decisions: dict[str, AbstentionDecision] = {}
+        pass2_decisions: dict[str, AbstentionDecision] = {}
+        pass1_invalid: list[str] = []
+        pass2_invalid: list[str] = []
+        unknown: list[str] = []
+
+        for batch_index, batch in enumerate(batches):
+            batch_sources = [str(item["name"]) for item in batch]
+            raw1 = backend.request_full(
+                build_explicit_abstention_prompt(batch, real_categories),
+                schema_name="tidy_explicit_abstention",
+                schema=EXPLICIT_ABSTENTION_JSON_SCHEMA,
+                phase="final",
+            )
+            clean1, res1 = validate_abstention_batch(
+                raw1.content,
+                batch_sources,
+                real_categories,
+                telemetry,
+                finish_reason=raw1.finish_reason,
+            )
+            _record_batch_diagnostic(
+                telemetry,
+                pass_number=1,
+                batch_index=batch_index,
+                expected_sources=batch_sources,
+                raw=raw1,
+                clean=clean1,
+            )
+            if clean1:
+                pass1_decisions.update(res1.decisions)
+            else:
+                pass1_invalid.extend(batch_sources)
+            unknown.extend(res1.unknown_sources)
+
+            # Pass 2: identical batch membership, deterministic order
+            # perturbation (the batch reversed). Same sources, schema, and
+            # wording -- only order differs, mirroring the monolithic gate's
+            # ``reverse_pass_order``.
+            batch_reversed = list(reversed(batch))
+            raw2 = backend.request_full(
+                build_explicit_abstention_prompt(batch_reversed, real_categories),
+                schema_name="tidy_explicit_abstention",
+                schema=EXPLICIT_ABSTENTION_JSON_SCHEMA,
+                phase="final",
+            )
+            clean2, res2 = validate_abstention_batch(
+                raw2.content,
+                batch_sources,
+                real_categories,
+                telemetry,
+                finish_reason=raw2.finish_reason,
+            )
+            _record_batch_diagnostic(
+                telemetry,
+                pass_number=2,
+                batch_index=batch_index,
+                expected_sources=batch_sources,
+                raw=raw2,
+                clean=clean2,
+            )
+            if clean2:
+                pass2_decisions.update(res2.decisions)
+            else:
+                pass2_invalid.extend(batch_sources)
+            unknown.extend(res2.unknown_sources)
+
+        return self._merge_batched_gate(
+            pass1_decisions, pass2_decisions, pass1_invalid, pass2_invalid,
+            unknown, sources, telemetry, review_directory,
+        )
+
+    @staticmethod
+    def _merge_batched_gate(
+        pass1_decisions: dict[str, AbstentionDecision],
+        pass2_decisions: dict[str, AbstentionDecision],
+        pass1_invalid: list[str],
+        pass2_invalid: list[str],
+        unknown: list[str],
+        sources: list[str],
+        telemetry: ClassificationTelemetry,
+        review_directory: str,
+    ) -> ValidatedClassification:
+        """Resolve the batched two-pass results through the unchanged E3 gate.
+
+        Builds per-pass :class:`ValidatedAbstentionClassification` objects from
+        the merged batch decisions (a failed batch contributes no decisions, so
+        its sources are absent and the gate treats them as invalid) and runs
+        the identical :func:`merge_agreement_gate` + return construction as the
+        monolithic :meth:`classify_with_agreement_gate`.
+        """
+        pass1 = ValidatedAbstentionClassification(
+            pass1_decisions, (), tuple(pass1_invalid), (), telemetry.snapshot(), {}
+        )
+        pass2 = ValidatedAbstentionClassification(
+            pass2_decisions, (), tuple(pass2_invalid), (), telemetry.snapshot(), {}
+        )
+        gate = merge_agreement_gate(pass1, pass2, sources, review_directory=review_directory)
+        _record_agreement_gate_telemetry(telemetry, gate, sources)
+
+        categories: dict[str, str] = {}
+        invalid: list[str] = []
+        for source in sources:
+            outcome = gate[source]
+            if outcome.pass1_decision is None or outcome.pass2_decision is None:
+                invalid.append(source)
+            else:
+                categories[source] = outcome.final
+        unknown_sources = tuple(sorted(set(unknown)))
+        return ValidatedClassification(
+            categories,
+            (),
+            tuple(invalid),
+            (),
+            unknown_sources,
+            telemetry.snapshot(),
         )
