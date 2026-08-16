@@ -19,12 +19,12 @@ python scripts/smoke.py
 **Prerequisites:** Python 3.12+ on `PATH` (the strictest per-project
 requirement). [`uv`](https://docs.astral.sh/uv/) is used automatically if
 it's on `PATH` (faster installs); otherwise the script falls back to
-`python -m venv` + `pip`. Nothing else needs to be installed first — the
+`python -m venv` + `pip`. Nothing else needs to be installed first: the
 script sets up each project's own isolated environment for you.
 
 **First run:** installs all five projects' dependencies into isolated,
-gitignored environments under `.cache/smoke-envs/` — two projects install
-`torch`, one also installs `tensorflow` — which takes **about 9 minutes**.
+gitignored environments under `.cache/smoke-envs/` (two projects install
+`torch`, one also installs `tensorflow`), which takes **about 9 minutes**.
 Later runs reuse those environments and finish in well under a minute. Pass
 `--no-install` to skip straight to testing once the environments already
 exist, or run `python scripts/smoke.py <project-name>` to check a single
@@ -85,7 +85,7 @@ repository-wide hygiene job, 14 jobs in total.
 ## Licensing and Attribution
 
 Original code in this repository is MIT licensed, see [LICENSE](./LICENSE).
-Third-party material,  Sebastian Raschka's book and companion code,
+Third-party material, Sebastian Raschka's book and companion code,
 pretrained GPT-2 weights, `smolagents`, and Ollama is used under its own
 license and is not relicensed by this repository; see
 [THIRD_PARTY.md](./THIRD_PARTY.md) for the full list, and each project's own

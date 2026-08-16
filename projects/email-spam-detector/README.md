@@ -92,7 +92,7 @@ Sender rate mismatches: 0
 Domain rate mismatches: 0
 ```
 
-This invariant should remain unchanged when modifying temporal code; reproducing it requires the private historical data that isn't distributed with this repository.
+This invariant should remain unchanged when modifying temporal code; reproducing it requires the private historical data (see [Artifacts](#artifacts)).
 
 ## Email Security Features
 
@@ -146,9 +146,7 @@ transfer directly to real-traffic performance. The exact Hugging Face dataset
 codebase and could not be reconstructed from the code, results, git history,
 or local caches; see [Data.MD](./Data.MD#public-dataset-source).
 
-Dual security fusion has no reported aggregate result here: `evaluate_dual_security_temporal_fusion.py` is runnable locally, but it writes its metrics under `data/private_error_analysis/`, which `.gitignore` excludes from the repository, so no dual-security-fusion evaluation output is committed. Qualitatively, for an eligible cold-start message the fusion rule (see [Dual Security Fusion](#dual-security-fusion)) overrides the temporal/GPT-2 prediction only when Security V1 and/or V2 agree strongly in one direction; otherwise the temporal/GPT-2 prediction stands unchanged. Feature engineering and threshold selection used the private validation environment, the positive class is small, and the private mailbox dataset is not distributed. Independent evaluation requires a future unseen temporal holdout.
-
-Aggregate metrics do not remove the need to examine calibration, domain shift, class imbalance, and operational error costs.
+Dual security fusion has no reported aggregate result here: `evaluate_dual_security_temporal_fusion.py` is runnable locally, but it writes its metrics under `data/private_error_analysis/`, which `.gitignore` excludes from the repository, so no dual-security-fusion evaluation output is committed. Qualitatively, for an eligible cold-start message the fusion rule (see [Dual Security Fusion](#dual-security-fusion)) overrides the temporal/GPT-2 prediction only when Security V1 and/or V2 agree strongly in one direction; otherwise the temporal/GPT-2 prediction stands unchanged. Feature engineering and threshold selection used the private validation environment, and the positive class is small. Independent evaluation requires a future unseen temporal holdout.
 
 ### Evaluation commands
 
@@ -187,7 +185,7 @@ email-spam-detector/
 └── checkpoints/
 ```
 
-The Python package remains `spam_detector`. The `data/`, `results/`, `models/`, and `checkpoints/` directories may contain ignored or private local artifacts and therefore may not have the same contents in a fresh clone.
+The Python package remains `spam_detector`. The `data/`, `results/`, `models/`, and `checkpoints/` directories may contain ignored or private local artifacts (see [Artifacts](#artifacts)).
 
 ## Installation
 
@@ -211,9 +209,7 @@ For development and testing, install the declared `dev` extra instead:
 uv pip install -e ".[dev]"
 ```
 
-The runtime dependencies declared in `pyproject.toml` cover the project's audited direct imports for data processing, modeling, and live classification. Exact dependency versions are not pinned. These installation commands do not provide the private datasets, checkpoints, trained security models, or temporal-history artifacts used by excluded workflows.
-
-A fresh clone cannot reproduce every workflow without excluded checkpoints, trained security models, private temporal history, and private evaluation data.
+The runtime dependencies declared in `pyproject.toml` cover the project's audited direct imports for data processing, modeling, and live classification. Exact dependency versions are not pinned. These installation commands do not provide the private datasets, checkpoints, trained security models, or temporal-history artifacts used by excluded workflows (see [Artifacts](#artifacts)).
 
 ## Data Preparation
 
@@ -302,7 +298,7 @@ Pretrained GPT-2 weights, fine-tuned checkpoints, Security V1 and V2 models, pri
 - Private-data workflows are not independently reproducible from the public repository.
 - The positive class in the private evaluation data is small.
 - Sender and domain reputation cannot help unseen senders and domains; security fusion addresses only some cold-start cases.
-- Authentication and alignment are evidence, not proof of legitimacy or maliciousness.
+- Authentication and alignment signals remain evidence, not proof (see [Email Security Features](#email-security-features)).
 - Email patterns, infrastructure, and attacker behavior can drift over time.
 - Performance on the private evaluation data is not independent production validation.
 

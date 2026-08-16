@@ -353,8 +353,8 @@ human evaluation.
 
 1. **Hybrid is the best efficiency/quality trade-off.** Compared with Naive, Doc
    Hit@1 rose 0.91 -> 0.96 and Section Hit@1 rose 0.61 -> 0.69, while average latency
-   increased only 5.29 s -> 5.41 s. This is strong evidence that lexical BM25 + dense
-   RRF adds useful retrieval signal at little incremental runtime cost in this setup.
+   increased only 5.29 s -> 5.41 s. Lexical BM25 + dense RRF adds useful retrieval
+   signal at little incremental runtime cost in this setup.
 
 2. **Reranker gives the strongest retrieval.** Doc Hit@1 = 0.99, Section Hit@1 = 0.81,
    Section MRR = 0.879 — the best of all variants — but at 8.87 s average latency.
@@ -446,22 +446,18 @@ they do not generalize to all RAG workloads.
 
 ## Implementation Details
 
-**Hybrid Search** — Self-contained Okapi BM25 implementation (`benchmark/bm25.py`,
-no external dependency). Dense and BM25 retrieval run in parallel, fused with
-standard RRF (k=60, not tuned on the eval set). Both use identical chunks.
-
-**Reranker** — `sentence_transformers.CrossEncoder` with
-`cross-encoder/ms-marco-MiniLM-L-6-v2` (small, local, English). Operates only on the
-hybrid candidate set (50 candidates), never on the full corpus.
-
-**Agentic RAG** — ReAct loop (`src/agent/react_agent.py`) using `retrieve` (dense) as
-its retrieval tool, so the architectural contribution (agent loop) is separated from
-the retrieval contribution (dense vs hybrid).
-
-**Token usage** — Captured from Ollama `prompt_eval_count` / `eval_count` fields
-where available. Added to `GenerationResult` and `AgentState` as
-backward-compatible optional fields.
-
-**Unanswerable queries** — 25 manually crafted questions
-(`benchmark/unanswerable_queries.json`) asking about topics absent from the corpus.
-LLM-as-a-Judge for abstention detection via binary `VERDICT: abstained / answered`.
+- **Hybrid Search**: self-contained Okapi BM25 implementation (`benchmark/bm25.py`,
+  no external dependency). Dense and BM25 retrieval run in parallel, fused with
+  standard RRF (k=60, not tuned on the eval set). Both use identical chunks.
+- **Reranker**: `sentence_transformers.CrossEncoder` with
+  `cross-encoder/ms-marco-MiniLM-L-6-v2` (small, local, English). Operates only on the
+  hybrid candidate set (50 candidates), never on the full corpus.
+- **Agentic RAG**: ReAct loop (`src/agent/react_agent.py`) using `retrieve` (dense) as
+  its retrieval tool, so the architectural contribution (agent loop) is separated from
+  the retrieval contribution (dense vs hybrid).
+- **Token usage**: captured from Ollama `prompt_eval_count` / `eval_count` fields
+  where available. Added to `GenerationResult` and `AgentState` as
+  backward-compatible optional fields.
+- **Unanswerable queries**: 25 manually crafted questions
+  (`benchmark/unanswerable_queries.json`) asking about topics absent from the corpus.
+  LLM-as-a-Judge for abstention detection via binary `VERDICT: abstained / answered`.

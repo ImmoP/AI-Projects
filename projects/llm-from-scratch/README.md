@@ -87,9 +87,9 @@ Full training and fine-tuning were intentionally excluded. Ollama evaluation rem
 
 The notebook's core building blocks (tokenizer wrapper, sliding-window dataset, GPT model, training-step loss) live in [`src/llm_from_scratch/`](./src/llm_from_scratch/) so the notebook and an automated test suite share one definition instead of two copies drifting apart.
 
-- **Smoke** (`pytest -m smoke`, or `python scripts/smoke.py` from the repo root): does the pipeline run at all? Tokenizer encode/decode roundtrip, a forward pass through a tiny (16-dim, 2-layer) randomly initialized `GPTModel` with the expected output shape, and two AdamW training steps on that tiny model checked for a finite (non-NaN) loss. Seed fixed, CPU-only, no downloads, runs in well under 30 seconds. These checks say nothing about model quality -- only that the code paths execute correctly.
-- **Unit**: covered by the same smoke-marked tests above -- this project's test layer doesn't currently separate the two tiers further.
-- **Eval** (not in CI): actual pretraining, fine-tuning, and generation quality live in the notebook itself and need the real GPT-2 124M checkpoint, the full corpus, and non-trivial compute -- see "Smoke-test scope" above for what the notebook's own fresh-clone run covers.
+- **Smoke** (`pytest -m smoke`, or `python scripts/smoke.py` from the repo root): does the pipeline run at all? Tokenizer encode/decode roundtrip, a forward pass through a tiny (16-dim, 2-layer) randomly initialized `GPTModel` with the expected output shape, and two AdamW training steps on that tiny model checked for a finite (non-NaN) loss. Seed fixed, CPU-only, no downloads, runs in well under 30 seconds. These checks say nothing about model quality; they only confirm that the code paths execute correctly.
+- **Unit**: covered by the same smoke-marked tests above. This project's test layer doesn't currently separate the two tiers further.
+- **Eval** (not in CI): actual pretraining, fine-tuning, and generation quality live in the notebook itself and need the real GPT-2 124M checkpoint, the full corpus, and non-trivial compute. See "Smoke-test scope" above for what the notebook's own fresh-clone run covers.
 
 Run the automated tests from this project root:
 
@@ -98,7 +98,7 @@ pytest -m smoke   # same as the full suite here, but explicit
 pytest             # the full suite
 ```
 
-`tests/fixtures/mini_corpus.txt` (~18 KB) is an original short story written specifically for this test suite -- not sourced from Raschka's book or any other text. It exists only to give the tokenizer and dataloader tests real, varied prose to chunk and encode.
+`tests/fixtures/mini_corpus.txt` (~18 KB) is an original short story written specifically for this test suite, not sourced from Raschka's book or any other text. It exists only to give the tokenizer and dataloader tests real, varied prose to chunk and encode.
 
 ## Runtime paths and data
 

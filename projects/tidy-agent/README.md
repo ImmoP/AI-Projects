@@ -3,34 +3,33 @@
 Tidy Agent organizes a directory by scanning file metadata, proposing a move
 plan (using deterministic rules and, for ambiguous filenames, a
 schema-validated local LLM classifier), and showing that plan to a human for
-explicit approval before anything on disk changes. The interesting part isn't
-"an LLM sorts your files" — it's the boundary drawn around it: the model
-never moves, renames, or deletes anything; it returns structured JSON that a
-separate, independently validated, deterministic executor either applies or
-routes to `_ToReview/`.
+explicit approval before anything on disk changes. The model never moves,
+renames, or deletes anything; it returns structured JSON that a separate,
+independently validated, deterministic executor either applies or routes to
+`_ToReview/`.
 
 ## Highlights
 
 - **Human-approved filesystem automation** — every run is a dry-run by
   default; mutation requires an explicit `--apply` and, interactively, typing
   `yes`.
-- **LLM separated from the mutation layer** — classification and grouping
-  return structured data only; a dedicated deterministic executor performs
+- **LLM separated from the mutation layer**: classification and grouping
+  return structured data only. A dedicated deterministic executor performs
   every move, with no model-generated code ever executed.
 - **Fail-closed classification** — a two-pass, order-perturbed agreement gate
   (`E3`) sends anything the model can't consistently agree with itself on to
   `_ToReview/` rather than guessing.
-- **Deterministic plan validation** — every move and every semantic group is
+- **Deterministic plan validation.** Every move and every semantic group is
   independently checked (path containment, no-clobber, naming rules, group
   size) before it ever reaches the executor.
 - **Durable journal and undo** — applies are journaled atomically before
   mutation and can be undone by run id, even after partial failure.
-- **Privacy-aware, opt-in content access** — file content is read only when
+- **Privacy-aware, opt-in content access.** File content is read only when
   explicitly enabled, size-capped, parsed in a timing-bounded subprocess, and
   never sent to a non-local endpoint without a second explicit flag.
-- **Reproducible evaluation discipline** — Development and Holdout results
-  are never mixed, and the final Holdout ran exactly once under a
-  precommitted, frozen protocol.
+- **Reproducible evaluation discipline**: Development and Holdout results are
+  never mixed, and the final Holdout ran exactly once under a precommitted,
+  frozen protocol.
 
 ## Architecture
 
@@ -326,25 +325,25 @@ consumption events referenced above.
 
 ## Engineering decisions
 
-- **The LLM cannot mutate files** because structured classification/grouping
-  output and filesystem execution are different code paths with different
-  trust levels; collapsing them would make every prompt-injection risk a
+- **The LLM cannot mutate files.** Structured classification/grouping output
+  and filesystem execution are different code paths with different trust
+  levels — collapsing them would make every prompt-injection risk a
   filesystem risk.
-- **Review is preferable to forced classification** because a wrong
-  `_ToReview/` costs a human a glance, while a wrong automatic move costs
-  them a missing file — the asymmetry is the whole reason `E3` exists.
-- **`E3` uses agreement, not confidence,** because model-reported confidence
-  isn't independently verifiable; agreement between two independently
+- **Review beats forced classification.** A wrong `_ToReview/` costs a human
+  a glance; a wrong automatic move costs them a missing file — that
+  asymmetry is the whole reason `E3` exists.
+- **`E3` uses agreement, not confidence**: model-reported confidence isn't
+  independently verifiable, but agreement between two independently
   reordered passes is a cheap, deterministic, checkable proxy.
 - **`E4-current`'s veto is deterministic** (filename-cue rules, not a third
   model call) so it adds a control-layer check rather than more variance
   from another inference request.
-- **Content access is opt-in and separately gated for remote endpoints**
-  because reading file content is a materially different privacy posture
-  than reading filenames, and sending that content off-device is a further
-  step again.
-- **Evaluation validity is fail-closed** because a completed run and a valid
-  run are not the same claim — Holdout v4 demonstrates the harness enforcing
+- **Content access is opt-in and separately gated for remote endpoints**,
+  since reading file content is a materially different privacy posture than
+  reading filenames, and sending that content off-device is a further step
+  again.
+- **Evaluation validity is fail-closed**: a completed run and a valid run
+  are not the same claim — Holdout v4 demonstrates the harness enforcing
   that distinction on itself.
 
 ## Project status
